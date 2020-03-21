@@ -72,7 +72,7 @@ function verClientes()
                 <div id="columna2"><?php echo "${fila['5']}"; ?></div>
                 <div id="boton">
                     <input type='hidden' value=<?php echo "${fila['0']}" ?> name='id'>
-                    <input type="submit" value="modificar">
+                    <input type="submit" name="editar_cliente" id="<?php echo "${fila['0']}"?>" value="modificar">
                     <input type="submit" value="borrar">
 
                 </div>

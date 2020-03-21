@@ -35,7 +35,7 @@ include '../BBDD/peticiones.php';
     </section>
     <footer>
         <?php
-        include './maquetacion/footer.php';
+        include '../footer.php';
         ?>
     </footer>
 </body>
