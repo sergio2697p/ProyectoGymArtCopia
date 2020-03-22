@@ -75,7 +75,7 @@ function verClientes()
                     <input type='hidden' value="<?php echo "${fila['0']}" ?>"name='id'>
                     <?php
                     ?>
-                    <a href="modificarClientes.php"><input type="submit" name="editar_cliente" id="<?php echo "${fila['0']}" ?>" value="modificar"></a>
+                    <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
                     <input type="submit" value="borrar">
                 </div>
             </div>

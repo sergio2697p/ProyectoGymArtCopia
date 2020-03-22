@@ -1,6 +1,7 @@
 <?php
 include '../BBDD/conexionBBDD.php';
 include '../BBDD/peticiones.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
