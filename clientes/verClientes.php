@@ -11,33 +11,26 @@ include '../BBDD/peticiones.php';
     <title>Clientes</title>
     <link rel="stylesheet" href="../css/estilos_art.css">
     <script type="text/javascript" src="jsPDF-1.3.2/dist/jspdf.min.js"></script>
-        <script src="javascript/borrar_editar.js"></script> 
-        <script src="javascript/FileSaver.js"></script> 
-        <script src="javascript/jquery.wordexport.js"></script>
-        <script src="javascript/commonScripts.js"></script>
+    <script src="javascript/borrar_editar.js"></script>
+    <script src="javascript/FileSaver.js"></script>
+    <script src="javascript/jquery.wordexport.js"></script>
+    <script src="javascript/commonScripts.js"></script>
     <script type="text/javascript" src="javascript/eventosBotones.js"></script>
 </head>
 
 <body>
-    <header>
-        <?php
-        include '../header.php';
-        ?>
-    </header>
+    <?php
+    include '../header.php';
+    ?>
 
-    <h1 class="ListadoClientes">LISTADO DE CLIENTES</h1>
-    <?php include 'menuOpciones.php' ;?>
     <section>
-        <br>
         <?php
         verClientes();
         ?>
     </section>
-    <footer>
-        <?php
-        include '../footer.php';
-        ?>
-    </footer>
+    <?php
+    include '../footer.php';
+    ?>
 </body>
 
 </html>

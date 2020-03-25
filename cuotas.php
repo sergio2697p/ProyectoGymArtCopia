@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <header>
-        <?php
-        include 'header.php';
-        ?>
-    </header>
-    <h1 class="TituloCuota">TIPOS DE CUOTAS</h1>
+
+    <?php
+    include 'header.php';
+    ?>
+
     <section>
-        <div class="cuotas">
+        <div class="cuotas"> 
+            <h1 class="TituloCuota">TIPOS DE CUOTAS</h1>
             <div class="basica">
                 <h1>BASICA</h1>
                 <h2>Incluye:</h2>
@@ -50,14 +50,12 @@
                 <h1>Precio de la Basica + el precio segun el entrenador</h1>
                 <p>*Gastos de matriculacion incluidos</p>
             </div>
-        </div>
+        </div> 
     </section>
 
-    <footer>
         <?php
-        include './maquetacion/footer.php';
+        include 'footer.php';
         ?>
-    </footer>
 </body>
 
 </html>

@@ -10,36 +10,64 @@
 }
 
 body {
-    width: 100vw;
+    min-height: 100vh;
     height: 100vh;
-    display: flex;
-    flex-flow: column;
+    width: 100vw;
+
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "main   main"
+        "main   main"
+        "footer footer"
+    ;
+    grid-template-columns:1fr auto  ;
+    grid-template-rows:10% 80% auto ;
+
 }
 html{
     min-height: 100%;
 }
-.Bienvenidos {
+/* .Bienvenidos {
     padding: 5%;
     text-align: center;
 }
+*/
 header {
-    font-size: 20px;
-    height: 12%;
+    grid-area: header;
+
+    display: grid;
+
     background-color: #292A3A;
-    color: white;
-    /* border-radius: 0px 0px 20px 55px; */
+    font-size: 20px;
+    color: white; 
+    /* border-radius: 0px 0px 20px 55px;  */
     box-shadow: 0 0 20px 4px black;
 }
+
+.tagDivCabecera {
+    width: 100%;
+    height: 100%;
+
+}
+
+.tagDivCabecera > a >img {
+    width: 5%;
+    float: left;
+}
+/*
+*/
 .navegacion {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    list-style: none;
+    list-style: none; 
 }
 
 .navegacion >li {
-    padding: 2px 5px;
-    margin: 60px;
+    display: flex;
+    flex-flow: row;
+    margin: auto;
     border-radius: 5px;
 }
 
@@ -61,32 +89,58 @@ header {
     text-decoration: none;
     text-transform: none;
 }
+.navegacion>li:hover {
+    background-color: cornflowerblue;
+}
 
+/*Segundo menu*/
+.subnavegacion {
+    position: absolute;
+    background-color: #292A3A;
+    width: 10%;
+    list-style: none;
+    display: none;
+}
+.subnavegacion li a{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    
+}
 
-.tagDivCabecera {
-    width: 100%;
-    height: 100%;
+.subnavegacion li a:hover {
+    background-color: cornflowerblue;
+}
+.navegacion li:hover .subnavegacion {
+    display: block;
+    padding: 5px;
 
 }
 
-.tagDivCabecera > a >img {
-    width: 6%;
-    float: left;
-}
 
 /*Main*/
+/*
+*/
 main {
-    background-color: #FFFFFF;
-    height: 80%;
-}
-
-
-.indentificacion>h1 {
-    padding-top: 5%;
+    grid-area: main;
+    background-color: #FFFFFF;    
     text-align: center;
+    
+}
+.Bienvenidos {
+    display: grid;
+    grid-template-areas:
+    "h1 h1" 
+    "metodo genius";
 }
 
-.metodo {
+.Bienvenidos h1 {
+    grid-area: h1;
+}
+
+.Bienvenidos .metodo {
+    grid-area: metodo;
     padding-top:2%;
     width: 50%;
     height: 12%;
@@ -94,8 +148,8 @@ main {
     margin: auto;
 }
 
-.genius {
-    padding-top:5%;
+.Bienvenidos .genius {
+    grid-area: genius;
     width: 50%;
     height: 12%;
     text-align:center;
@@ -103,37 +157,36 @@ main {
 }
 
 /*Inicion de Sesion*/
+
 section {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+     justify-content: center; 
     align-items: center;
 }
 .indentificacion{
     width:50%;
-    height:400px;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
-    position:relative
 }
 .indentificacion>form {
     text-align: center;
 }
 .indentificacion input {
-    width:100%;
-    padding:10px;
+    padding:5px;
     background:none;
     outline:none;
     border:0;
     transition:all .3s;
     border-bottom:2px solid #bebed2;
 }
+
 
 .registrarte{
     text-align: center;
@@ -145,7 +198,9 @@ section {
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
-    position:relative
+    align-items: center; 
+    justify-content: center;
+    
 }
 .registrarte>form >div {
     padding: 1%;
@@ -160,7 +215,6 @@ section {
 
 }
 .registrarte input {
-    
     width:100%;
     padding:10px;
     background:none;
@@ -170,44 +224,64 @@ section {
     border-bottom:2px solid #bebed2;
 }
 /*Cuotas*/
+
 .cuotas {
     width: 100%;
-    height: 50%;
-    display: flex;
-    flex-flow: row;
-    margin: 1%;
+    height: 100%;
     text-align: center;
-    justify-content: center;	
+    display: grid;
+    grid-template-areas: 
+    "Titulo     Titulo      Titulo"    
+    "basica     avanzada    ultra";
+     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
 }
 
+
 .TituloCuota{
-    padding: 3%;
+    grid-area: Titulo;
     text-align: center;
+    line-height: 200px;
 }
 .cuotas .basica {
-    width: 33%;
+    grid-area: basica;
+    width: 33,3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     background-color: lightcoral;
-    padding: 2%;
+
 }
 
 .cuotas ul {
     margin:5%;
+    list-style: none;
 }
 .cuotas .avanzada {
-    padding: 2%;
-    width: 33%;
+    grid-area: avanzada;
+    width: 33,3%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     background-color: lightcyan;
 
 }
 
 .cuotas .ultra {
-    padding: 1%;
-    width: 33%;
+    grid-area: ultra;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     background-color: lightgreen;
 }
 
 /*Tabla clientes*/
-.ListadoClientes{
+
+ .ListadoClientes{
     text-align: center;
 }
 .tablaClientes{
@@ -222,49 +296,74 @@ section {
 }
 
 #contenedor {
-    
-    display: table;
+    width:50%;
+    height:auto;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:20px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    align-items: center; 
+    justify-content: center;
+    display: table; 
     border: 2px solid #000;
-    width: 95%;
-    height: 80%;
-    text-align: center;
-    margin: 0 auto;
+    right:  auto;
 }
 #contenidos {
+    display: flex;
+    flex-flow: row;
     font-weight: bolder;
-    display: table-row;
+    width: auto;
+    text-align: center;
 }
+
 #contenidos1 {
-    display: table-row;
+    display: flex;
+    flex-flow: row;
+    margin: auto;
+    text-align: center;
+        
 }
+
 #columna1, #columna2, #columna3 {
-    display: table-cell;
-    border: 1px solid #000;
-    vertical-align: middle;
-    padding: 10px;
+    display: flex;
+    flex-flow: row;
+    margin: auto;
+    padding: 2%;
+    width: 40%;
 }
+
 #boton {
-    border: 1px solid #000;
+    padding: 2%;
+   display: flex;
+   flex-flow: row;
 
-}
+} 
 
-#menuOpciones{
-    background-image: linear-gradient(lightgray, white);    
-}
-    /* Estilos Menu de ociones*/
+ /* Estilos Menu de ociones*/
+    #menuOpciones{
+        background-image: linear-gradient(lightgray, white);    
+    } 
 
     #descargaPdf {
-    height: 50px;
-    width: 50px;
+    height: 10%;
     }
     
     #descargaPdf :hover {
     border-style: outset;
     }
-    
-    #descargaPdf img {
-    height: 100%;
-    }
+    #copia {
+     height: 10%;
+     }
+     
+     #copia img {
+         height: 100%;
+     }
+     
+     #copia :hover {
+         border-style: outset;
+     }
     
     #anadir {
     height: 50px;
@@ -279,34 +378,34 @@ section {
         border-style: outset;
     }
     
-   #copia {
-    height: 50px;
-    width: 50px;
-    }
-    
-    #copia img {
-        height: 100%;
-    }
-    
-    #copia :hover {
-        border-style: outset;
-    }
 
 /*Modificar Clientes*/
+
 .Modificar {
     width:50%;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
     padding:10px 30px;
-    max-width:calc(100vw - 40px);
-    box-sizing:border-box;
-    position:relative;
-    text-align: center;
+    display: grid;
+    grid-template-areas: 
+    "DatosPersonales DatosAdicionales"
+    "enviar          enviar";
+}
+
+.Modificar .DatosPersonales div {
+    grid-area: DatosPersonales;
+    padding: 2%;
+
+}
+
+.Modificar .DatosAdicionales div {
+    grid-area: DatosAdicionales;
+    padding: 2%;
 }
 
 .Modificar input {
-    width:100%;
+
     padding:5px;
     background:none;
     outline:none;
@@ -314,16 +413,24 @@ section {
     transition:all .3s;
     border-bottom:2px solid #bebed2;
 }
+.Modificar .enviar {
+    grid-area: enviar;
+    width: 100%;
+}
 
+.Modificar .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
 /*footer*/
+/*
+*/
 footer {
+    grid-area: footer;
     background-color: #292A3A;
     color: white;
-    padding-top: 20px;
-    height: 49px;
-    width: 100%;
-    padding-bottom: 0px;
-    bottom: 0;
     text-align: center;
-    position: fixed;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 

@@ -1,7 +1,7 @@
-<div id="descargaPdf" class="border border-success" onclick="descargaPdf()">
+<div id="descargaPdf" onclick="descargaPdf()">
     <abbr title="Descargar Lista en PDF"><img src="../imagenes/descargaDoc.png"></abbr>
 </div>
-<div id="copia" class="border border-success" onclick="descargaWord()">
+<div id="copia" onclick="descargaWord()">
     <abbr title="Descargar lista en word"><img src="../imagenes/descargaWord.png"></abbr>
 </div>
 <!-- TODO Opcion descargar en excel ingresos del gimnasio

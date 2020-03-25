@@ -18,12 +18,13 @@ if ($_POST) {
     </head>
 
     <body>
-        <header>
-            <?php
-            include '../header.php';
-            ?>
-        </header>
+
+        <?php
+        include '../header.php';
+        ?>
         <section>
+
+
             <div class="registrarte">
                 <h1>Registrate</h1>
                 <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
@@ -50,12 +51,12 @@ if ($_POST) {
                         <input type="radio" name="Cuota" value="2">Avanzada
                         <input type="radio" name="Cuota" value="3">Ultra
                     </div>
-                    
+
                     <input type="submit" name="registrar_usuario" value="Registrate">
                 </form>
             </div>
         </section>
-            <?php include "../footer.php"; ?>
+        <?php include "../footer.php"; ?>
         </div>
     </body>
 

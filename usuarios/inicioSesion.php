@@ -13,11 +13,8 @@
     <?php
     session_start();
     ?>
-    <header>
-        <?php
-        include "../header.php"; ?>
-    </header>
     <?php
+    include "../header.php";
     include '../BBDD/conexionBBDD.php';
     include '../BBDD/peticiones.php';
 
@@ -25,6 +22,7 @@
         iniciarSesion();
     } else {
     ?>
+    <main>
         <section>
             <div class="indentificacion">
                 <h1> Campo de acceso</h1>
@@ -43,10 +41,11 @@
                 </form>
             </div>
         </section>
+    </main>
     <?php
     }
     ?>
-        <?php include "../footer.php"; ?>
+    <?php include "../footer.php"; ?>
 </body>
 
 </html>

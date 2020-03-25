@@ -16,11 +16,7 @@ and open the template in the editor.
     <body>
         <?php
         include 'header.php';
-        ?>
-        <?php
         include 'TextoInicial.php';
-        ?>
-        <?php
         include 'footer.php';
         ?>
     </body>

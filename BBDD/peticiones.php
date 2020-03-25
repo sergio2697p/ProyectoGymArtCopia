@@ -53,101 +53,183 @@ function registrarUsuarios()
 function verClientes()
 {
 ?>
-
     <div id="contenedor">
+        <h1 class="ListadoClientes">LISTADO DE CLIENTES</h1>
         <div id="contenidos">
             <div id="columna1">Nombre</div>
             <div id="columna2">Apellidos</div>
-            <div id="columna2">Correo</div>
+            <div id="columna3">Correo</div>
         </div>
         <?php
         $conexion = conectarUsuarios();
         $select_cliente = "SELECT * from clientes";
         $resultado = $conexion->query($select_cliente);
-        while ($fila = $resultado->fetch_row()) {
+        while ($fila = $resultado->fetch_array()) {
         ?>
             <div id="contenidos1">
-                <div id="columna1"><?php echo "${fila['1']}"; ?></div>
-                <div id="columna2"><?php echo "${fila['2']}"; ?></div>
-                <div id="columna2"><?php echo "${fila['5']}"; ?></div>
+                <div id="columna1"><?php echo "${fila['Nombre']}"; ?></div>
+                <div id="columna2"><?php echo "${fila['Apellidos']}"; ?></div>
+                <div id="columna3"><?php echo "${fila['CorreoElectronico']}"; ?></div>
                 <div id="boton">
-
-                    <input type='hidden' value="<?php echo "${fila['0']}" ?>"name='id'>
-                    <?php
-                    ?>
-                    <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
-                    <input type="submit" value="borrar">
+                    <form action="modificarClientes.php" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <?php
+                        if ($_POST) {
+                            $_POST["id"];
+                        }
+                        ?>
+                        <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
+                    </form>
+                    <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <?php
+                        if ($_POST) {
+                            $_POST["id"];
+                        }
+                        ?>
+                        <input type="submit" name="borrar" value="borrar">
+                    </form>
                 </div>
             </div>
     <?php
         };
+        if (isset($_POST["borrar"])) {
+            borrarClientes();
+        }
     }
     ?>
 
     </div>
 
     <?php
+
     function modificarCLientes()
     {
         $conexion = conectarUsuarios();
-        $select_cliente = "SELECT * from clientes WHERE CodigoCliente=7";
-        $resultado = $conexion->query($select_cliente);
-        while ($fila = $resultado->fetch_row()) {
-    ?>
-            <form class="Modificar" action="" method="POST">
-                <div>
-                    <div>
-                        <label>Nombre:</label>
-                        <input type="text" value="<?php echo "${fila['1']}" ?>" id="nombre" name="name">
-                    </div>
-                    <div>
-                        <label>Apellidos:</label>
-                        <input type="text" value="<?php echo "${fila['2']}" ?>" id="apellidos" name="apellidos">
-                    </div>
-                    <div>
-                        <label>Domicilio:</label>
-                        <input type="text" value="<?php echo "${fila['3']}" ?>" id="domicilio" name="domicilio">
-                    </div>
-                    <div>
-                        <label>Población:</label>
-                        <input type="text" value="<?php echo "${fila['4']}" ?>" id="poblacion" name="poblacion">
-                    </div>
-                    <div>
-                        <label>Correo Electronico:</label>
-                        <input type="text" value="<?php echo "${fila['5']}" ?>" id="mail" name="mail">
-                    </div>
-                    <div>
-                        <label>Telefono:</label>
-                        <input type="number" value="<?php echo "${fila['6']}" ?>" id="movil" name="movil">
-                    </div>
-                    <label>Observaciones:</label>
-                    <input type="text" value="<?php echo "${fila['7']}" ?>" id="observaciones" name="Observaciones">
-                </div>
 
-                <h1>Información adicional</h1>
+
+        if ($_POST) {
+            //si me piden que modifique los datos los modifico
+            if (isset($_POST["modificar_datos_clientes"])) {
+
+                //Guardo los parametros en variables
+                $id = $_POST["id"];
+                $nombre = $_POST["nombre"];
+                $apellidos = $_POST["apellidos"];
+                $domicilio = $_POST["domicilio"];
+                $poblacion = $_POST["poblacion"];
+                $correoElectronico = $_POST["mail"];
+                $telefono = $_POST["movil"];
+                $Observaciones = $_POST["Observaciones"];
+                $peso = $_POST["peso"];
+                $altura = $_POST["altura"];
+                $edad = $_POST["edad"];
+                $actividadFisica = $_POST["ActividadFisica"];
+                $lesiones = $_POST["Lesiones"];
+
+                //Vamos a realizar una consulta UPDATE para actuliazar los datos de los clientes
+                $actualizarCliente =
+                    "UPDATE clientes " .
+                    "SET Nombre = '$nombre', Apellidos='$apellidos', Domicilio='$domicilio',Poblacion='$poblacion', CorreoElectronico='$correoElectronico', " .
+                    " Telefono=$telefono, Observaciones= '$Observaciones', Peso=$peso, altura =$altura, edad=$edad, ActividadFisica='$actividadFisica', " .
+                    " Lesiones='$lesiones' " .
+                    "WHERE CodigoCliente=$id";
+                //echo $actualizarCliente;
+                //exit;
+                $resultado = $conexion->query($actualizarCliente);
+
+                if ($resultado) {
+                    echo "<p>Se ha modificado $conexion->affected_rows registros con exito</p>";
+                } else {
+                    echo "Tuvimos problemas en la modificacion, intentelo de nuevo mas tarde";
+                }
+            }
+        }
+
+        visualizarDatosCliente();
+    }
+
+    function visualizarDatosCliente()
+    {
+        $conexion = conectarUsuarios();
+
+        $select_cliente = "SELECT * from clientes WHERE CodigoCliente=$_POST[id]";
+        $resultado = $conexion->query($select_cliente);
+
+        $fila = $resultado->fetch_array();
+    ?>
+
+        <form class="Modificar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+            <div class="datosPersonales">
+                <h1>Datos Personales</h1>
                 <div>
-                    <label>Peso:</label>
-                    <input type="number" value="<?php echo "${fila['8']}" ?>" id="peso" name="peso">
+                    <label>Nombre:</label>
+                    <input type="text" value="<?php echo "${fila['Nombre']}" ?>" id="nombre" name="nombre">
                 </div>
+                <div>
+                    <label>Apellidos:</label>
+                    <input type="text" value="<?php echo "${fila['Apellidos']}" ?>" id="apellidos" name="apellidos">
+                </div>
+                <div>
+                    <label>Domicilio:</label>
+                    <input type="text" value="<?php echo "${fila['Domicilio']}" ?>" id="domicilio" name="domicilio">
+                </div>
+                <div>
+                    <label>Población:</label>
+                    <input type="text" value="<?php echo "${fila['Poblacion']}" ?>" id="poblacion" name="poblacion">
+                </div>
+                <div>
+                    <label>Correo Electronico:</label>
+                    <input type="text" value="<?php echo "${fila['CorreoElectronico']}" ?>" id="mail" name="mail">
+                </div>
+                <div>
+                    <label>Telefono:</label>
+                    <input type="number" value="<?php echo "${fila['Telefono']}" ?>" id="movil" name="movil">
+                </div>
+                <label>Observaciones:</label>
+                <input type="text" value="<?php echo "${fila['Observaciones']}" ?>" id="observaciones" name="Observaciones">
+            </div>
+
+            <div class="datosAdicionales">
+                <h1>Información adicional</h1>
+                <label>Peso:</label>
+                <input type="number" value="<?php echo "${fila['Peso']}" ?>" id="peso" name="peso">
+
                 <div>
                     <label>Altura: (* En metros)</label>
-                    <input type="number" value="<?php echo "${fila['9']}" ?>" id="altura" name="altura">
+                    <input type="number" value="<?php echo "${fila['altura']}" ?>" id="altura" name="altura">
                 </div>
                 <div>
                     <label>Edad:</label>
-                    <input type="number" value="<?php echo "${fila['10']}" ?>" id="edad" name="edad">
+                    <input type="number" value="<?php echo "${fila['edad']}" ?>" id="edad" name="edad">
                 </div>
                 <div>
                     <label>Actividad fisíca:</label>
-                    <input type="text" value="<?php echo "${fila['11']}" ?>" id="actividad" name="actividad">
+                    <input type="text" value="<?php echo "${fila['ActividadFisica']}" ?>" id="actividad" name="actividad">
                 </div>
                 <div>
                     <label>Lesiones:</label>
-                    <input type="text" value="<?php echo "${fila['12']}" ?>" id="lesiones" name="lesiones">
+                    <input type="text" value="<?php echo "${fila['Lesiones']}" ?>" id="lesiones" name="lesiones">
                 </div>
-                <input id="enviar" type="submit" name="modificar_datos_clientes" value="Modificar">
-            </form>
+            </div>
+            <input type="submit" class="enviar" name="modificar_datos_clientes" value="Modificar">
+        </form>
     <?php
+    }
+
+    function borrarClientes()
+    {
+        $conexion = conectarUsuarios();
+
+        $borrar_cliente = "DELETE from clientes WHERE CodigoCliente=$_POST[id]";
+        $resultado = $conexion->query($borrar_cliente);
+
+        if ($resultado) {
+            echo '<p>Se ha borrado un cliente' . $conexion->affected_rows . ' registro con exito</p>';
+        } else {
+
+            echo '<p>Tuvimos problemas con la eliminacion del clientes, intentalo de nuevo más tarde</p>';
         }
     }
     ?>
