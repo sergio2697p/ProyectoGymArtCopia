@@ -15,7 +15,7 @@
             </li>
             <li><a href="usuarios/registrar_usuario.php">REGISTRARSE</a></li>
             <div class="botonIniciar">
-                <li><a href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESION</a></li>
+                <li><a href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESIÓN</a></li>
             </div>
         </nav>
         <!-- <div>

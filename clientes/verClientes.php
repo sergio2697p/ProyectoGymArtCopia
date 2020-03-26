@@ -24,9 +24,12 @@ include '../BBDD/peticiones.php';
     ?>
 
     <section>
+    <div class="clientes">
         <?php
+        include 'menuOpciones.php';
         verClientes();
         ?>
+        </div>
     </section>
     <?php
     include '../footer.php';

@@ -32,6 +32,7 @@ function maximoCodigoUsuario()
     return $nuevo_id;
 }
 
+
 function registrarUsuarios()
 {
     $conexion = conectarUsuarios();
@@ -48,6 +49,21 @@ function registrarUsuarios()
     } else {
         echo '<p>Error</p>';
     }
+}
+/*Funciones Requeridas para los clientes*/
+function maximoCodigoCliente()
+{
+    $conexion = conectarUsuarios();
+    //para insertar el nuevo id
+    //buscar en la BD el mayor id(max)
+    $sql = "SELECT MAX(CodigoCliente) FROM clientes";
+    $resultado = $conexion->query($sql);
+    //hay que utilizar row porque no le hemos dado nombre a la columna seleccionada
+    $fila = $resultado->fetch_row();
+    $max_id = $fila[0];
+    $nuevo_id = $max_id + 1;
+    unset($conexion);
+    return $nuevo_id;
 }
 
 function verClientes()
@@ -230,6 +246,38 @@ function verClientes()
         } else {
 
             echo '<p>Tuvimos problemas con la eliminacion del clientes, intentalo de nuevo más tarde</p>';
+        }
+    }
+
+    function anadirClientes()
+    {
+        $conexion = conectarUsuarios();
+
+        //Guardo los parametros en variables
+        $codigo = maximoCodigoCliente();
+        $nombre = $_POST["nombre"];
+        $apellidos = $_POST["apellidos"];
+        $domicilio = $_POST["domicilio"];
+        $poblacion = $_POST["poblacion"];
+        $correoElectronico = $_POST["mail"];
+        $telefono = $_POST["movil"];
+        $Observaciones = $_POST["Observaciones"];
+        $peso = $_POST["peso"];
+        $altura = $_POST["altura"];
+        $edad = $_POST["edad"];
+        $actividadFisica = $_POST["actividad"];
+        $lesiones = $_POST["lesiones"];
+
+        $anadir_cliente = "INSERT INTO clientes (CodigoCliente,Nombre,Apellidos,Domicilio,Poblacion,
+            CorreoElectronico,Telefono,Observaciones,Peso,altura,edad,ActividadFisica,Lesiones) 
+            VALUES($codigo,'$nombre','$apellidos','$domicilio','$poblacion','$correoElectronico',
+            $telefono,'$Observaciones',$peso,$altura,$edad,'$actividadFisica','$lesiones')";
+        $resultado = $conexion->query($anadir_cliente);
+
+        if ($resultado) {
+            echo "<p>Se ha añadido $conexion->affected_rows registros con exito</p>";
+        } else {
+            echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
         }
     }
     ?>
