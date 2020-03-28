@@ -35,12 +35,16 @@ html{
 */
 header {
     grid-area: header;
-    display: grid;
     background-color: #292A3A;
     font-size: 20px;
     color: white; 
     /* border-radius: 0px 0px 20px 55px;  */
     box-shadow: 0 0 20px 4px black;
+    display: grid;
+    grid-template-areas: 
+    "navegacion cerrarSesion";
+    grid-template-columns:1fr 15% ;
+    grid-template-rows: auto 1fr;
 }
 
 .tagDivCabecera {
@@ -53,49 +57,60 @@ header {
     width: 5%;
     float: left;
 }
-/*
-*/
 .navegacion {
+    grid-area: navegacion;
+    width: 95%;
+  
+}
+
+.navegacion>ul {
+    list-style: none;
     display: flex;
-    flex-flow: row;
     justify-content: center;
-    list-style: none; 
+    overflow: hidden;
 }
-
-.navegacion >li {
-    display: flex;
-    flex-flow: row;
-    margin: auto;
-    border-radius: 5px;
+.navegacion ul li{
+    display: block;
+    padding: 30px;
+    
 }
-
-.navegacion>li>a {
-    color:white;
+.navegacion ul li a{
+    color: white;
     text-decoration: none;
-    text-transform: none;
+}
+
+.navegacion>ul>li:hover {
+    background-color: #2980b9;
 }
 
 .navegacion .botonIniciar>li>a {
     background-color: red;
     list-style: none;
-    height: 40px;
-    margin: 50px;
     display: flex;
+    flex-flow: row;
     justify-content: center;
     align-items: center;
     color:white;
     text-decoration: none;
     text-transform: none;
 }
+
 .navegacion>li:hover {
     background-color: cornflowerblue;
 }
 
+.cerrarSesion {
+    grid-area: cerrarSesion;
+    font-size: 14px;
+}
+
 /*Segundo menu*/
+
 .subnavegacion {
     position: absolute;
     background-color: #292A3A;
-    width: 10%;
+    width: 15%;
+    
     list-style: none;
     display: none;
 }
@@ -114,7 +129,7 @@ header {
     display: block;
     padding: 5px;
 
-}
+} */
 
 
 /*Main*/
