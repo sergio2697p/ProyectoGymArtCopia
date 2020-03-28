@@ -9,7 +9,7 @@
             <li>GESTIONAR
                 <ul class="subnavegacion">
                     <li><a href="/ProyectoGymArtCopia/clientes/verClientes.php">Clientes</a></li>
-                    <li><a href="">Mensualidades</a></li>
+                    <li><a href="/ProyectoGymArtCopia/mensualidades/verMensualidades.php">Mensualidades</a></li>
                     <li><a href=""> Pagos</a></li>
                 </ul>
             </li>

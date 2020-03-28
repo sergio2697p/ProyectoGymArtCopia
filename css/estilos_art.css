@@ -35,9 +35,7 @@ html{
 */
 header {
     grid-area: header;
-
     display: grid;
-
     background-color: #292A3A;
     font-size: 20px;
     color: white; 
@@ -309,7 +307,7 @@ section {
     width: 50px; height: 50px;
 }
     
-#descargaPdf :hover {
+#descargaPdf:hover {
     border-style: outset;
     } 
 #copia {
@@ -321,8 +319,9 @@ section {
     width: 50px; height: 50px;
 }
      
-#copia :hover {
+#copia:hover {
     border-style: outset;
+
 }
     
 #anadir {
@@ -334,7 +333,7 @@ section {
 
 }
 
-#anadir :hover {
+#anadir:hover {
     border-style: outset;
 
 } 
@@ -371,7 +370,46 @@ section {
        display: table; 
        border: 2px solid #000;
        right:  auto;
+       /* display: grid;
+       grid-template-areas:
+       "ListadoClientes ListadoClientes     ListadoClientes"
+       "enunciado       enunciado           enunciado"
+       "columna1        columna2            columna3"; */
    }
+   /* .ListadoClientes{
+       grid-area: ListadoClientes;
+   }
+   #contenidos{
+       grid-area: enunciado;
+       display: flex;
+       flex-flow: row;
+   }
+   #contenidos>#Nombre,#Apellidos,#Correo{
+       width: 100%;
+   }
+   #contenidos1 {
+    display: flex;
+    flex-flow: column;
+   }
+#contenidos1>#columna1{
+    grid-area: columna1;
+    display: flex;
+    flex-flow: column;
+}
+
+#contenidos1>#columna2{
+    grid-area: columna2;
+    
+}
+
+#contenidos1>#columna3{
+    grid-area: columna3;
+} */
+/*
+#boton {
+    grid-area: boton;
+} */
+
    #contenidos {
        display: flex;
        flex-flow: row;
@@ -493,6 +531,66 @@ section {
     color:white;
 }
 
+/*Gestion Mensualidades*/
+.ModificarMensualidades {
+    width:50%;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    text-align: center;
+}
+
+.ModificarMensualidades input {
+
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.ModificarMensualidades .enviar {
+    grid-area: enviar;
+    width: 100%;
+}
+
+.ModificarMensualidades .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
+
+/*Añadir Clientes*/
+.anadirMensualidad{
+    text-align: center;
+    width:50%;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.anadirMensualidad input {
+
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+.anadirMensualidad .enviar {
+    width: 100%;
+}
+
+.anadirMensualidad .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
 /*footer*/
 footer {
     grid-area: footer;
