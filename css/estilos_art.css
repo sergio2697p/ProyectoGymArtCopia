@@ -59,7 +59,7 @@ header {
 }
 .navegacion {
     grid-area: navegacion;
-    width: 95%;
+    width: 100%;
   
 }
 
@@ -83,7 +83,7 @@ header {
     background-color: #2980b9;
 }
 
-.navegacion .botonIniciar>li>a {
+.navegacion .botonIniciar>li {
     background-color: red;
     list-style: none;
     display: flex;
@@ -101,6 +101,9 @@ header {
 
 .cerrarSesion {
     grid-area: cerrarSesion;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     font-size: 14px;
 }
 
@@ -129,7 +132,7 @@ header {
     display: block;
     padding: 5px;
 
-} */
+}
 
 
 /*Main*/
@@ -150,6 +153,8 @@ main {
 
 .Bienvenidos h1 {
     grid-area: h1;
+    text-align: center;
+    padding: 5%;
 }
 
 .Bienvenidos .metodo {

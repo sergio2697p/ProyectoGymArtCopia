@@ -1,0 +1,143 @@
+:root {
+    font-family:  'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "main   main"
+        "main   main"
+        "footer footer"
+    ;
+    grid-template-columns:1fr auto  ;
+    grid-template-rows:10% 80% auto ;
+
+}
+html{
+    min-height: 100%;
+}
+
+header {
+grid-area: header;
+background-color: #292A3A;
+font-size: 20px;
+color: white; 
+box-shadow: 0 0 20px 4px black;
+display: grid;
+grid-template-areas: 
+"navegacion cerrarSesion";
+grid-template-columns:1fr 15% ;
+grid-template-rows: auto 1fr;
+}
+
+.tagDivCabecera {
+    width: 100%;
+    height: 100%;
+
+}
+
+.tagDivCabecera > a >img {
+    width: 15%;
+    float: left;
+}
+.navegacion {
+    grid-area: navegacion;
+    width: 95%;
+  
+}
+
+.navegacion>ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.navegacion ul li{
+    display: block;
+    padding: 10px;
+    
+}
+.navegacion ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.navegacion>ul>li:hover {
+    background-color: #2980b9;
+}
+
+.navegacion .botonIniciar>li>a {
+    background-color: red;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.navegacion>li:hover {
+    background-color: cornflowerblue;
+}
+
+.cerrarSesion {
+    grid-area: cerrarSesion;
+    font-size: 8px;
+}
+
+/*Segundo menu*/
+
+.subnavegacion {
+    position: absolute;
+    background-color: #292A3A;
+    width: 15%;
+    
+    list-style: none;
+    display: none;
+}
+.subnavegacion li a{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.subnavegacion li a:hover {
+    background-color: cornflowerblue;
+}
+.navegacion li:hover .subnavegacion {
+    display: block;
+    padding: 5px;
+
+}
+
+main {
+    grid-area:main;
+    background-color: #FFFFFF;    
+    text-align: center;
+}
+
+footer {
+    grid-area:footer;
+    background-color: #292A3A;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

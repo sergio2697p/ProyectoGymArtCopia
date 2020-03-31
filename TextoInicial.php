@@ -10,7 +10,7 @@
     
         <div class="genius">
             <h3>NUESTROS «GENIUS»</h3>
-            <p>Mucho más que un monitor. En Altafit hemos creado la figura de los Genius,
+            <p>Mucho más que un monitor. En Art Gym hemos creado la figura de los Genius,
                 profesionales del deporte con la capacidad de diseñar entrenamientos específicos para cada caso.
                 La garantía de su supervisión permite a nuestros socios realizar ejercicios seguros y efectivos.</p>
         </div> 
