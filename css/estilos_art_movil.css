@@ -1,7 +1,11 @@
 :root {
     font-family:  'Open Sans', sans-serif;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: 30px;
+=======
+    font-size: 16px;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
     font-size: 16px;
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
@@ -28,8 +32,13 @@ body {
     grid-template-columns:1fr auto  ;
     grid-template-rows:10% 80% auto ;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
+=======
+
+}
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
 
 }
@@ -39,6 +48,7 @@ html{
 }
 
 header {
+<<<<<<< HEAD
 <<<<<<< HEAD
     grid-area: header;
     background-color: #292A3A;
@@ -52,6 +62,8 @@ header {
     /* grid-template-columns:1fr 15% ;
     grid-template-rows: auto 1fr; */
 =======
+=======
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 grid-area: header;
 background-color: #292A3A;
 font-size: 20px;
@@ -62,6 +74,9 @@ grid-template-areas:
 "navegacion cerrarSesion";
 grid-template-columns:1fr 15% ;
 grid-template-rows: auto 1fr;
+<<<<<<< HEAD
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
+=======
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 }
 
@@ -69,6 +84,10 @@ grid-template-rows: auto 1fr;
     width: 100%;
     height: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
 
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
@@ -79,6 +98,7 @@ grid-template-rows: auto 1fr;
     float: left;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*navegacion*/
 .navegacion {
     grid-area: navegacion;
@@ -88,6 +108,8 @@ grid-template-rows: auto 1fr;
 .navegacion>ul {
     padding: 2%;
 =======
+=======
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 .navegacion {
     grid-area: navegacion;
     width: 95%;
@@ -95,6 +117,9 @@ grid-template-rows: auto 1fr;
 }
 
 .navegacion>ul {
+<<<<<<< HEAD
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
+=======
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
     list-style: none;
     display: flex;
@@ -102,10 +127,16 @@ grid-template-rows: auto 1fr;
     overflow: hidden;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .navegacion ul li{
     display: block;
     padding: 15px;
+=======
+.navegacion ul li{
+    display: block;
+    padding: 10px;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
 .navegacion ul li{
     display: block;
@@ -141,7 +172,11 @@ grid-template-rows: auto 1fr;
 .cerrarSesion {
     grid-area: cerrarSesion;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: 14px;
+=======
+    font-size: 8px;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
     font-size: 8px;
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
@@ -175,9 +210,14 @@ grid-template-rows: auto 1fr;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*main*/
 main {
     grid-area: main;
+=======
+main {
+    grid-area:main;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
 main {
     grid-area:main;
@@ -186,6 +226,7 @@ main {
     text-align: center;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 .Bienvenidos h1 {
@@ -260,6 +301,10 @@ footer {
 footer {
     grid-area:footer;
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
+=======
+footer {
+    grid-area:footer;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
     background-color: #292A3A;
     color: white;
     text-align: center;
@@ -267,7 +312,11 @@ footer {
     justify-content: center;
     align-items: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 =======
 }
 >>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc

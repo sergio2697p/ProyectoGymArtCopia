@@ -152,11 +152,16 @@ main {
 
 .Bienvenidos h1 {
     grid-area: h1;
+<<<<<<< HEAD
     padding: 5%;
     text-align: center;
     text-align: center;
     padding: 5%;
 
+=======
+    text-align: center;
+    padding: 5%;
+>>>>>>> 453b6a6950e1f9bc36f1d52d035a92b49a6be2dc
 }
 
 .Bienvenidos .metodo {

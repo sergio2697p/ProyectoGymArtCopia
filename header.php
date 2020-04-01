@@ -66,7 +66,7 @@ if (!isset($_SESSION)) {
             session_unset();
             header('Location:/ProyectoGymArtCopia/index.php');
         }
-    }
+    } 
     ?>
 
 </header>
