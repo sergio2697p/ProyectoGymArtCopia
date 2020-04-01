@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../BBDD/conexionBBDD.php';
 include '../BBDD/peticiones.php';
 ?>
