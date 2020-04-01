@@ -11,7 +11,7 @@
 // }
 
 function conectarUsuarios() {
-    $conexion=mysqli_connect("localhost","art","art","art");
+    $conexion=mysqli_connect("localhost","root","","art");
     $error=$conexion->connect_errno;
 
     if($error !=null) {
