@@ -80,7 +80,7 @@ header {
 }
 
 .navegacion>ul>li:hover {
-    background-color: #2980b9;
+    background-color: #cae8d5;
 }
 
 .navegacion .botonIniciar>li>a {
@@ -129,7 +129,7 @@ header {
     display: block;
     padding: 5px;
 
-} */
+} 
 
 
 /*Main*/
@@ -150,6 +150,8 @@ main {
 
 .Bienvenidos h1 {
     grid-area: h1;
+    padding: 5%;
+    text-align: center;
 }
 
 .Bienvenidos .metodo {
@@ -179,14 +181,26 @@ section {
      justify-content: center; 
     align-items: center;
 }
+
+
 .indentificacion{
-    width:50%;
+    width:20%;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
+}
+
+.indentificacion .imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.indentificacion .imagen img {
+    width: 100px;
 }
 .indentificacion>form {
     text-align: center;
@@ -204,7 +218,7 @@ section {
 .registrarte{
     text-align: center;
     width:50%;
-    height:600px;
+    height:95%;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
@@ -215,6 +229,17 @@ section {
     justify-content: center;
     
 }
+
+.registrarte .imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.registrarte .imagen img {
+    width: 100px;
+}
+
 .registrarte>form >div {
     padding: 1%;
 }
@@ -606,6 +631,9 @@ section {
     background-color: #292A3A;
     color:white;
 }
+
+/*Gestionar Pagos*/
+
 /*footer*/
 footer {
     grid-area: footer;

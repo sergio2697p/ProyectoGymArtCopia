@@ -26,6 +26,9 @@ if ($_POST) {
 
 
             <div class="registrarte">
+                <div class="imagen">
+                    <img src="../imagenes/logo1.png" alt="">
+                </div>
                 <h1>Registrate</h1>
                 <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
                     <div>

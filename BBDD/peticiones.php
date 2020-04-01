@@ -11,7 +11,7 @@ function iniciarSesion()
 
     if ($resultado->fetch_row()) {
         $_SESSION['usuario'] = $usuario;
-        header('Location:index.php');
+        header('Location:/ProyectoGymArtCopia/index.php');
     } else {
         echo 'No se ha establecido conexion';
     }
