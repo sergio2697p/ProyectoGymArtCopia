@@ -38,11 +38,11 @@
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <div>
                             <label>Usuario:</label>
-                            <input id="usuario" type="text" name="usuario">
+                            <input id="usuario" type="text" name="usuario" value="sergio">
                         </div>
                         <div>
                             <label>Contrasena:</label>
-                            <input id="contrasena1" type="password" name="contrasena">
+                            <input id="contrasena1" type="password" name="contrasena" value="sergio">
                         </div>
                         <input type="submit" id="enviar" value="Iniciar sesion">
                         <a href="cambiar_contrasena.php"><input type="button" id="cambiar" value="¿Olvidaste la contrasena?"></a>

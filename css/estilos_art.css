@@ -22,7 +22,7 @@ body {
         "footer footer"
     ;
     grid-template-columns:1fr auto  ;
-    grid-template-rows:10% 80% auto ;
+    grid-template-rows:8% 85% auto ;
 
 }
 html{
@@ -96,7 +96,7 @@ header {
 }
 
 .navegacion>li:hover {
-    background-color: cornflowerblue;
+    background-color: #cae8d5;
 }
 
 .cerrarSesion {
@@ -112,25 +112,26 @@ header {
 .subnavegacion {
     position: absolute;
     background-color: #292A3A;
-    width: 15%;
-    
+    right: 55%;
+    width: 12%;
     list-style: none;
     display: none;
 }
 .subnavegacion li a{
     display: block;
-    padding: 15px;
+    padding: 5px;
     text-decoration: none;
+    text-align: center;
     color: white;
     
 }
 
 .subnavegacion li a:hover {
-    background-color: cornflowerblue;
+    background-color: #cae8d5;
 }
 .navegacion li:hover .subnavegacion {
     display: block;
-    padding: 5px;
+    /* padding: 5px; */
 
 }
 /*Main*/

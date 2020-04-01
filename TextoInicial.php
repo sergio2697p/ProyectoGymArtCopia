@@ -3,8 +3,8 @@
         <h1 >Bienvenidos a ART GYM</h1> 
          <div class="metodo">
          <img src="./imagenes/gym.png" alt="">
-            <h3>Nuevo metodo</h3>
-            <p>Tus objetivos son los nuestros y, para ayudarte a conseguirlos, nuestro equipo técnic.
+            <h3>Nuevo método</h3>
+            <p>Tus objetivos son los nuestros y, para ayudarte a conseguirlos, nuestro equipo técnico.
                 Con nuestras GClass y el resto de actividades dirigidas, la combinación con unos hábitos saludables y el apoyo de nuestros Genius,
                 te permitirá alcanzar tus objetivos de una manera eficaz.</p>
         </div>
