@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,14 +13,11 @@
     <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
     <!-- <link rel="stylesheet" media="screen and (min-width:321px) and (max-width:480px)" href="css/tablet.css"> -->
 
-    <!-- <link rel="stylesheet" type="text/css" href="../css/estilos_art.css"> -->
-    <script src="javascript/commonScripts.js"></script>
+    <!-- <script src="javascript/commonScripts.js"></script> -->
 </head>
 
 <body>
-    <?php
-    session_start();
-    ?>
+
     <?php
     include "../header.php";
     include '../BBDD/conexionBBDD.php';
@@ -38,11 +38,11 @@
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <div>
                             <label>Usuario:</label>
-                            <input id="usuario" type="text" name="usuario" value="sergio">
+                            <input id="usuario" type="text" name="usuario">
                         </div>
                         <div>
                             <label>Contrasena:</label>
-                            <input id="contrasena1" type="password" name="contrasena" value="sergio">
+                            <input id="contrasena1" type="password" name="contrasena">
                         </div>
                         <input type="submit" id="enviar" value="Iniciar sesion">
                         <a href="cambiar_contrasena.php"><input type="button" id="cambiar" value="¿Olvidaste la contrasena?"></a>

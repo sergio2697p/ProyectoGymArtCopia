@@ -1,5 +1,5 @@
 <footer>
 <div id="tagDivCopy">
-    © 2017 Andres David Guerrero Terrones. All rights reserved.
+    © 2020 Sergio Martínez Martínez. All rights reserved.
 </div>
 </footer>

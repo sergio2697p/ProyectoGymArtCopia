@@ -171,6 +171,7 @@ function verClientes()
                 $resultado = $conexion->query($actualizarCliente);
 
                 if ($resultado) {
+                    header("Location:verClientes.php");
                     echo "<p>Se ha modificado $conexion->affected_rows registros con exito</p>";
                 } else {
                     echo "Tuvimos problemas en la modificacion, intentelo de nuevo mas tarde";
@@ -291,6 +292,7 @@ function verClientes()
         $resultado = $conexion->query($anadir_cliente);
 
         if ($resultado) {
+            header("Location:verClientes.php");
             echo "<p>Se ha añadido $conexion->affected_rows registros con exito</p>";
         } else {
             echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
@@ -298,155 +300,153 @@ function verClientes()
     }
 
     //parte de mensualidades
-    function verMensualidades() {
-        ?>
+    function verMensualidades()
+    {
+    ?>
         <div id="contenedor">
-        <h1 class="ListadoClientes">LISTADO DE CLIENTES</h1>
-        <div id="contenidos">
-            <div id="columna1">Clase/Equipamiento</div>
-            <div id="columna2">Dia a la semana</div>
-            <div id="columna3">Precio mensual</div>
-        </div>
-        <?php
-        $conexion = conectarUsuarios();
-        $select_mensualidades = "SELECT * from mensualidades";
-        $resultado = $conexion->query($select_mensualidades);
-        while ($fila = $resultado->fetch_array()) {
-        ?>
-            <div id="contenidos1">
-                <div id="columna1"><?php echo "${fila['nombreMen']}"; ?></div>
-                <div id="columna2"><?php echo "${fila['diasSemana']}"; ?></div>
-                <div id="columna3"><?php echo "${fila['precio']}"; ?></div>
-                <div id="boton">
-                    <form action="modificarMensualidad.php" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                        <?php
-                        if ($_POST) {
-                            $_POST["id"];
-                        }
-                        ?>
-                        <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
-                    </form>
-                    <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                        <?php
-                        if ($_POST) {
-                            $_POST["id"];
-                        }
-                        ?>
-                        <input type="submit" name="borrar" value="borrar">
-                    </form>
-                </div>
+            <h1 class="ListadoClientes">LISTADO DE CLIENTES</h1>
+            <div id="contenidos">
+                <div id="columna1">Clase/Equipamiento</div>
+                <div id="columna2">Dia a la semana</div>
+                <div id="columna3">Precio mensual</div>
             </div>
             <?php
-        };
-        if (isset($_POST["borrar"])) {
-            borrarMensualidades();
-        }
-    }
-
-    function modificarMensualidades()
-    {
-        $conexion = conectarUsuarios();
-
-
-        if ($_POST) {
-            //si me piden que modifique los datos los modifico
-            if (isset($_POST["modificar_datos_clientes"])) {
-
-                //Guardo los parametros en variables
-                $id = $_POST["id"];
-                $nombre = $_POST["nombreMen"];
-                $diasSemana = $_POST["diasSemana"];
-                $precio = $_POST["precio"];
-                $anio = $_POST["Anio"];
-
-                //Vamos a realizar una consulta UPDATE para actuliazar los datos de los clientes
-                $actualizarMensualidades =
-                    "UPDATE clientes " .
-                    "SET NombreMen = '$nombre', diasSemana='$diasSemana', precio='$precio',Anio='$anio' 
-                    WHERE CodigoCliente=$id";
-                //echo $actualizarCliente;
-                //exit;
-                $resultado = $conexion->query($actualizarMensualidades);
-
-                if ($resultado) {
-                    echo "<p>Se ha modificado $conexion->affected_rows registros con exito</p>";
-                } else {
-                    echo "Tuvimos problemas en la modificacion, intentelo de nuevo mas tarde";
-                }
+            $conexion = conectarUsuarios();
+            $select_mensualidades = "SELECT * from mensualidades";
+            $resultado = $conexion->query($select_mensualidades);
+            while ($fila = $resultado->fetch_array()) {
+            ?>
+                <div id="contenidos1">
+                    <div id="columna1"><?php echo "${fila['nombreMen']}"; ?></div>
+                    <div id="columna2"><?php echo "${fila['diasSemana']}"; ?></div>
+                    <div id="columna3"><?php echo "${fila['precio']}"; ?></div>
+                    <div id="boton">
+                        <form action="modificarMensualidad.php" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <?php
+                            if ($_POST) {
+                                $_POST["id"];
+                            }
+                            ?>
+                            <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
+                        </form>
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <?php
+                            if ($_POST) {
+                                $_POST["id"];
+                            }
+                            ?>
+                            <input type="submit" name="borrar" value="borrar">
+                        </form>
+                    </div>
+                </div>
+            <?php
+            };
+            if (isset($_POST["borrar"])) {
+                borrarMensualidades();
             }
         }
 
-        visualizarDatosPorMensualidad();
-    }
+        function modificarMensualidades()
+        {
+            $conexion = conectarUsuarios();
 
-    function visualizarDatosPorMensualidad()
-    {
-        $conexion = conectarUsuarios();
 
-        $select_cliente = "SELECT * from mensualidades WHERE id=$_POST[id]";
-        $resultado = $conexion->query($select_cliente);
+            if ($_POST) {
+                //si me piden que modifique los datos los modifico
+                if (isset($_POST["modificar_datos_clientes"])) {
 
-        $fila = $resultado->fetch_array();
-    ?>
+                    //Guardo los parametros en variables
+                    $id = $_POST["id"];
+                    $nombre = $_POST["nombreMen"];
+                    $diasSemana = $_POST["diasSemana"];
+                    $precio = $_POST["precio"];
 
-        <form class="ModificarMensualidades" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-            <div class="datosPersonales">
-                <h1>Datos Personales</h1>
-                <div>
-                    <label>Nombre de  la mensualidad:</label>
-                    <input type="text" value="<?php echo "${fila['nombreMen']}" ?>" name="nombreMen">
-                </div>
-                <div>
-                    <label>Días:</label>
-                    <input type="number" value="<?php echo "${fila['diasSemana']}" ?>" name="diasSemana">
-                </div>
-                <div>
-                    <label>Precio:</label>
-                    <input type="number" value="<?php echo "${fila['precio']}" ?>"  name="precio">
-                </div>
-            <input type="submit" class="enviar" name="modificar_datos_clientes" value="Modificar">
-        </form>
-    <?php
-    }
+                    //Vamos a realizar una consulta UPDATE para actuliazar los datos de los clientes
+                    $actualizarMensualidades =
+                        "UPDATE mensualidades SET id=$id,nombreMen='$nombre',diasSemana=$diasSemana,precio=$diasSemana WHERE id=$id";
+                    //echo $actualizarMensualidades;
+                    //exit;
+                    $resultado = $conexion->query($actualizarMensualidades);
 
-    function borrarMensualidades()
-    {
-        $conexion = conectarUsuarios();
+                    if ($resultado) {
+                        header("Location:verMensualidades.php");
+                        echo "<p>Se ha modificado $conexion->affected_rows registros con exito</p>";
+                    } else {
+                        echo "Tuvimos problemas en la modificacion, intentelo de nuevo mas tarde";
+                    }
+                }
+            }
 
-        $borrar_cliente = "DELETE from mensualidades WHERE id=$_POST[id]";
-        $resultado = $conexion->query($borrar_cliente);
-
-        if ($resultado) {
-            echo '<p>Se ha borrado un cliente' . $conexion->affected_rows . ' registro con exito</p>';
-        } else {
-
-            echo '<p>Tuvimos problemas con la eliminacion del clientes, intentalo de nuevo más tarde</p>';
+            visualizarDatosPorMensualidad();
         }
-    }
 
-    function anadirMensualidad()
-    {
-        $conexion = conectarUsuarios();
+        function visualizarDatosPorMensualidad()
+        {
+            $conexion = conectarUsuarios();
 
-        //Guardo los parametros en variables
-        $id = maximoCodigoMensualidad();
-        $nombre = $_POST["nombreMen"];
-        $diasSemana = $_POST["diasSemana"];
-        $precio = $_POST["precio"];
-        $anio = $_POST["Anio"];
+            $select_cliente = "SELECT * from mensualidades WHERE id=$_POST[id]";
+            $resultado = $conexion->query($select_cliente);
 
-        $anadir_mensualidad = "INSERT INTO mensualidades (id,nombreMen,diasSemana,precio,Anio) 
+            $fila = $resultado->fetch_array();
+            ?>
+
+            <form class="ModificarMensualidades" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                <div class="datosPersonales">
+                    <h1>Datos Personales</h1>
+                    <div>
+                        <label>Nombre de la mensualidad:</label>
+                        <input type="text" value="<?php echo "${fila['nombreMen']}" ?>" name="nombreMen">
+                    </div>
+                    <div>
+                        <label>Días:</label>
+                        <input type="number" value="<?php echo "${fila['diasSemana']}" ?>" name="diasSemana">
+                    </div>
+                    <div>
+                        <label>Precio:</label>
+                        <input type="number" value="<?php echo "${fila['precio']}" ?>" name="precio">
+                    </div>
+                    <input type="submit" class="enviar" name="modificar_datos_clientes" value="Modificar">
+            </form>
+        <?php
+        }
+
+        function borrarMensualidades()
+        {
+            $conexion = conectarUsuarios();
+
+            $borrar_cliente = "DELETE from mensualidades WHERE id=$_POST[id]";
+            $resultado = $conexion->query($borrar_cliente);
+
+            if ($resultado) {
+                header("Location:verMensualidades.php");
+                echo '<p>Se ha borrado un cliente' . $conexion->affected_rows . ' registro con exito</p>';
+            } else {
+                echo '<p>Tuvimos problemas con la eliminacion del clientes, intentalo de nuevo más tarde</p>';
+            }
+        }
+
+        function anadirMensualidad()
+        {
+            $conexion = conectarUsuarios();
+
+            //Guardo los parametros en variables
+            $id = maximoCodigoMensualidad();
+            $nombre = $_POST["nombreMen"];
+            $diasSemana = $_POST["diasSemana"];
+            $precio = $_POST["precio"];
+            $anio = $_POST["Anio"];
+
+            $anadir_mensualidad = "INSERT INTO mensualidades (id,nombreMen,diasSemana,precio,Anio) 
             VALUES($id,'$nombre',$diasSemana,$precio,$anio)";
-        $resultado = $conexion->query($anadir_mensualidad);
+            $resultado = $conexion->query($anadir_mensualidad);
 
-        if ($resultado) {
-            echo "<p>Se ha añadido $conexion->affected_rows registros con exito</p>";
-        } else {
-            echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
+            if ($resultado) {
+                echo "<p>Se ha añadido $conexion->affected_rows registros con exito</p>";
+            } else {
+                echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
+            }
         }
-    }
-    ?>
-   
+        ?>

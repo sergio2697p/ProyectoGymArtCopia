@@ -140,9 +140,8 @@ header {
 main {
     grid-area: main;
     background-color: #FFFFFF;    
-    text-align: center;
-    
 }
+
 .Bienvenidos {
     display: grid;
     grid-template-areas:
@@ -208,8 +207,20 @@ section {
     width: 100px;
 }
 .indentificacion>form {
-    text-align: center;
+    
+    justify-content: center;
 }
+.indentificacion #enviar {
+    background-color: #292A3A;
+    color:white;
+}
+
+.indentificacion #cambiar {
+    background-color: #292A3A;
+    color:white;
+}
+
+
 .indentificacion input {
     padding:5px;
     background:none;
@@ -569,12 +580,10 @@ section {
 .Modificar .enviar {
     grid-area: enviar;
     width: 100%;
-}
-
-.Modificar .enviar:hover {
     background-color: #292A3A;
     color:white;
 }
+
 
 /*Gestion Mensualidades*/
 .ModificarMensualidades {

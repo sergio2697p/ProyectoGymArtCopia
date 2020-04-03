@@ -16,10 +16,12 @@
     include '../header.php';
     ?>
     <section>
-        <?php
-        include 'menuOpciones.php';
-        verMensualidades(); 
-        ?>
+        <div class="clientes">
+            <?php
+            include 'menuOpciones.php';
+            verMensualidades();
+            ?>
+        </div>
     </section>
     <?php
     include '../footer.php';

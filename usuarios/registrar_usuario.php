@@ -13,7 +13,9 @@ if ($_POST) {
         <meta charset="UTF-8">
         <title>Registro</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <link rel="stylesheet" type="text/css" href="../css/estilos_art.css">
+        <link rel="stylesheet" media=" only screen and (min-device-width : 320px) and (max-device-width : 600px)" href="../css/estilos_art_movil.css">
+        <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_tablet.css">
+        <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
         <script src="javascript/commonScripts.js"></script>
     </head>
 
@@ -26,9 +28,6 @@ if ($_POST) {
 
 
             <div class="registrarte">
-                <div class="imagen">
-                    <img src="../imagenes/logo1.png" alt="">
-                </div>
                 <h1>Registrate</h1>
                 <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
                     <div>

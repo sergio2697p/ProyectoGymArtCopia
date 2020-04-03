@@ -9,14 +9,10 @@ include '../BBDD/peticiones.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media=" only screen and (min-device-width : 320px) and (max-device-width : 600px)" href="../css/estilos_art_movil.css">
+    <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_tablet.css">
+    <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
     <title>Clientes</title>
-    <link rel="stylesheet" href="../css/estilos_art.css">
-    <script type="text/javascript" src="jsPDF-1.3.2/dist/jspdf.min.js"></script>
-    <script src="../javascript/borrar_editar.js"></script>
-    <script src="../javascript/FileSaver.js"></script>
-    <script src="../javascript/jquery.wordexport.js"></script>
-    <script src="../javascript/commonScripts.js"></script>
-    <script type="text/javascript" src="../javascript/eventosBotones.js"></script>
 </head>
 
 <body>
@@ -25,11 +21,11 @@ include '../BBDD/peticiones.php';
     ?>
 
     <section>
-    <div class="clientes">
-        <?php
-        include 'menuOpciones.php';
-        verClientes();
-        ?>
+        <div class="clientes">
+            <?php
+            include 'menuOpciones.php';
+            verClientes();
+            ?>
         </div>
     </section>
     <?php
