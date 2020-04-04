@@ -299,55 +299,48 @@ section {
 
 }
 
-.ListadoClientes{
-    text-align: center;
-}
+
 
 #contenedor {
-    width:auto;
-    height:auto;
+    float: left;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
-    align-items: center; 
-    justify-content: center;
-    display: table; 
-    border: 2px solid #000;
-    right:  auto; 
+    display: grid;
+    grid-template-areas: 
+    "Titulo        Titulo"
+    "contenidos     contenidos1";
 }
 
-#contenidos {
+.ListadoClientes{
+    grid-area: Titulo;
+}
+
+.contenedor #contenidos {
+    grid-area: contenidos;
     display: flex;
-    flex-flow: row;
-    font-weight: bolder;
-    width: auto;
-    text-align: center;
+    flex-flow: column;
 }
 
-#contenidos1 {
+
+
+.contenedor #contenidos1 {
+    grid-area: contenidos1;
+}
+
+/* #columna1, #columna2, #columna3 {
     display: flex;
-    flex-flow: row;
-    margin: auto;
-    text-align: center;
-        
-}
-
-#columna1, #columna2, #columna3 {
-    display: flex;
-    flex-flow: row;
-    margin: auto;
-    padding: 2%;
-}
-
+    flex-flow: column;
+} */
 #boton {
-    padding: 2%;
-   display: flex;
-   flex-flow: row;
+    display: flex;
+    flex-flow: row;
+}
 
-} 
+
 
 
 footer {
