@@ -298,51 +298,181 @@ section {
     width: 50px; height: 50px;
 
 }
+/*menu Opciones*/
+#descargaPdf img {
+    width: 30px; height: 30px;
+}
+    
+#descargaPdf:hover {
+    border-style: outset;
+    } 
+#copia {
+    grid-area: Descargas;
+
+}
+
+#copia img {
+    width: 30px; height: 30px;
+
+}
+     
+#copia:hover {
+    border-style: outset;
+
+}
+    
+#anadir {
+    grid-area: Descargas;
+}
+    
+#anadir img {
+    width: 30px; height: 30px;
+
+
+}
+
+#anadir:hover {
+    border-style: outset;
+
+} 
 
 
 
+/*Ver Clientes*/
 #contenedor {
     float: left;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
-    padding:20px 30px;
+    padding:5px 10px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
-    display: grid;
-    grid-template-areas: 
-    "Titulo        Titulo"
-    "contenidos     contenidos1";
 }
 
-.ListadoClientes{
-    grid-area: Titulo;
+
+ #contenidos {
+ display: flex;
+ flex-flow: column;
+
 }
 
-.contenedor #contenidos {
-    grid-area: contenidos;
+
+
+ #contenidos1 {
     display: flex;
     flex-flow: column;
 }
 
-
-
-.contenedor #contenidos1 {
-    grid-area: contenidos1;
-}
-
-/* #columna1, #columna2, #columna3 {
+#contenedor #contenedor1 >#columna1,#columna2,#columna3 {
     display: flex;
-    flex-flow: column;
-} */
+    flex-flow: row;
+} 
+
 #boton {
     display: flex;
     flex-flow: row;
 }
 
 
+/*Modificar Clientes*/
+
+.Modificar {
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 20px;
+}
+
+.Modificar input {
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.Modificar .enviar {
+    grid-area: enviar;
+    width: 100%;
+    background-color: #292A3A;
+    color:white;
+}
 
 
+/*Añadir clientes*/
+.anadirClientes{
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    /* padding:10px 20px; */
+}
+
+.anadirClientes input {
+
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.anadirClientes .enviar {
+    grid-area: enviar;
+    width: 100%;
+    background-color: #292A3A;
+    color:white;
+
+}
+
+/*Gestion Mensualidades*/
+.ModificarMensualidades {
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 20px;
+    text-align: center;
+}
+
+.ModificarMensualidades input {
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.ModificarMensualidades .enviar {
+    background-color: #292A3A;
+    color:white;
+    width: 100%;
+}
+
+/*Añadir Mensualidades*/
+
+.anadirMensualidad{
+    text-align: center;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.anadirMensualidad input {
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.anadirMensualidad .enviar {
+    background-color: #292A3A;
+    color:white;
+    width: 100%;
+}
 footer {
     grid-area: footer;
     font-size: 15px;
