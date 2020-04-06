@@ -14,7 +14,7 @@ if ($_POST) {
         <title>Registro</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" media=" only screen and (min-device-width : 320px) and (max-device-width : 600px)" href="../css/estilos_art_movil.css">
-        <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_tablet.css">
+        <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_table.css">
         <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
         <script src="javascript/commonScripts.js"></script>
     </head>

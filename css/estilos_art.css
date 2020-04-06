@@ -1,6 +1,6 @@
 :root {
     font-family:  'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 * {
@@ -22,7 +22,7 @@ body {
         "footer footer"
     ;
     grid-template-columns:1fr auto  ;
-    grid-template-rows:8% 85% auto ;
+    grid-template-rows:auto 82% auto ;
 
 }
 html{
@@ -36,7 +36,7 @@ html{
 header {
     grid-area: header;
     background-color: #292A3A;
-    font-size: 20px;
+    font-size: 14px;
     color: white; 
     /* border-radius: 0px 0px 20px 55px;  */
     box-shadow: 0 0 20px 4px black;
@@ -54,7 +54,7 @@ header {
 }
 
 .tagDivCabecera > a >img {
-    width: 5%;
+    width: 7%;
     float: left;
 }
 .navegacion {
@@ -162,7 +162,7 @@ main {
     grid-area: metodo;
     padding-top:2%;
     width: 50%;
-    height: 12%;
+    /* height: 12%; */
     text-align:center;
     margin: auto;
 }
@@ -170,7 +170,7 @@ main {
 .Bienvenidos .genius {
     grid-area: genius;
     width: 50%;
-    height: 12%;
+    /* height: 12%; */
     text-align:center;
     margin: auto;
 }
@@ -230,6 +230,7 @@ section {
     border-bottom:2px solid #bebed2;
 }
 
+/*Registrar Usuario*/
 
 .registrarte{
     text-align: center;

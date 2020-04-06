@@ -9,7 +9,7 @@ session_start();
     <title>Inicio de Sesion</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" media=" only screen and (min-device-width : 320px) and (max-device-width : 600px)" href="../css/estilos_art_movil.css">
-    <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_tablet.css">
+    <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_table.css">
     <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
     <!-- <link rel="stylesheet" media="screen and (min-width:321px) and (max-width:480px)" href="css/tablet.css"> -->
 

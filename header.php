@@ -53,7 +53,7 @@ if (!isset($_SESSION)) {
             <p>Bienvenido, <?php echo $_SESSION['usuario']
                             ?></p>
             <form action="<?php echo $_SERVER["PHP_SELF"] . "/index.php"  ?>" method="POST">
-                <input type="submit" value="Cerrar sesión" name="cerrar-session">
+                <input class="botonCerrar" type="submit" value="Cerrar sesión" name="cerrar-session">
             </form>
         </div>
     <?php

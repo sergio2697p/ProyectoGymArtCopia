@@ -1,5 +1,6 @@
 :root {
     font-family:  'Open Sans', sans-serif;
+    font-size: 14px;
 }
 
 * {
@@ -20,14 +21,18 @@ body {
         "main   main"
         "footer footer"
     ;
-    grid-template-columns:1fr auto;
-    grid-template-rows:8% 85% auto;
-
+    grid-template-columns:1fr auto  ;
+    grid-template-rows:auto 85% auto ;
 }
 
-header {
-    grid-area: header;
+html{
+    min-height: 100%;
+}
+
+header{
+    grid-area:header;
     background-color: #292A3A;
+    font-size: 14px;
     color: white; 
     /* border-radius: 0px 0px 20px 55px;  */
     box-shadow: 0 0 20px 4px black;
@@ -44,15 +49,13 @@ header {
 }
 
 .tagDivCabecera > a >img {
-    width: 15%;
+    width: 12%;
     float: left;
 }
 
 .navegacion {
     grid-area: navegacion;
-    font-size: 10px;
     width: 100%;
-  
 }
 
 .navegacion>ul {
@@ -64,9 +67,7 @@ header {
 
 .navegacion ul li{
     display: block;
-    padding: 3%;
-    text-align: center;
-    
+    padding: 20px;   
 }
 
 .navegacion ul li a{
@@ -81,8 +82,13 @@ header {
 .navegacion .botonIniciar>li {
     background-color: red;
     list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
     color:white;
     text-decoration: none;
+    text-transform: none;
 }
 
 .navegacion>li:hover {
@@ -94,24 +100,25 @@ header {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    font-size: 9px;
+    font-size: 14px;
 }
 
 .cerrarSesion .botonCerrar{
     font-size: 9px;
 }
+/*Segundo menu*/
 
 .subnavegacion {
     position: absolute;
     background-color: #292A3A;
-    right: 55%;
-    width: 12%;
+    right: 50%;
+    width: 20%;
     list-style: none;
     display: none;
 }
 .subnavegacion li a{
     display: block;
-    padding-right: 5px;
+    padding: 5px;
     text-decoration: none;
     text-align: center;
     color: white;
@@ -127,40 +134,62 @@ header {
 
 }
 
-/*main*/
+
 main {
     grid-area: main;
-    background-color: #FFFFFF;    
 }
 
 .Bienvenidos {
-    text-align: center;
-    padding: 7%;
+    display: grid;
+    grid-template-areas:
+    "h1 h1" 
+    "metodo genius";
 }
 
+.Bienvenidos h1 {
+    grid-area: h1;
+    padding: 5%;
+    text-align: center;
+    text-align: center;
+    padding: 5%;
+
+}
+
+.Bienvenidos .metodo {
+    grid-area: metodo;
+    padding-top:2%;
+    width: 50%;
+     height: 12%;
+    text-align:center;
+    margin: auto;
+}
+
+.Bienvenidos .genius {
+    grid-area: genius;
+    width: 50%;
+    height: 12%;
+    text-align:center;
+    margin: auto;
+}
 
 /*Inicion de Sesion*/
 
 section {
     width: 100%;
-    height: 95%;
+    height: 100%;
     display: flex;
     flex-direction: row;
      justify-content: center; 
     align-items: center;
 }
 
-
 .indentificacion{
-    text-align: center;
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
-    align-items: center; 
-    justify-content: center;
 }
 
 .indentificacion .imagen {
@@ -186,16 +215,6 @@ section {
     color:white;
 }
 
-
-.indentificacion input {
-    padding:5px;
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
-}
-
 /*Registrar Usuario*/
 
 .registrarte{
@@ -203,7 +222,7 @@ section {
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
-    padding:20px 30px;
+    padding:30px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
     align-items: center; 
@@ -233,7 +252,6 @@ section {
     width: 80%;
 
 }
-
 .registrarte input {
     width:100%;
     padding:10px;
@@ -245,33 +263,54 @@ section {
 }
 
 /*Cuotas*/
+
 .cuotas {
+    width: 100%;
     height: 100%;
-}
-.TituloCuota {
     text-align: center;
+    display: grid;
+    grid-template-areas: 
+    "Titulo     Titulo      Titulo"    
+    "basica     avanzada    ultra";
+     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+
+.TituloCuota{
+    grid-area: Titulo;
+    text-align: center;
+    line-height: 200px;
 }
 .cuotas .basica {
+    grid-area: basica;
+    width: 33,3%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
     background-color: lightcoral;
+
 }
 
 .cuotas ul {
-
+    margin:5%;
     list-style: none;
 }
 .cuotas .avanzada {
+    grid-area: avanzada;
+    width: 33,3%;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
     background-color: lightcyan;
+
 }
 
 .cuotas .ultra {
+    grid-area: ultra;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,32 +318,35 @@ section {
     background-color: lightgreen;
 }
 
+
 /* Estilos Menu de ociones*/
 .clientes {
-    display: flex;
-    flex-flow: column;
+    display:grid;
+    grid-template-areas: 
+    "Descargas"
+    "VerClientes";
+    grid-template-rows:auto;
+    grid-template-columns:100%;
+
 }
+
+    /* #menuOpciones{
+        background-image: linear-gradient(lightgray, white);
+    
+    }  */
+
 .descargas {
     flex-flow: row;
     justify-content: center;
     display: flex;
+    
+    }
+#descargaPdf {
+    grid-area: Descargas;
+    
 }
-
 #descargaPdf img {
     width: 50px; height: 50px;
-}
-
-#copia img {
-    width: 50px; height: 50px;
-}
-
-#anadir img {
-    width: 50px; height: 50px;
-
-}
-/*menu Opciones*/
-#descargaPdf img {
-    width: 30px; height: 30px;
 }
     
 #descargaPdf:hover {
@@ -316,8 +358,7 @@ section {
 }
 
 #copia img {
-    width: 30px; height: 30px;
-
+    width: 50px; height: 50px;
 }
      
 #copia:hover {
@@ -330,8 +371,7 @@ section {
 }
     
 #anadir img {
-    width: 30px; height: 30px;
-
+    width: 50px; height: 50px;
 
 }
 
@@ -339,44 +379,151 @@ section {
     border-style: outset;
 
 } 
+    
+/*Tabla clientes*/
 
-
-
-/*Ver Clientes*/
-#contenedor {
-    float: left;
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:5px 10px;
-    max-width:calc(100vw - 40px);
-    box-sizing:border-box;
+.ListadoClientes{
+    grid-area:VerClientes ;
+    text-align: center;
+    width: 100%;
 }
-
-
- #contenidos {
- display: flex;
- flex-flow: column;
-
-}
-
-
-
- #contenidos1 {
+   /* .tablaClientes{
+       display: flex;
+       flex-flow: row;
+       width: 100%;
+       height: 80%;
+       background-color: lightgreen;
+   } */
+   .tablaClientes>div{
+       margin: auto;
+   }
+   
+   #contenedor {
+       width:auto;
+       height:auto;
+       background:#e6e6e6;
+       border-radius:8px;
+       box-shadow:0 0 40px -10px #000;
+       padding:20px 30px;
+       max-width:calc(100vw - 40px);
+       box-sizing:border-box;
+       align-items: center; 
+       justify-content: center;
+       display: table; 
+       border: 2px solid #000;
+       right:  auto;
+       /* display: grid;
+       grid-template-areas:
+       "ListadoClientes ListadoClientes     ListadoClientes"
+       "enunciado       enunciado           enunciado"
+       "columna1        columna2            columna3"; */
+   }
+   /* .ListadoClientes{
+       grid-area: ListadoClientes;
+   }
+   #contenidos{
+       grid-area: enunciado;
+       display: flex;
+       flex-flow: row;
+   }
+   #contenidos>#Nombre,#Apellidos,#Correo{
+       width: 100%;
+   }
+   #contenidos1 {
+    display: flex;
+    flex-flow: column;
+   }
+#contenidos1>#columna1{
+    grid-area: columna1;
     display: flex;
     flex-flow: column;
 }
 
-#contenedor #contenedor1 >#columna1,#columna2,#columna3 {
-    display: flex;
-    flex-flow: row;
-} 
-
-#boton {
-    display: flex;
-    flex-flow: row;
+#contenidos1>#columna2{
+    grid-area: columna2;
+    
 }
 
+#contenidos1>#columna3{
+    grid-area: columna3;
+} */
+/*
+#boton {
+    grid-area: boton;
+} */
+
+   #contenidos {
+       display: flex;
+       flex-flow: row;
+       font-weight: bolder;
+       width: auto;
+       text-align: center;
+   }
+   
+   #contenidos1 {
+       display: flex;
+       flex-flow: row;
+       margin: auto;
+       text-align: center;
+           
+   }
+   
+   #columna1, #columna2, #columna3 {
+       display: flex;
+       flex-flow: row;
+       margin: auto;
+       padding: 2%;
+       width: 40%;
+   }
+   
+   #boton {
+       padding: 2%;
+      display: flex;
+      flex-flow: row;
+   
+   } 
+
+ /*Añadir clientes*/
+ .anadirClientes{
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: grid;
+    grid-template-areas:
+    "TituloAnadirCliente    TituloAnadirCliente" 
+    "DatosPersonales        DatosAdicionales"
+    "enviar                 enviar";
+}
+.anadirClientes .TituloAnadirCliente {
+    grid-area: TituloAnadirCliente;
+    text-align: center;
+    padding: 5px;
+}
+.anadirClientes .DatosPersonales div {
+    grid-area: DatosPersonales;
+    padding: 2%;
+}
+
+.anadirClientes .DatosAdicionales div {
+    grid-area: DatosAdicionales;
+    padding: 2%;
+}
+
+.anadirClientes input {
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+.anadirClientes .enviar {
+    grid-area: enviar;
+    width: 100%;
+    background-color: #292A3A;
+    color:white;
+}
 
 /*Modificar Clientes*/
 
@@ -384,17 +531,33 @@ section {
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
-    padding:10px 20px;
+    padding:10px 30px;
+    display: grid;
+    grid-template-areas: 
+    "DatosPersonales DatosAdicionales"
+    "enviar          enviar";
+}
+
+.Modificar .DatosPersonales div {
+    grid-area: DatosPersonales;
+    padding: 2%;
+
+}
+
+.Modificar .DatosAdicionales div {
+    grid-area: DatosAdicionales;
+    padding: 2%;
 }
 
 .Modificar input {
+
+    padding:5px;
     background:none;
     outline:none;
     border:0;
     transition:all .3s;
     border-bottom:2px solid #bebed2;
 }
-
 .Modificar .enviar {
     grid-area: enviar;
     width: 100%;
@@ -402,42 +565,18 @@ section {
     color:white;
 }
 
-
-/*Añadir clientes*/
-.anadirClientes{
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    /* padding:10px 20px; */
-}
-
-.anadirClientes input {
-
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
-}
-
-.anadirClientes .enviar {
-    grid-area: enviar;
-    width: 100%;
-    background-color: #292A3A;
-    color:white;
-
-}
-
 /*Gestion Mensualidades*/
 .ModificarMensualidades {
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
-    padding:10px 20px;
+    padding:10px 30px;
     text-align: center;
 }
 
 .ModificarMensualidades input {
+
+    padding:5px;
     background:none;
     outline:none;
     border:0;
@@ -446,13 +585,16 @@ section {
 }
 
 .ModificarMensualidades .enviar {
-    background-color: #292A3A;
-    color:white;
+    grid-area: enviar;
     width: 100%;
 }
 
-/*Añadir Mensualidades*/
+.ModificarMensualidades .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
 
+/*Añadir Mensualidades*/
 .anadirMensualidad{
     text-align: center;
     background:#e6e6e6;
@@ -465,25 +607,29 @@ section {
 }
 
 .anadirMensualidad input {
+    padding:5px;
     background:none;
     outline:none;
     border:0;
     transition:all .3s;
     border-bottom:2px solid #bebed2;
 }
-
 .anadirMensualidad .enviar {
-    background-color: #292A3A;
-    color:white;
     width: 100%;
 }
-footer {
+
+.anadirMensualidad .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
+
+
+footer{
     grid-area: footer;
-    font-size: 15px;
     background-color: #292A3A;
     color: white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
