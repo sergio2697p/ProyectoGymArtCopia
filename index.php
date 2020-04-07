@@ -18,6 +18,7 @@ and open the template in the editor.
     <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="css/estilos_sm.css"><!--IPAD vertical-->
     <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="css/estilos_md.css"><!--IPAD horizontal-->
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="css/estilos_lg.css"><!--monitor paronamico-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>

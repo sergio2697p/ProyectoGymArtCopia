@@ -8,6 +8,12 @@ if (!isset($_SESSION)) {
     <!-- Encabezado -->
     <div class="tagDivCabecera">
         <a href="/ProyectoGymArtCopia/index.php"><img src="/ProyectoGymArtCopia/imagenes/logo1.png"></a>
+        
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
         <nav class="navegacion">
             <ul>
 
