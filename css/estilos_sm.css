@@ -1,41 +1,4 @@
-:root {
-    font-family:  'Open Sans', sans-serif;
-    font-size: 14px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-
-    display: grid;
-    grid-template-areas: 
-        "header header"
-        "main   main"
-        "main   main"
-        "footer footer"
-    ;
-    grid-template-columns:1fr auto  ;
-    grid-template-rows:auto 85% auto ;
-}
-
-html{
-    min-height: 100%;
-}
-
 header{
-    grid-area:header;
-    background-color: #292A3A;
-    font-size: 14px;
-    color: white; 
-    /* border-radius: 0px 0px 20px 55px;  */
-    box-shadow: 0 0 20px 4px black;
     display: grid;
     grid-template-areas: 
     "navegacion cerrarSesion";
@@ -43,10 +6,6 @@ header{
     grid-template-rows: auto 1fr;
 }
 
-.tagDivCabecera {
-    width: 100%;
-    height: 100%;
-}
 
 .tagDivCabecera > a >img {
     width: 12%;
@@ -135,10 +94,6 @@ header{
 }
 
 
-main {
-    grid-area: main;
-}
-
 .Bienvenidos {
     display: grid;
     grid-template-areas:
@@ -173,15 +128,6 @@ main {
 }
 
 /*Inicion de Sesion*/
-
-section {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-     justify-content: center; 
-    align-items: center;
-}
 
 .indentificacion{
     background:#e6e6e6;
@@ -263,7 +209,6 @@ section {
 }
 
 /*Cuotas*/
-
 .cuotas {
     width: 100%;
     height: 100%;
@@ -327,13 +272,7 @@ section {
     "VerClientes";
     grid-template-rows:auto;
     grid-template-columns:100%;
-
 }
-
-    /* #menuOpciones{
-        background-image: linear-gradient(lightgray, white);
-    
-    }  */
 
 .descargas {
     flex-flow: row;
@@ -387,13 +326,6 @@ section {
     text-align: center;
     width: 100%;
 }
-   /* .tablaClientes{
-       display: flex;
-       flex-flow: row;
-       width: 100%;
-       height: 80%;
-       background-color: lightgreen;
-   } */
    .tablaClientes>div{
        margin: auto;
    }
@@ -412,45 +344,7 @@ section {
        display: table; 
        border: 2px solid #000;
        right:  auto;
-       /* display: grid;
-       grid-template-areas:
-       "ListadoClientes ListadoClientes     ListadoClientes"
-       "enunciado       enunciado           enunciado"
-       "columna1        columna2            columna3"; */
    }
-   /* .ListadoClientes{
-       grid-area: ListadoClientes;
-   }
-   #contenidos{
-       grid-area: enunciado;
-       display: flex;
-       flex-flow: row;
-   }
-   #contenidos>#Nombre,#Apellidos,#Correo{
-       width: 100%;
-   }
-   #contenidos1 {
-    display: flex;
-    flex-flow: column;
-   }
-#contenidos1>#columna1{
-    grid-area: columna1;
-    display: flex;
-    flex-flow: column;
-}
-
-#contenidos1>#columna2{
-    grid-area: columna2;
-    
-}
-
-#contenidos1>#columna3{
-    grid-area: columna3;
-} */
-/*
-#boton {
-    grid-area: boton;
-} */
 
    #contenidos {
        display: flex;
@@ -625,11 +519,5 @@ section {
 
 
 footer{
-    grid-area: footer;
-    background-color: #292A3A;
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 20px;
 }

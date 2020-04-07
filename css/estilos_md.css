@@ -1,0 +1,518 @@
+header{
+    display: grid;
+    grid-template-areas: 
+    "navegacion cerrarSesion";
+    grid-template-columns:1fr 15% ;
+    grid-template-rows: auto 1fr;
+}
+
+
+.tagDivCabecera > a >img {
+    width: 12%;
+    float: left;
+}
+
+.navegacion {
+    grid-area: navegacion;
+    width: 100%;
+}
+
+.navegacion>ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.navegacion ul li{
+    display: block;
+    padding: 20px;   
+}
+
+.navegacion ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.navegacion>ul>li:hover {
+    background-color: #cae8d5;
+}
+
+.navegacion .botonIniciar>li {
+    background-color: red;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.navegacion>li:hover {
+    background-color: #cae8d5;
+}
+
+.cerrarSesion {
+    grid-area: cerrarSesion;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.cerrarSesion .botonCerrar{
+    font-size: 9px;
+}
+/*Segundo menu*/
+
+.subnavegacion {
+    position: absolute;
+    background-color: #292A3A;
+    right: 50%;
+    width: 20%;
+    list-style: none;
+    display: none;
+}
+.subnavegacion li a{
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    
+}
+
+.subnavegacion li a:hover {
+    background-color: #cae8d5;
+}
+.navegacion li:hover .subnavegacion {
+    display: block;
+    /* padding: 5px; */
+
+}
+
+.Bienvenidos {
+    display: grid;
+    grid-template-areas:
+    "h1 h1" 
+    "metodo genius";
+}
+
+.Bienvenidos h1 {
+    grid-area: h1;
+    padding: 5%;
+    text-align: center;
+    text-align: center;
+    padding: 5%;
+
+}
+
+.Bienvenidos .metodo {
+    grid-area: metodo;
+    padding-top:2%;
+    width: 50%;
+     height: 12%;
+    text-align:center;
+    margin: auto;
+}
+
+.Bienvenidos .genius {
+    grid-area: genius;
+    width: 50%;
+    height: 12%;
+    text-align:center;
+    margin: auto;
+}
+
+/*Inicion de Sesion*/
+
+.indentificacion{
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:20px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+}
+
+.indentificacion .imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.indentificacion .imagen img {
+    width: 100px;
+}
+.indentificacion>form {
+    
+    justify-content: center;
+}
+.indentificacion #enviar {
+    background-color: #292A3A;
+    color:white;
+}
+
+.indentificacion #cambiar {
+    background-color: #292A3A;
+    color:white;
+}
+
+/*Registrar Usuario*/
+
+.registrarte{
+    text-align: center;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:30px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    align-items: center; 
+    justify-content: center;
+}
+
+.registrarte .imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.registrarte .imagen img {
+    width: 100px;
+}
+
+.registrarte>form >div {
+    padding: 1%;
+}
+
+.registrarte .TipoCuota {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+}
+.registrarte input {
+    width:100%;
+    padding:10px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+/*Cuotas*/
+.cuotas {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-areas: 
+    "Titulo     Titulo      Titulo"    
+    "basica     avanzada    ultra";
+     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+
+.TituloCuota{
+    grid-area: Titulo;
+    text-align: center;
+    line-height: 200px;
+}
+.cuotas .basica {
+    grid-area: basica;
+    width: 33,3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: lightcoral;
+
+}
+
+.cuotas ul {
+    margin:5%;
+    list-style: none;
+}
+.cuotas .avanzada {
+    grid-area: avanzada;
+    width: 33,3%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: lightcyan;
+
+}
+
+.cuotas .ultra {
+    grid-area: ultra;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: lightgreen;
+}
+
+/* Estilos Menu de ociones*/
+.clientes {
+    display:grid;
+    grid-template-areas: 
+    "Descargas"
+    "VerClientes";
+    grid-template-rows:auto;
+    grid-template-columns:100%;
+}
+
+.descargas {
+    flex-flow: row;
+    justify-content: center;
+    display: flex;
+    
+    }
+#descargaPdf {
+    grid-area: Descargas;
+    
+}
+#descargaPdf img {
+    width: 50px; height: 50px;
+}
+    
+#descargaPdf:hover {
+    border-style: outset;
+    } 
+#copia {
+    grid-area: Descargas;
+
+}
+
+#copia img {
+    width: 50px; height: 50px;
+}
+     
+#copia:hover {
+    border-style: outset;
+
+}
+    
+#anadir {
+    grid-area: Descargas;
+}
+    
+#anadir img {
+    width: 50px; height: 50px;
+
+}
+
+#anadir:hover {
+    border-style: outset;
+
+} 
+
+/*Tabla clientes*/
+
+.ListadoClientes{
+    grid-area:VerClientes ;
+    text-align: center;
+    width: 100%;
+}
+   .tablaClientes>div{
+       margin: auto;
+   }
+   
+   #contenedor {
+       width:auto;
+       height:auto;
+       background:#e6e6e6;
+       border-radius:8px;
+       box-shadow:0 0 40px -10px #000;
+       padding:20px 30px;
+       max-width:calc(100vw - 40px);
+       box-sizing:border-box;
+       align-items: center; 
+       justify-content: center;
+       display: table; 
+       border: 2px solid #000;
+       right:  auto;
+   }
+
+   #contenidos {
+       display: flex;
+       flex-flow: row;
+       font-weight: bolder;
+       width: auto;
+       text-align: center;
+   }
+   
+   #contenidos1 {
+       display: flex;
+       flex-flow: row;
+       margin: auto;
+       text-align: center;
+           
+   }
+   
+   #columna1, #columna2, #columna3 {
+       display: flex;
+       flex-flow: row;
+       margin: auto;
+       padding: 2%;
+       width: 40%;
+   }
+   
+   #boton {
+       padding: 2%;
+      display: flex;
+      flex-flow: row;
+   } 
+
+   /*Añadir clientes*/
+ .anadirClientes{
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: grid;
+    grid-template-areas:
+    "TituloAnadirCliente    TituloAnadirCliente" 
+    "DatosPersonales        DatosAdicionales"
+    "enviar                 enviar";
+}
+.anadirClientes .TituloAnadirCliente {
+    grid-area: TituloAnadirCliente;
+    text-align: center;
+    padding: 5px;
+}
+.anadirClientes .DatosPersonales div {
+    grid-area: DatosPersonales;
+    padding: 2%;
+}
+
+.anadirClientes .DatosAdicionales div {
+    grid-area: DatosAdicionales;
+    padding: 2%;
+}
+
+.anadirClientes input {
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+.anadirClientes .enviar {
+    grid-area: enviar;
+    width: 100%;
+    background-color: #292A3A;
+    color:white;
+}
+
+/*Modificar Clientes*/
+
+.Modificar {
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: grid;
+    grid-template-areas: 
+    "DatosPersonales DatosAdicionales"
+    "enviar          enviar";
+}
+
+.Modificar .DatosPersonales div {
+    grid-area: DatosPersonales;
+    padding: 2%;
+
+}
+
+.Modificar .DatosAdicionales div {
+    grid-area: DatosAdicionales;
+    padding: 2%;
+}
+
+.Modificar input {
+
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+.Modificar .enviar {
+    grid-area: enviar;
+    width: 100%;
+    background-color: #292A3A;
+    color:white;
+}
+
+/*Gestion Mensualidades*/
+.ModificarMensualidades {
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    text-align: center;
+}
+
+.ModificarMensualidades input {
+
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+
+.ModificarMensualidades .enviar {
+    grid-area: enviar;
+    width: 100%;
+}
+
+.ModificarMensualidades .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
+
+/*Añadir Mensualidades*/
+.anadirMensualidad{
+    text-align: center;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:10px 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.anadirMensualidad input {
+    padding:5px;
+    background:none;
+    outline:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+}
+.anadirMensualidad .enviar {
+    width: 100%;
+}
+
+.anadirMensualidad .enviar:hover {
+    background-color: #292A3A;
+    color:white;
+}
+
+footer{
+    font-size: 20px;
+}
