@@ -13,9 +13,16 @@ if ($_POST) {
         <meta charset="UTF-8">
         <title>Registro</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <link rel="stylesheet" media=" only screen and (min-device-width : 320px) and (max-device-width : 600px)" href="../css/estilos_art_movil.css">
-        <link rel="stylesheet" media=" only screen and (min-device-width : 601px) and (max-device-width : 1280px)" href="../css/estilos_art_table.css">
-        <link rel="stylesheet" media=" only screen and (min-device-width : 1281px) " href="../css/estilos_art.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <!--estilos comunes a todas las pantallas-->
+        <link rel="stylesheet" media=" all and (max-device-width : 767px)" href="../css/estilos_xs.css">
+        <!--movil-->
+        <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
+        <!--IPAD vertical-->
+        <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css">
+        <!--IPAD horizontal-->
+        <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
+        <!--monitor paronamico-->
         <script src="javascript/commonScripts.js"></script>
     </head>
 

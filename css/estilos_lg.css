@@ -1,45 +1,4 @@
-:root {
-    font-family:  'Open Sans', sans-serif;
-    font-size: 14px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-
-    display: grid;
-    grid-template-areas: 
-        "header header"
-        "main   main"
-        "main   main"
-        "footer footer"
-    ;
-    grid-template-columns:1fr auto  ;
-    grid-template-rows:auto 82% auto ;
-
-}
-html{
-    min-height: 100%;
-}
-/* .Bienvenidos {
-    padding: 5%;
-    text-align: center;
-}
-*/
 header {
-    grid-area: header;
-    background-color: #292A3A;
-    font-size: 14px;
-    color: white; 
-    /* border-radius: 0px 0px 20px 55px;  */
-    box-shadow: 0 0 20px 4px black;
     display: grid;
     grid-template-areas: 
     "navegacion cerrarSesion";
@@ -47,16 +6,11 @@ header {
     grid-template-rows: auto 1fr;
 }
 
-.tagDivCabecera {
-    width: 100%;
-    height: 100%;
-
-}
-
 .tagDivCabecera > a >img {
     width: 7%;
     float: left;
 }
+
 .navegacion {
     grid-area: navegacion;
     width: 100%;
@@ -134,13 +88,7 @@ header {
     /* padding: 5px; */
 
 }
-/*Main*/
-/*
-*/
-main {
-    grid-area: main;
-    background-color: #FFFFFF;    
-}
+/*texto iniciar*/
 
 .Bienvenidos {
     display: grid;
@@ -176,16 +124,6 @@ main {
 }
 
 /*Inicion de Sesion*/
-
-section {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-     justify-content: center; 
-    align-items: center;
-}
-
 
 .indentificacion{
     width:20%;
@@ -345,10 +283,6 @@ section {
 
 }
 
-    /* #menuOpciones{
-        background-image: linear-gradient(lightgray, white);
-    
-    }  */
 
 .descargas {
     flex-flow: row;
@@ -402,101 +336,57 @@ section {
     text-align: center;
     width: 100%;
 }
-   /* .tablaClientes{
-       display: flex;
-       flex-flow: row;
-       width: 100%;
-       height: 80%;
-       background-color: lightgreen;
-   } */
-   .tablaClientes>div{
-       margin: auto;
+   
+.tablaClientes>div{
+    margin: auto;
    }
    
-   #contenedor {
-       width:auto;
-       height:auto;
-       background:#e6e6e6;
-       border-radius:8px;
-       box-shadow:0 0 40px -10px #000;
-       padding:20px 30px;
-       max-width:calc(100vw - 40px);
-       box-sizing:border-box;
-       align-items: center; 
-       justify-content: center;
-       display: table; 
-       border: 2px solid #000;
-       right:  auto;
-       /* display: grid;
-       grid-template-areas:
-       "ListadoClientes ListadoClientes     ListadoClientes"
-       "enunciado       enunciado           enunciado"
-       "columna1        columna2            columna3"; */
+#contenedor {
+    width:auto;
+    height:auto;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:20px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    align-items: center; 
+    justify-content: center;
+    display: table; 
+    border: 2px solid #000;
+    right:  auto;
    }
-   /* .ListadoClientes{
-       grid-area: ListadoClientes;
-   }
-   #contenidos{
-       grid-area: enunciado;
-       display: flex;
-       flex-flow: row;
-   }
-   #contenidos>#Nombre,#Apellidos,#Correo{
-       width: 100%;
-   }
-   #contenidos1 {
-    display: flex;
-    flex-flow: column;
-   }
-#contenidos1>#columna1{
-    grid-area: columna1;
-    display: flex;
-    flex-flow: column;
-}
 
-#contenidos1>#columna2{
-    grid-area: columna2;
-    
-}
-
-#contenidos1>#columna3{
-    grid-area: columna3;
-} */
-/*
+#contenidos {
+    display: flex;
+    flex-flow: row;
+    font-weight: bolder;
+    width: auto;
+    text-align: center;
+   }
+   
+#contenidos1 {
+    display: flex;
+    flex-flow: row;
+    margin: auto;
+    text-align: center;
+   }
+   
+#columna1, #columna2, #columna3 {
+    display: flex;
+    flex-flow: row;
+    margin: auto;
+    padding: 2%;
+    width: 40%;
+   }
+   
 #boton {
-    grid-area: boton;
-} */
-
-   #contenidos {
-       display: flex;
-       flex-flow: row;
-       font-weight: bolder;
-       width: auto;
-       text-align: center;
-   }
-   
-   #contenidos1 {
-       display: flex;
-       flex-flow: row;
-       margin: auto;
-       text-align: center;
-           
-   }
-   
-   #columna1, #columna2, #columna3 {
-       display: flex;
-       flex-flow: row;
-       margin: auto;
-       padding: 2%;
-       width: 40%;
-   }
-   
-   #boton {
-       padding: 2%;
-      display: flex;
-      flex-flow: row;
+    padding: 2%;
+    display: flex;
+    flex-flow: row;
    
    } 
+   
  /*Añadir clientes*/
  .anadirClientes{
     width:50%;
@@ -649,13 +539,3 @@ section {
 
 /*Gestionar Pagos*/
 
-/*footer*/
-footer {
-    grid-area: footer;
-    background-color: #292A3A;
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
