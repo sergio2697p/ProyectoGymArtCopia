@@ -23,7 +23,8 @@ if ($_POST) {
         <!--IPAD horizontal-->
         <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
         <!--monitor paronamico-->
-        <script src="javascript/commonScripts.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     </head>
 
     <body>
