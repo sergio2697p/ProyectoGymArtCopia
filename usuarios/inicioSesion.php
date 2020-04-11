@@ -8,8 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <title>Inicio de Sesion</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="../css/estilos.css"><!--estilos comunes a todas las pantallas-->
-    <link rel="stylesheet" media=" all and (max-device-width : 767px)" href="../css/estilos_xs.css"><!--movil-->
+    <link rel="stylesheet" href="../css/estilos_xs.css"><!--movil-->
     <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css"><!--IPAD vertical-->
     <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css"><!--IPAD horizontal-->
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css"><!--monitor paronamico-->
@@ -31,7 +30,6 @@ session_start();
             <section>
                 <div class="indentificacion">
                     <div class="imagen">
-                        <!-- <img src="../imagenes/logo1.png" alt=""> -->
                         <h1>Iniciar Sesion</h1>
                     </div>
 

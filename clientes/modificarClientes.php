@@ -10,23 +10,28 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Clientes</title>
-    <link rel="stylesheet" href="../css/estilos.css"><!--estilos comunes a todas las pantallas-->
-    <link rel="stylesheet" media=" all and (max-device-width : 767px)" href="../css/estilos_xs.css"><!--movil-->
-    <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css"><!--IPAD vertical-->
-    <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css"><!--IPAD horizontal-->
-    <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css"><!--monitor paronamico-->
+    <link rel="stylesheet" href="../css/estilos_xs.css">
+    <!--movil-->
+    <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
+    <!--IPAD vertical-->
+    <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css">
+    <!--IPAD horizontal-->
+    <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
+    <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
+
 </head>
 
 <body>
-    <?php include '../header.php';?>
-    <section>
-    <?php
-    modificarCLientes();
-    ?>
-    </section>
-    <?php include '../footer.php';?>
+    <?php include '../header.php'; ?>
+    <main>
+        <section>
+            <?php
+            modificarCLientes();
+            ?>
+        </section>
+    </main>
+    <?php include '../footer.php'; ?>
 
 </body>
 

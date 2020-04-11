@@ -1,97 +1,74 @@
-header{
+header {
     display: grid;
-    grid-template-areas: 
-    "navegacion cerrarSesion";
-    grid-template-columns:1fr 15% ;
-    grid-template-rows: auto 1fr;
+    grid-template-areas: "zona-logo  zona-hamburguesa    zona-botones";
+    grid-template-rows: 1fr auto auto;
 }
 
-
-.tagDivCabecera > a >img {
-    width: 12%;
-    float: left;
+.zona-logo {
+    grid-area: zona-logo;
 }
 
-.navegacion {
-    grid-area: navegacion;
-    width: 100%;
+.zona-logo>a>img {
+    height: 40%;
+    width: 40%;
 }
 
-.navegacion>ul {
-    list-style: none;
+.zona-botones {
+    grid-area: zona-botones;
+    /* width: 10%;  */
+    /* padding: 10%; */
+}
+
+.zona-hamburguesa {
+    grid-area: zona-hamburguesa;
     display: flex;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.navegacion ul li{
-    display: block;
-    padding: 20px;   
-}
-
-.navegacion ul li a{
-    color: white;
-    text-decoration: none;
-}
-
-.navegacion>ul>li:hover {
-    background-color: #cae8d5;
-}
-
-.navegacion .botonIniciar>li {
-    background-color: red;
-    list-style: none;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
     align-items: center;
-    color:white;
-    text-decoration: none;
-    text-transform: none;
-}
-
-.navegacion>li:hover {
-    background-color: #cae8d5;
-}
-
-.cerrarSesion {
-    grid-area: cerrarSesion;
-    display: flex;
-    flex-flow: column;
     justify-content: center;
-    font-size: 14px;
+    /* width: 0%; */
 }
 
-.cerrarSesion .botonCerrar{
-    font-size: 9px;
-}
-/*Segundo menu*/
-
-.subnavegacion {
-    position: absolute;
-    background-color: #292A3A;
-    right: 50%;
-    width: 20%;
-    list-style: none;
+.hamburguesa-label, .hamburguesa-checkbox {
     display: none;
 }
-.subnavegacion li a{
+
+.gestionar-submenu {
     display: block;
-    padding: 5px;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    
 }
 
-.subnavegacion li a:hover {
-    background-color: #cae8d5;
+nav {
+    position: static;
+    align-items: center;
+    line-height: 0;
+    height: 100%;
+    width: 90%;
+    padding: 2%;
 }
-.navegacion li:hover .subnavegacion {
-    display: block;
-    /* padding: 5px; */
 
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    margin-right: auto;
 }
+
+nav ul li {
+    padding-top: 2%;
+    margin-right: 5%;
+}
+
+.gestionar-submenu {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gestionar-submenu>li a {
+    line-height: 30px;
+}
+
+
+
 
 .Bienvenidos {
     display: grid;

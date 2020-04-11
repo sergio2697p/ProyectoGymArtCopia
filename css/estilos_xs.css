@@ -1,11 +1,81 @@
-.tagDivCabecera > a >img {
-    width: 15%;
-    float: left;
+:root {
+    font-family:  'Open Sans', sans-serif;
+    font-size: 14px;
+    --color-menu: rgb(41, 42, 58);
 }
-#check{
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "main   main"
+        "footer footer"
+    ;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+}
+
+html{
+    min-height: 100%;
+}
+
+header{
+    grid-area: header;
+    background-color: #292A3A;
+    font-size: 14px;
+    color: white; 
+    box-shadow: 0 0 20px 4px black;
+    display: grid;
+    grid-template-columns: 20% 1fr auto;
+}
+
+.zona-logo {
+    grid-column: 1;
+    align-self: center;
+}
+
+.zona-logo > a >img {
+     width: 100%; 
+}
+
+.zona-botones {
+    grid-column: 2;
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.boton-iniciar {
+    background-color: red;
+    list-style: none;
+    text-transform: none;
+}
+
+.zona-hamburguesa {
+    grid-column: 3;
+}
+
+
+
+.hamburguesa-checkbox {
     display: none;
 }
-.checkbtn {
+
+.hamburguesa-label {
     font-size: 30px;
     color:white;
     float: right;
@@ -15,32 +85,26 @@
     display: block;
 }
 
-.navegacion {
-    width: 100%;
-}
+.hamburguesa-checkbox:checked ~ nav {
+    left: 0;
+} 
 
-.navegacion ul {
+nav {
     position: fixed;
-    width: 100%;
+    width: 50%;
     height: 100vh;
-    background-color: #2c3e50;
+    background-color: var(--color-menu);
     top:80px;
     left:-100%;
-    
     text-align: center;
-    transition: all .5s;
-}
-
-.navegacion ul li {
-    display: block;
-    margin:50px 0;
+    transition: left .5s;
+    font-size: 1.4rem;
     line-height: 30px;
 }
 
-.navegacion ul li a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
+nav ul li {
+    display: block;
+    margin: 1rem 0;
 }
 
 a:hover,a.active{
@@ -48,52 +112,30 @@ a:hover,a.active{
     color: #292A3A;
 }
 
-#check:checked ~ .navegacion ul {
-    left: 0;
-} 
-
-.navegacion .botonIniciar>li {
-    background-color: red;
-    list-style: none;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    text-decoration: none;
-    text-transform: none;
-}
-
 /*Segundo menu*/
 
-.subnavegacion {
-    position: absolute;
-    background-color: #292A3A;
-    right: 55%;
-    width: 12%;
+.gestionar-submenu {
+    display: none;
     list-style: none;
+    /* font-size: -0.4rem; */
+}
+
+.gestionar-submenu li a{
+    padding: 5px;
+}
+
+.gestionar-checkbox {
     display: none;
 }
-.subnavegacion li a{
+
+.gestionar-checkbox:checked ~ .gestionar-submenu {
     display: block;
-    padding: 5px;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    
+    background-color:rgb(67, 67, 190);
 }
 
-.subnavegacion li a:hover {
-    background-color: #cae8d5;
-}
-.navegacion li:hover .subnavegacion {
-    display: block;
-    /* padding: 5px; */
 
-}
 
 .cerrarSesion {
-  padding-top: 5%;
   font-size: 14px;
   display: flex;
   flex-flow: column;
@@ -101,6 +143,19 @@ a:hover,a.active{
   align-items: center;
 }
 
+main {
+    grid-area: main;
+    background-color: #FFFFFF;    
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+     justify-content: center; 
+    align-items: center;
+}
 
 /*Texto inicial*/
 
@@ -369,7 +424,7 @@ a:hover,a.active{
     background:#e6e6e6;
     border-radius:8px;
     box-shadow:0 0 40px -10px #000;
-    /* padding:10px 20px; */
+    padding:10px 20px;
 }
 
 .anadirClientes input {
@@ -439,5 +494,9 @@ a:hover,a.active{
     width: 100%;
 }
 footer {
-    font-size: 12px;
+    grid-area: footer;
+    background-color: #292A3A;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
 } 
