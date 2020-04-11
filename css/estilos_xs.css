@@ -1,5 +1,5 @@
 :root {
-    font-family:  'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     --color-menu: rgb(41, 42, 58);
 }
@@ -15,24 +15,20 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-areas: 
-        "header header"
-        "main   main"
-        "footer footer"
-    ;
+    grid-template-areas: "header header" "main   main" "footer footer";
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto 1fr auto;
 }
 
-html{
+html {
     min-height: 100%;
 }
 
-header{
+header {
     grid-area: header;
     background-color: #292A3A;
     font-size: 14px;
-    color: white; 
+    color: white;
     box-shadow: 0 0 20px 4px black;
     display: grid;
     grid-template-columns: 20% 1fr auto;
@@ -43,8 +39,8 @@ header{
     align-self: center;
 }
 
-.zona-logo > a >img {
-     width: 100%; 
+.zona-logo>a>img {
+    width: 100%;
 }
 
 .zona-botones {
@@ -69,15 +65,13 @@ a {
     grid-column: 3;
 }
 
-
-
 .hamburguesa-checkbox {
     display: none;
 }
 
 .hamburguesa-label {
     font-size: 30px;
-    color:white;
+    color: white;
     float: right;
     line-height: 80px;
     margin-right: 40px;
@@ -85,17 +79,17 @@ a {
     display: block;
 }
 
-.hamburguesa-checkbox:checked ~ nav {
+.hamburguesa-checkbox:checked~nav {
     left: 0;
-} 
+}
 
 nav {
     position: fixed;
     width: 50%;
     height: 100vh;
     background-color: var(--color-menu);
-    top:80px;
-    left:-100%;
+    top: 80px;
+    left: -100%;
     text-align: center;
     transition: left .5s;
     font-size: 1.4rem;
@@ -107,7 +101,7 @@ nav ul li {
     margin: 1rem 0;
 }
 
-a:hover,a.active{
+a:hover, a.active {
     background: none;
     color: #292A3A;
 }
@@ -120,7 +114,7 @@ a:hover,a.active{
     /* font-size: -0.4rem; */
 }
 
-.gestionar-submenu li a{
+.gestionar-submenu li a {
     padding: 5px;
 }
 
@@ -128,24 +122,22 @@ a:hover,a.active{
     display: none;
 }
 
-.gestionar-checkbox:checked ~ .gestionar-submenu {
+.gestionar-checkbox:checked~.gestionar-submenu {
     display: block;
-    background-color:rgb(67, 67, 190);
+    background-color: rgb(67, 67, 190);
 }
 
-
-
 .cerrarSesion {
-  font-size: 14px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+    font-size: 14px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     grid-area: main;
-    background-color: #FFFFFF;    
+    background-color: #FFFFFF;
 }
 
 section {
@@ -153,7 +145,7 @@ section {
     height: 100%;
     display: flex;
     flex-direction: row;
-     justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
@@ -165,17 +157,17 @@ section {
     font-size: 12px;
 }
 
-
 /*Inicion de Sesion*/
-.indentificacion{
+
+.indentificacion {
     text-align: center;
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:20px 30px;
-    max-width:calc(100vw - 40px);
-    box-sizing:border-box;
-    align-items: center; 
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    align-items: center;
     justify-content: center;
 }
 
@@ -188,43 +180,42 @@ section {
 .indentificacion .imagen img {
     width: 100px;
 }
+
 .indentificacion>form {
-    
     justify-content: center;
 }
+
 .indentificacion #enviar {
     background-color: #292A3A;
-    color:white;
+    color: white;
 }
 
 .indentificacion #cambiar {
     background-color: #292A3A;
-    color:white;
+    color: white;
 }
 
-
 .indentificacion input {
-    padding:5px;
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    padding: 5px;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 /*Registrar Usuario*/
 
-.registrarte{
+.registrarte {
     text-align: center;
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:20px 30px;
-    max-width:calc(100vw - 40px);
-    box-sizing:border-box;
-    align-items: center; 
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    align-items: center;
     justify-content: center;
-    
 }
 
 .registrarte .imagen {
@@ -237,7 +228,7 @@ section {
     width: 100px;
 }
 
-.registrarte>form >div {
+.registrarte>form>div {
     padding: 1%;
 }
 
@@ -247,26 +238,28 @@ section {
     justify-content: center;
     align-items: center;
     width: 80%;
-
 }
 
 .registrarte input {
-    width:100%;
-    padding:10px;
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 /*Cuotas*/
+
 .cuotas {
     height: 100%;
 }
+
 .TituloCuota {
     text-align: center;
 }
+
 .cuotas .basica {
     display: flex;
     justify-content: center;
@@ -276,9 +269,9 @@ section {
 }
 
 .cuotas ul {
-
     list-style: none;
 }
+
 .cuotas .avanzada {
     display: flex;
     justify-content: center;
@@ -296,10 +289,12 @@ section {
 }
 
 /* Estilos Menu de ociones*/
+
 .clientes {
     display: flex;
     flex-flow: column;
 }
+
 .descargas {
     flex-flow: row;
     justify-content: center;
@@ -307,196 +302,155 @@ section {
 }
 
 #descargaPdf img {
-    width: 50px; height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 #copia img {
-    width: 50px; height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 #anadir img {
-    width: 50px; height: 50px;
-
+    width: 30px;
+    height: 30px;
 }
-/*menu Opciones*/
-#descargaPdf img {
-    width: 30px; height: 30px;
-}
-    
-#descargaPdf:hover {
-    border-style: outset;
-    } 
-#copia {
-    grid-area: Descargas;
-
-}
-
-#copia img {
-    width: 30px; height: 30px;
-
-}
-     
-#copia:hover {
-    border-style: outset;
-
-}
-    
-#anadir {
-    grid-area: Descargas;
-}
-    
-#anadir img {
-    width: 30px; height: 30px;
-
-
-}
-
-#anadir:hover {
-    border-style: outset;
-
-} 
-
-
 
 /*Ver Clientes*/
+
 #contenedor {
     float: left;
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:5px 10px;
-    max-width:calc(100vw - 40px);
-    box-sizing:border-box;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 5px 10px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
 }
 
-
- #contenidos {
- display: flex;
- flex-flow: column;
-
-}
-
-
-
- #contenidos1 {
+#contenidos {
     display: flex;
     flex-flow: column;
 }
 
-#contenedor #contenedor1 >#columna1,#columna2,#columna3 {
+#contenidos1 {
+    display: flex;
+    flex-flow: column;
+}
+
+#contenedor #contenedor1>#columna1, #columna2, #columna3 {
     display: flex;
     flex-flow: row;
-} 
+}
 
 #boton {
     display: flex;
     flex-flow: row;
 }
 
-
 /*Modificar Clientes*/
 
 .Modificar {
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:10px 20px;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 10px 20px;
 }
 
 .Modificar input {
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 .Modificar .enviar {
     grid-area: enviar;
     width: 100%;
     background-color: #292A3A;
-    color:white;
+    color: white;
 }
 
-
 /*Añadir clientes*/
-.anadirClientes{
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:10px 20px;
+
+.anadirClientes {
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 10px 20px;
 }
 
 .anadirClientes input {
-
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 .anadirClientes .enviar {
     grid-area: enviar;
     width: 100%;
     background-color: #292A3A;
-    color:white;
-
+    color: white;
 }
 
 /*Gestion Mensualidades*/
+
 .ModificarMensualidades {
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:10px 20px;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 10px 20px;
     text-align: center;
 }
 
 .ModificarMensualidades input {
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 .ModificarMensualidades .enviar {
     background-color: #292A3A;
-    color:white;
+    color: white;
     width: 100%;
 }
 
 /*Añadir Mensualidades*/
 
-.anadirMensualidad{
+.anadirMensualidad {
     text-align: center;
-    background:#e6e6e6;
-    border-radius:8px;
-    box-shadow:0 0 40px -10px #000;
-    padding:10px 30px;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 10px 30px;
     display: flex;
     flex-flow: column;
     justify-content: center;
 }
 
 .anadirMensualidad input {
-    background:none;
-    outline:none;
-    border:0;
-    transition:all .3s;
-    border-bottom:2px solid #bebed2;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2;
 }
 
 .anadirMensualidad .enviar {
     background-color: #292A3A;
-    color:white;
+    color: white;
     width: 100%;
 }
+
 footer {
     grid-area: footer;
     background-color: #292A3A;
     color: white;
     text-align: center;
     font-size: 1.5rem;
-} 
+}
