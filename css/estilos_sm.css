@@ -28,32 +28,6 @@
     margin: auto;
 }
 
-/*Cuotas*/
-
-.cuotas {
-    width: 100%;
-    margin: 15px;
-    padding: 10px;
-    display: grid;
-    grid-template-areas: "titulo" "basica" "avzanda" "ultra";
-}
-
-.cuotas .TituloCuota {
-    grid-area: titulo;
-}
-
-.cuotas .basica {
-    grid-area: basica;
-}
-
-.cuotas .avanzadas {
-    grid-area: avanzada;
-}
-
-.cuotas .ultra {
-    grid-area: ultra;
-}
-
 /*tabla clientes*/
 
 .clientes {

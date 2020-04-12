@@ -251,42 +251,162 @@ section {
 }
 
 /*Cuotas*/
-
 .cuotas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+/*Basica*/
+.basica {
+    display: flex;
+    flex-flow: column;
+    height: 30%;
+    padding: 5%;
+}
+
+.titulo-precioB {
+    text-align: center;
+    background-color: blueviolet;
+}
+
+.titulo-precioB h1 {
+    color:white;
+}
+
+.titulo-precioB p{
+    color:yellow;
+}
+
+.b-incluye {
+    text-align: center;
+    color:grey;
     height: 100%;
 }
 
-.TituloCuota {
-    text-align: center;
-}
-
-.cuotas .basica {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-    background-color: lightcoral;
-}
-
-.cuotas ul {
+.b-incluye ul {
     list-style: none;
+    height: 100%;
 }
 
-.cuotas .avanzada {
+.b-incluye li {
+    background-color: khaki;
+    border-bottom: 1px solid black;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-    flex-flow: column;
-    background-color: lightcyan;
+    height: 50%;
+}
+.b-incluye button {
+    width: 30%;
+    height: 40%;
+    background-color:  blueviolet;
+    border-radius: 6px;
+    color:white;
 }
 
-.cuotas .ultra {
+/*Avanzada*/
+.avanzada {
+    padding:8% 5%;
     display: flex;
+    flex-flow: column;
+    height: 50%;
+}
+
+.titulo-precioA {
+    text-align: center;
+    background-color: black;
+}
+
+.titulo-precioA h1 {
+    color:white;
+}
+
+.titulo-precioA p{
+    color:red;
+}
+
+.a-incluye {
+    text-align: center;
+    color:grey;
+    height: 100%;
+}
+
+.a-incluye ul {
+    list-style: none;
+    height: 100%;
+}
+
+.a-incluye li {
+    background-color: khaki;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-    flex-flow: column;
-    background-color: lightgreen;
+    height: 25%;
 }
+
+.a-incluye button {
+    width: 30%;
+    height: 20%;
+    background-color:  black;
+    border-radius: 6px;
+    color:white;
+} 
+
+/*Ultra*/
+ .ultra {
+    padding:6% 5%;
+    display: flex;
+    flex-flow: column;
+    height: 50%;
+} 
+
+.titulo-precioU {
+    text-align: center;
+    background-color: #06DDE8;
+}
+
+.titulo-precioU h1 {
+    color: white;
+}
+
+.titulo-precioU p {
+    color: #01B2B1;
+}
+
+.u-incluye {
+    text-align: center;
+    color:grey;
+    height: 100%;
+}
+
+.u-incluye ul {
+    list-style: none;
+    height: 100%;
+}
+
+.u-incluye li {
+    background-color: khaki;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+}
+
+
+.u-incluye button {
+    width: 30%;
+    height: 20%;
+    background-color:  #06DDE8;
+    border-radius: 5px;
+    color:white;
+}  
 
 /* Estilos Menu de ociones*/
 

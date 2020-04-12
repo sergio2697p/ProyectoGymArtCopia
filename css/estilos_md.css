@@ -95,8 +95,60 @@ nav ul li {
 }
 
 /*Cuotas*/
-
 .cuotas {
+    display: flex;
+    flex-flow: row;
+}
+
+.basica {
+    display: flex;
+    flex-flow: column;
+    height: 80%;
+    width: 30%;
+    padding: 5%;
+}
+
+.b-incluye button {
+    width: 100%;
+    height: 30%;
+    background-color:  blueviolet;
+    border-radius: 6px;
+    color:white;
+}
+
+.avanzada {
+    padding:5%;
+    display: flex;
+    flex-flow: column;
+    height: 80%;
+    width: 40%;
+
+}
+
+.a-incluye button {
+    width: 100%;
+    height: 30%;
+    background-color:  black;
+    border-radius: 6px;
+    color:white;
+} 
+
+
+.ultra {
+    padding: 5%;
+    height: 80%;
+    width: 40%;
+}
+
+.u-incluye button {
+    width: 100%;
+    height: 30%;
+    background-color:  #06DDE8;
+    border-radius: 5px;
+    color:white;
+} 
+
+/* .cuotas {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -128,7 +180,7 @@ nav ul li {
 
 .cuotas .ultra {
     grid-area: ultra;
-}
+} */
 
 /* Estilos Menu de ociones*/
 

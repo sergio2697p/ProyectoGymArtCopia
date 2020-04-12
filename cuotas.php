@@ -25,7 +25,55 @@
     <main>
         <section>
             <div class="cuotas">
-                <h1 class="TituloCuota">TIPOS DE CUOTAS</h1>
+                <div class="basica">
+                    <div class="titulo-precioB">
+                        <h1>BASICA</h1>
+                        <p>29,90€/mes</p>
+                    </div>
+                    <div class="b-incluye">
+                        <ul>
+                            <li>Clases GYM</li>
+                            <li>Maquinas</li>
+                        </ul>
+                        <button>INSCRIBETE</button>
+                    </div>
+                </div>
+                <div class="avanzada">
+                    <div class="titulo-precioA">
+                        <h1>AVANZADA</h1>
+                        <p>36,50€/mes</p>
+                    </div>
+
+                    <div class="a-incluye">
+                        <ul>
+                            <li>Clases GYM</li>
+                            <li>Maquinas</li>
+                            <li>Sauna</li>
+                            <li>Piscina</li>
+                        </ul>
+                        <button>INSCRIBETE</button>
+                    </div>
+                </div>
+                <div class="ultra">
+                    <div class="titulo-precioU">
+                        <h1>ULTRA</h1>
+                        <p>50€/mes</p>
+                    </div>
+
+                    <div class="u-incluye">
+                        <ul>
+                            <li>Clases GYM</li>
+                            <li>Las respectivas clases de GYM</li>
+                            <li>Maquinas</li>
+                            <li>Entrenador personal</li>
+                        </ul>
+                        <button>INSCRIBETE</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <h1 class="TituloCuota">TIPOS DE CUOTAS</h1>
                 <div class="basica">
                     <h1>BASICA</h1>
                     <h2>Incluye:</h2>
@@ -58,8 +106,7 @@
                     </ul>
                     <h1>Precio de la Basica + el precio segun el entrenador</h1>
                     <p>*Gastos de matriculacion incluidos</p>
-                </div>
-            </div>
+                </div>-->
         </section>
     </main>
     <?php
