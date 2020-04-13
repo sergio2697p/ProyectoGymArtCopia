@@ -291,13 +291,20 @@ section {
 }
 
 .b-incluye li {
-    background-color: khaki;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 50%;
+}
+
+.b-incluye li:nth-child(odd) {
+    background-color: #c7c2c2;
+}
+
+.b-incluye li:nth-child(even) {
+    background-color: #ffffff;
 }
 .b-incluye button {
     width: 30%;
@@ -340,13 +347,21 @@ section {
 }
 
 .a-incluye li {
-    background-color: khaki;
+    border: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 25%;
+}
+
+.a-incluye li:nth-child(odd) {
+    background-color: #c7c2c2;
+}
+
+.a-incluye li:nth-child(even) {
+    background-color: #ffffff;
 }
 
 .a-incluye button {
@@ -390,13 +405,20 @@ section {
 }
 
 .u-incluye li {
-    background-color: khaki;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 25%;
+}
+
+.u-incluye li:nth-child(odd) {
+    background-color: #c7c2c2;
+}
+
+.u-incluye li:nth-child(even) {
+    background-color: #ffffff;
 }
 
 
