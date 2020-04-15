@@ -3,6 +3,16 @@
     height: 50%;
 }
 
+/*Quienes Somos*/
+#tagDivPanorama {
+    width: 30%; 
+    height: 20%; 
+    position: absolute; 
+    top: 400px; 
+    left: 0; 
+    border: red solid 5px;
+}
+
 .Bienvenidos {
     display: grid;
     grid-template-areas: 

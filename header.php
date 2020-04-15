@@ -33,7 +33,7 @@ if (isset($_POST['cerrar-session'])) {
         } else {
         ?>
             <a class="boton-iniciar" href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESIÓN</a>
-            <a class="boton-registrarse" href="usuarios/registrar_usuario.php">REGISTRARSE</a>
+            <a class="boton-registrarse" href="/ProyectoGymArtCopia/usuarios/registrar_usuario.php">REGISTRARSE</a>
         <?php
         }
         ?>
@@ -47,7 +47,7 @@ if (isset($_POST['cerrar-session'])) {
         </label>
         <nav>
             <ul>
-                <li><a href="/ProyectoGymArtCopia/cuotas.php">CUOTAS</a></li>
+                <li><a href="/ProyectoGymArtCopia/cuotas.php">SERVICIOS</a></li>
 
                 <!-- Si hay $_SESSION que muestre el resto de apartados de nuestra pagina -->
                 <?php
@@ -67,8 +67,8 @@ if (isset($_POST['cerrar-session'])) {
                 <?php
                 }
                 ?>
-                <li> <a href="">QUIENES SOMOS</a></li>
-                <li><a href="">CONTACTO</a></li>
+                <li> <a href="/ProyectoGymArtCopia/quienesSomos.php">QUIENES SOMOS</a></li>
+                <li><a href="/ProyectoGymArtCopia/contacto.php">CONTACTO</a></li>
             </ul>
         </nav>
     </div>

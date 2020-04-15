@@ -1,19 +1,34 @@
 <?php
 function iniciarSesion()
 {
-    $conexion = conectarUsuarios();
-    $usuario = $_POST['usuario'];
-    $contraseña = md5($_POST['contrasena']);
+    $errores = [];
+    if (empty($_POST['usuario'])) {
+        $errores[] = 'Tiene que rellenar el campo';
+    }
 
-    $select_usuario = "SELECT Nombre FROM usuarios WHERE Nombre = '$usuario' AND Contrasena ='$contraseña'";
-    $resultado = $conexion->query($select_usuario);
+    if (empty($_POST['contrasena'])) {
+        $errores[] = 'Tiene que rellenar el campo';
+    }
+    
 
-
-    if ($resultado->fetch_row()) {
-        $_SESSION['usuario'] = $usuario;
-        header('Location:/ProyectoGymArtCopia/index.php');
+    if ($errores) {
+        mostrar_errores($errores);
+        unset($errores);
     } else {
-        echo 'No se ha establecido conexion';
+        $conexion = conectarUsuarios();
+        $usuario = $_POST['usuario'];
+        $contraseña = md5($_POST['contrasena']);
+
+        $select_usuario = "SELECT Nombre FROM usuarios WHERE Nombre = '$usuario' AND Contrasena ='$contraseña'";
+        $resultado = $conexion->query($select_usuario);
+
+
+        if ($resultado->fetch_row()) {
+            $_SESSION['usuario'] = $usuario;
+            header('Location:/ProyectoGymArtCopia/index.php');
+        } else {
+            echo 'No se ha establecido conexion';
+        }
     }
 }
 
@@ -35,21 +50,42 @@ function maximoCodigoUsuario()
 
 function registrarUsuarios()
 {
-    $conexion = conectarUsuarios();
-    $codigo = maximoCodigoUsuario();
-    $nick = $_POST["nick"];
-    $contraseña = md5($_POST["contrasena"]);
-    $correo = $_POST["mail"];
+    $errores = [];
+    if (empty($_POST['nick'])) {
+        $errores[] = 'El nombre esta mal';
+    }
 
-    $insert = "INSERT INTO usuarios (CodigoUsuario,Nombre,Contrasena,Email) VALUES($codigo,'$nick','$contraseña','$correo')";
-    $resultado = $conexion->query($insert);
+    if (empty($_POST['nick']) >= 20) {
+        $errores[] = 'Tiene que tener mas de dos caracteres';
+    }
+    if (strlen($_POST['contrasena']) >= 2) {
+        $errores[] = 'La contraseña tiene que tener como minimo 2 caracteres';
+    }
+    if (strlen($_POST['mail']) >= 2) {
+        $errores[] = 'El email tiene que tener como minimo 2 caracteres';
+    }
 
-    if ($resultado != null) {
-        echo "<p>Usuario registrado correctamente<p>";
+    if ($errores) {
+        mostrar_errores($errores);
+        unset($errores);
     } else {
-        echo '<p>Error</p>';
+        $conexion = conectarUsuarios();
+        $codigo = maximoCodigoUsuario();
+        $nick = $_POST["nick"];
+        $contraseña = md5($_POST["contrasena"]);
+        $correo = $_POST["mail"];
+
+        $insert = "INSERT INTO usuarios (CodigoUsuario,Nombre,Contrasena,Email) VALUES($codigo,'$nick','$contraseña','$correo')";
+        $resultado = $conexion->query($insert);
+
+        if ($resultado != null) {
+            echo "<p>Usuario registrado correctamente<p>";
+        } else {
+            echo '<p>Error</p>';
+        }
     }
 }
+
 /*Funciones Requeridas para los clientes*/
 function maximoCodigoCliente()
 {
@@ -94,13 +130,27 @@ function verClientes()
         <?php
         $conexion = conectarUsuarios();
         $select_cliente = "SELECT * from clientes";
+
+        //para recorrer los id para los puntos
         $resultado = $conexion->query($select_cliente);
         while ($fila = $resultado->fetch_array()) {
         ?>
+
             <div id="contenidos1">
+
                 <div id="columna1"><?php echo "${fila['Nombre']}"; ?></div>
                 <div id="columna2"><?php echo "${fila['Apellidos']}"; ?></div>
-                <div id="columna3"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+                <?php
+                $contador = 0;
+                for ($i = 0; $i < 2; $i++) {
+                ?>
+                    <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador + $i ?>">
+                    <label for="eChkUsuario<?php echo $contador + $i ?>" class="tresbotones">...</label>
+                <?php
+                };
+                ?>
+                <div class="columna3 a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+
                 <div id="boton">
                     <form action="modificarClientes.php" method="POST">
                         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
@@ -109,7 +159,7 @@ function verClientes()
                             $_POST["id"];
                         }
                         ?>
-                        <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
+                        <a href="modificarClientes.php"><input type="submit" class="a-ocultar" name="editar_cliente" value="modificar"></a>
                     </form>
                     <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
@@ -118,12 +168,18 @@ function verClientes()
                             $_POST["id"];
                         }
                         ?>
-                        <input type="submit" name="borrar" value="borrar">
+                        <input type="submit" class="a-ocultar" name="borrar" value="borrar">
+
+
                     </form>
+
                 </div>
             </div>
+
     <?php
+
         };
+
         if (isset($_POST["borrar"])) {
             borrarClientes();
         }

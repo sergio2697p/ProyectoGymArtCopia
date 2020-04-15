@@ -1,7 +1,7 @@
 <?php
 include '../BBDD/conexionBBDD.php';
 include '../BBDD/peticiones.php';
-
+include '../BBDD/funciones.php';
 if ($_POST) {
     registrarUsuarios();
 } else {
@@ -37,26 +37,19 @@ if ($_POST) {
                     <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
                         <div>
                             <label>Nick: </label>
-                            <input type="text" name="nick" placeholder="Nombre">
+                            <input type="text" name="nick" placeholder="Nombre" <?php mostrar_campo('nick') ?> required>
                         </div>
                         <div>
                             <label>Contraseña: </label>
-                            <input type="password" name="contrasena" placeholder="contraseña">
+                            <input type="password" name="contrasena" placeholder="contraseña" <?php mostrar_campo('contrasena') ?> required>
                         </div>
                         <div>
                             <label>Repita contraseña: </label>
-                            <input type="password" name="contrasena" placeholder="repite contraseña">
+                            <input type="password" name="contrasena" placeholder="repite contraseña" <?php mostrar_campo('contrasena') ?> required>
                         </div>
                         <div>
                             <label>Correo Electronico:</label>
-                            <input type="text" name="mail" placeholder="Introduzca su correo electronico">
-                        </div>
-
-                        <label>Tipo de Cuota:</label>
-                        <div class="TipoCuota">
-                            <input type="radio" name="Cuota" value="1" checked>basica
-                            <input type="radio" name="Cuota" value="2">Avanzada
-                            <input type="radio" name="Cuota" value="3">Ultra
+                            <input type="text" name="mail" placeholder="Introduzca su correo electronico" <?php mostrar_campo('mail') ?> required>
                         </div>
 
                         <input type="submit" name="registrar_usuario" value="Registrate">

@@ -8,10 +8,14 @@ session_start();
     <meta charset="UTF-8">
     <title>Inicio de Sesion</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="../css/estilos_xs.css"><!--movil-->
-    <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css"><!--IPAD vertical-->
-    <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css"><!--IPAD horizontal-->
-    <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css"><!--monitor paronamico-->
+    <link rel="stylesheet" href="../css/estilos_xs.css">
+    <!--movil-->
+    <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
+    <!--IPAD vertical-->
+    <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css">
+    <!--IPAD horizontal-->
+    <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
+    <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -21,6 +25,8 @@ session_start();
     include "../header.php";
     include '../BBDD/conexionBBDD.php';
     include '../BBDD/peticiones.php';
+    include '../BBDD/funciones.php';
+
 
     if ($_POST) {
         iniciarSesion();
@@ -36,11 +42,11 @@ session_start();
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <div>
                             <label>Usuario:</label>
-                            <input id="usuario" type="text" name="usuario">
+                            <input id="usuario" type="text" name="usuario" <?php mostrar_campo('usuario') ?> required>
                         </div>
                         <div>
                             <label>Contrasena:</label>
-                            <input id="contrasena1" type="password" name="contrasena">
+                            <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
                         </div>
                         <input type="submit" id="enviar" value="Iniciar sesion">
                         <a href="cambiar_contrasena.php"><input type="button" id="cambiar" value="¿Olvidaste la contrasena?"></a>

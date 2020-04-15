@@ -157,6 +157,21 @@ section {
     font-size: 12px;
 }
 
+/*Quienes Somos*/
+.mapa {
+    height: 50%;
+    width: 100%;
+}
+
+#tagDivPanorama {
+    width: 30%; 
+    height: 20%; 
+    position: absolute; 
+    top: 100px; 
+    left: 0; 
+    border: red solid 5px;
+}
+
 /*Inicion de Sesion*/
 
 .indentificacion {
@@ -232,14 +247,6 @@ section {
     padding: 1%;
 }
 
-.registrarte .TipoCuota {
-    padding: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-}
-
 .registrarte input {
     width: 100%;
     padding: 10px;
@@ -251,9 +258,10 @@ section {
 }
 
 /*Cuotas*/
-.cuotas {
+.servicios {
     width: 100%;
     height: 100%;
+    text-align: center;
     display: flex;
     flex-flow: column;
 }
@@ -306,13 +314,7 @@ section {
 .b-incluye li:nth-child(even) {
     background-color: #ffffff;
 }
-.b-incluye button {
-    width: 30%;
-    height: 40%;
-    background-color:  blueviolet;
-    border-radius: 6px;
-    color:white;
-}
+
 
 /*Avanzada*/
 .avanzada {
@@ -364,13 +366,6 @@ section {
     background-color: #ffffff;
 }
 
-.a-incluye button {
-    width: 30%;
-    height: 20%;
-    background-color:  black;
-    border-radius: 6px;
-    color:white;
-} 
 
 /*Ultra*/
  .ultra {
@@ -421,14 +416,7 @@ section {
     background-color: #ffffff;
 }
 
-
-.u-incluye button {
-    width: 30%;
-    height: 20%;
-    background-color:  #06DDE8;
-    border-radius: 5px;
-    color:white;
-}  
+  
 
 /* Estilos Menu de ociones*/
 
@@ -483,6 +471,19 @@ section {
 #contenedor #contenedor1>#columna1, #columna2, #columna3 {
     display: flex;
     flex-flow: row;
+}
+
+.boton-checkbox {
+    display: none;
+}
+
+.boton-checkbox ~ [class*="a-ocultar"]{
+    display: none;
+}
+
+
+.boton-checkbox:checked ~ [class*="a-ocultar"]{
+    display: initial;
 }
 
 #boton {

@@ -65,7 +65,12 @@ nav ul li {
 .gestionar-submenu>li a {
     line-height: 30px;
 }
+/*Quienes Somos*/
+#tagDivPanorama {
+    top: 300px; 
+}
 
+/*Texto Inicial*/
 .Bienvenidos {
     display: grid;
     grid-template-areas: "h1 h1" "metodo genius";
@@ -96,93 +101,49 @@ nav ul li {
     margin: auto;
 }
 
-/*Cuotas*/
-.cuotas {
-    display: flex;
-    flex-flow: row;
+/*Servicios*/
+.servicios {
+    display: grid;
+    grid-template-areas: 
+    "informacion    informacion     informacion     "
+    "basica         avanzada        ultra";
+    grid-auto-rows: auto 1fr auto;
+    grid-template-columns: auto auto auto;
+}
+
+.servicios .informacion {
+    grid-area: informacion;
+    text-align: center;
+    width: 100%;
+    height: 10%;
 }
 
 .basica {
-    display: flex;
-    flex-flow: column;
+    grid-area: basica;
+    /* display: flex;
+    flex-flow: column; */
     height: 80%;
-    width: 30%;
+    width: 100%;
     padding: 5%;
 }
 
-.b-incluye button {
-    width: 100%;
-    height: 30%;
-    background-color:  blueviolet;
-    border-radius: 6px;
-    color:white;
-}
-
 .avanzada {
+    grid-area: avanzada;
     padding:5%;
     display: flex;
     flex-flow: column;
     height: 80%;
-    width: 40%;
+    width: 100%;
 
 }
-
-.a-incluye button {
-    width: 100%;
-    height: 30%;
-    background-color:  black;
-    border-radius: 6px;
-    color:white;
-} 
-
 
 .ultra {
+    grid-area: ultra;
     padding: 5%;
     height: 80%;
-    width: 40%;
-}
-
-.u-incluye button {
     width: 100%;
-    height: 30%;
-    background-color:  #06DDE8;
-    border-radius: 5px;
-    color:white;
-} 
-
-/* .cuotas {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: grid;
-    grid-template-areas: "Titulo     Titulo      Titulo" "basica     avanzada    ultra";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
 }
 
-.TituloCuota {
-    grid-area: Titulo;
-    text-align: center;
-    line-height: 200px;
-}
-
-.cuotas .basica {
-    grid-area: basica;
-    width: 33, 3%;
-}
-
-.cuotas ul {
-    margin: 5%;
-}
-
-.cuotas .avanzada {
-    grid-area: avanzada;
-    width: 33, 3%;
-}
-
-.cuotas .ultra {
-    grid-area: ultra;
-} */
 
 /* Estilos Menu de ociones*/
 

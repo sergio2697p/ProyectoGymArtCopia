@@ -24,7 +24,11 @@
     ?>
     <main>
         <section>
-            <div class="cuotas">
+
+            <div class="servicios">
+                <div class="informacion">
+                    <p>Esto son los distintos planes que tiene nuestro centro deportivo:</p>
+                </div>
                 <div class="basica">
                     <div class="titulo-precioB">
                         <h1>BASICA</h1>
@@ -35,7 +39,6 @@
                             <li>Clases GYM</li>
                             <li>Maquinas</li>
                         </ul>
-                        <button>INSCRIBETE</button>
                     </div>
                 </div>
                 <div class="avanzada">
@@ -51,7 +54,6 @@
                             <li>Sauna</li>
                             <li>Piscina</li>
                         </ul>
-                        <button>INSCRIBETE</button>
                     </div>
                 </div>
                 <div class="ultra">
@@ -67,46 +69,9 @@
                             <li>Maquinas</li>
                             <li>Entrenador personal</li>
                         </ul>
-                        <button>INSCRIBETE</button>
                     </div>
                 </div>
             </div>
-
-
-            <!-- <h1 class="TituloCuota">TIPOS DE CUOTAS</h1>
-                <div class="basica">
-                    <h1>BASICA</h1>
-                    <h2>Incluye:</h2>
-                    <ul>
-                        <li>Las respectivas clases de GYM</li>
-                        <li>Maquinas</li>
-                    </ul>
-                    <h1>29,90€</h1>
-                    <p>*Gastos de matriculacion incluidos</p>
-                </div>
-                <div class="avanzada">
-                    <h1>AVANZADA</h1>
-                    <h2>Incluye:</h2>
-                    <ul>
-                        <li>Las respectivas clases de GYM</li>
-                        <li>Maquinas</li>
-                        <li>Sauna</li>
-                        <li>Piscina</li>
-                    </ul>
-                    <h1>36,50€</h1>
-                    <p>*Gastos de matriculacion incluidos</p>
-                </div>
-                <div class="ultra">
-                    <h1>ULTRA</h1>
-                    <h2>Incluye:</h2>
-                    <ul>
-                        <li>Las respectivas clases de GYM</li>
-                        <li>Maquinas</li>
-                        <li>Entrenador personal</li>
-                    </ul>
-                    <h1>Precio de la Basica + el precio segun el entrenador</h1>
-                    <p>*Gastos de matriculacion incluidos</p>
-                </div>-->
         </section>
     </main>
     <?php
