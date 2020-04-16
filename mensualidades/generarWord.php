@@ -1,34 +1,51 @@
 <?php
-include("../BBDD/conexionBBDD.php");
-header('Content-type: application/vnd.ms-word');
-$hoy = date("Y-m-d");
-header("Content-Disposition: attachment; filename=Lista de mensualidades $hoy.doc");
-?>
-<h1>Lista de Mensualidades</h1>
-<table border='1' cellpadding='1' cellspacing='1'>
-  <tr>
-    <td><strong>Nombre</strong></td>
-    <td><strong>Dias de la Semana</strong></td>
-    <td><strong>Precio</strong></td>
-  </tr>
-  <?php
-  $conexion = conectarUsuarios();
-  $select_cliente = "SELECT * from mensualidades";
-  $resultado = $conexion->query($select_cliente);
-  while ($fila = $resultado->fetch_array()) {
-    //         
-  ?>
-    <tr>
-      <td><?php echo "${fila['nombreMen']}"; 
-          ?></td>
-      <td><?php echo "${fila['diasSemana']}"; 
-          ?></td>
-      <td><?php echo "${fila['precio']}"; 
-          ?></td>
-    </tr>
-  <?php
-  }
-  ?>
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/peticiones.php';
 
-</table>
-<strong style="color:red;">Fecha: <?php echo $hoy = date("d-m-Y H:i:s"); ?></strong>
+header("Content-type: application/vnd.ms-word");
+header("Content-Disposition:attachment; Filename=ListadoMensualidades.doc");
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="Windows-1252" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 align="center">LISTADO DE CLIENTES</h1>
+  <table border="1" align="center">
+    <tr>
+      <td>Nombre</td>
+      <td>Dias de la semana</td>
+      <td>Precio</td>
+    </tr>
+    <!-- <div>
+    <div>Nombre</div>
+    <div>Apellidos</div>
+    <div>Correo</div>
+  </div> -->
+
+    <?php
+    $conexion = conectarUsuarios();
+    $select_cliente = "SELECT * from mensualidades";
+
+    //para recorrer los id para los puntos
+    $resultado = $conexion->query($select_cliente);
+    while ($fila = $resultado->fetch_array()) {
+    ?>
+      <tr>
+        <td><?php echo "${fila['nombreMen']}"; ?></td>
+        <td><?php echo "${fila['diasSemana']}"; ?></td>
+        <td><?php echo "${fila['precio']}"; ?></td>
+      </tr>
+    <?php
+    }
+    ?>
+  </table>
+</body>
+
+</html>

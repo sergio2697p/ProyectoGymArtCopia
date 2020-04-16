@@ -31,7 +31,7 @@ $sql = 'SELECT * FROM mensualidades';
 $resultado = $conexion->query($sql);
 while ($fila = $resultado->fetch_array()) {
     $id = $fila[0];
-    $texto = 'Nombre: ' . $fila["nombreMen"] . ' Apellidos: ' . $fila["diasSemana"] . ' Precio: ' . $fila["precio"].' euros';
+    $texto = 'Nombre: ' . $fila["nombreMen"] . ' Dias de la Semana: ' . $fila["diasSemana"] . ' Precio: ' . $fila["precio"].' euros';
 
     //escribimos en la pagina   
     $pdf->Write(10, $texto);

@@ -52,17 +52,17 @@ function registrarUsuarios()
 {
     $errores = [];
     if (empty($_POST['nick'])) {
-        $errores[] = 'El nombre esta mal';
+        $errores[] = '<p>El nombre esta mal</p>';
     }
 
-    if (empty($_POST['nick']) >= 20) {
-        $errores[] = 'Tiene que tener mas de dos caracteres';
+    if (strlen($_POST['nick']) <= 20) {
+        $errores[] = '<p>Tiene que tener mas de dos caracteres</p>';
     }
-    if (strlen($_POST['contrasena']) >= 2) {
-        $errores[] = 'La contraseña tiene que tener como minimo 2 caracteres';
+    if (strlen($_POST['contrasena']) <= 2) {
+        $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
     }
-    if (strlen($_POST['mail']) >= 2) {
-        $errores[] = 'El email tiene que tener como minimo 2 caracteres';
+    if (strlen($_POST['mail']) <= 2) {
+        $errores[] = '<p>El email tiene que tener como minimo 2 caracteres</p>';
     }
 
     if ($errores) {

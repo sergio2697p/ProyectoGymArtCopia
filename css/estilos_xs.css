@@ -101,32 +101,6 @@ nav ul li {
     margin: 1rem 0;
 }
 
-a:hover, a.active {
-    background: none;
-    color: #292A3A;
-}
-
-/*Segundo menu*/
-
-.gestionar-submenu {
-    display: none;
-    list-style: none;
-    /* font-size: -0.4rem; */
-}
-
-.gestionar-submenu li a {
-    padding: 5px;
-}
-
-.gestionar-checkbox {
-    display: none;
-}
-
-.gestionar-checkbox:checked~.gestionar-submenu {
-    display: block;
-    background-color: rgb(67, 67, 190);
-}
-
 .cerrarSesion {
     font-size: 14px;
     display: flex;

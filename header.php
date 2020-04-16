@@ -47,28 +47,25 @@ if (isset($_POST['cerrar-session'])) {
         </label>
         <nav>
             <ul>
-                <li><a href="/ProyectoGymArtCopia/cuotas.php">SERVICIOS</a></li>
+
 
                 <!-- Si hay $_SESSION que muestre el resto de apartados de nuestra pagina -->
                 <?php
                 if ($_SESSION) {
                 ?>
-                    <li>
-                        <input type="checkbox" id="eChkGestionar" class="gestionar-checkbox">
-                        <label for="eChkGestionar" class="gestionar-label">
-                            GESTIONAR
-                        </label>
-                        <ul class="gestionar-submenu">
-                            <li><a href="/ProyectoGymArtCopia/clientes/verClientes.php">Clientes</a></li>
-                            <li><a href="/ProyectoGymArtCopia/mensualidades/verMensualidades.php">Mensualidades</a></li>
-                            <li><a href="/ProyectoGymArtCopia/pagos/gestionarPagos.php"> Pagos</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/ProyectoGymArtCopia/clientes/verClientes.php">Clientes</a></li>
+                    <li><a href="/ProyectoGymArtCopia/mensualidades/verMensualidades.php">Mensualidades</a></li>
+                    <li><a href="/ProyectoGymArtCopia/pagos/gestionarPagos.php"> Pagos</a></li>
+                <?php
+                } else {
+                ?>
+                    <li><a href="/ProyectoGymArtCopia/cuotas.php">SERVICIOS</a></li>
+                    <li> <a href="/ProyectoGymArtCopia/quienesSomos.php">QUIENES SOMOS</a></li>
+                    <li><a href="/ProyectoGymArtCopia/contacto.php">CONTACTO</a></li>
                 <?php
                 }
                 ?>
-                <li> <a href="/ProyectoGymArtCopia/quienesSomos.php">QUIENES SOMOS</a></li>
-                <li><a href="/ProyectoGymArtCopia/contacto.php">CONTACTO</a></li>
+
             </ul>
         </nav>
     </div>
