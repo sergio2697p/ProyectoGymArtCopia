@@ -9,7 +9,7 @@ function iniciarSesion()
     if (empty($_POST['contrasena'])) {
         $errores[] = 'Tiene que rellenar el campo';
     }
-    
+
 
     if ($errores) {
         mostrar_errores($errores);
@@ -50,31 +50,50 @@ function maximoCodigoUsuario()
 
 function registrarUsuarios()
 {
+    $conexion = conectarUsuarios();
+    $nick = $_POST["nick"];
+    $contraseña = md5($_POST["contrasena"]);
+    $contraseñaRepetida = md5("contrasena-repetida");
+    $correo = $_POST["mail"];
+
     $errores = [];
     if (empty($_POST['nick'])) {
         $errores[] = '<p>El nombre esta mal</p>';
     }
 
-    if (strlen($_POST['nick']) <= 20) {
-        $errores[] = '<p>Tiene que tener mas de dos caracteres</p>';
+    if (strlen($_POST['nick']) <= 3) {
+        $errores[] = '<p>Tiene que tener mas de 3 caracteres</p>';
     }
     if (strlen($_POST['contrasena']) <= 2) {
         $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
     }
+
+    if ($nick == $contraseñaRepetida) {
+        // "";
+    } else {
+        $errores[] = "La contraseñas tienen que ser identicas";
+    }
     if (strlen($_POST['mail']) <= 2) {
         $errores[] = '<p>El email tiene que tener como minimo 2 caracteres</p>';
+    }
+
+    if (validad_email($correo)) {
+        //"";
+    } else {
+        $errores[] = '<p>Correo no valido</p>';
+    }
+
+    $usuario_unico = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
+    $resultado_select = $conexion->query($usuario_unico);
+    if ($resultado_select != null) {
+        $errores[] = "No se puede crear un usuario con el mismo nombre ";
     }
 
     if ($errores) {
         mostrar_errores($errores);
         unset($errores);
     } else {
-        $conexion = conectarUsuarios();
         $codigo = maximoCodigoUsuario();
-        $nick = $_POST["nick"];
-        $contraseña = md5($_POST["contrasena"]);
-        $correo = $_POST["mail"];
-
         $insert = "INSERT INTO usuarios (CodigoUsuario,Nombre,Contrasena,Email) VALUES($codigo,'$nick','$contraseña','$correo')";
         $resultado = $conexion->query($insert);
 
@@ -102,30 +121,17 @@ function maximoCodigoCliente()
     return $nuevo_id;
 }
 
-function maximoCodigoMensualidad()
-{
-    $conexion = conectarUsuarios();
-    //para insertar el nuevo id
-    //buscar en la BD el mayor id(max)
-    $sql = "SELECT MAX(id) FROM mensualidades";
-    $resultado = $conexion->query($sql);
-    //hay que utilizar row porque no le hemos dado nombre a la columna seleccionada
-    $fila = $resultado->fetch_row();
-    $max_id = $fila[0];
-    $nuevo_id = $max_id + 1;
-    unset($conexion);
-    return $nuevo_id;
-}
+
 
 function verClientes()
 {
 ?>
-    <div id="contenedor">
+    <div class="contenedor">
         <h1 class="ListadoClientes">LISTADO DE CLIENTES</h1>
-        <div id="contenidos">
-            <div id="columna1">Nombre</div>
-            <div id="columna2">Apellidos</div>
-            <div id="columna3">Correo</div>
+        <div class="contenidos">
+            <div class="contenidos-nombre">Nombre</div>
+            <div class="contenidos-apellidos">Apellidos</div>
+            <div class="contenidos-correo">Correo</div>
         </div>
         <?php
         $conexion = conectarUsuarios();
@@ -133,53 +139,33 @@ function verClientes()
 
         //para recorrer los id para los puntos
         $resultado = $conexion->query($select_cliente);
+        $contador = 0;
+
         while ($fila = $resultado->fetch_array()) {
+            $contador++;
         ?>
-
-            <div id="contenidos1">
-
-                <div id="columna1"><?php echo "${fila['Nombre']}"; ?></div>
-                <div id="columna2"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="contenidos1">
+                <div class="contenidos1-nombre"><?php echo "${fila['Nombre']}"; ?></div>
+                <div class="contenidos1-apellidos"><?php echo "${fila['Apellidos']}"; ?></div>
                 <?php
-                $contador = 0;
-                for ($i = 0; $i < 2; $i++) {
                 ?>
-                    <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador + $i ?>">
-                    <label for="eChkUsuario<?php echo $contador + $i ?>" class="tresbotones">...</label>
-                <?php
-                };
-                ?>
-                <div class="columna3 a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="contenidos1-correo a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
 
-                <div id="boton">
+                <div class="boton a-ocultar">
                     <form action="modificarClientes.php" method="POST">
                         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <?php
-                        if ($_POST) {
-                            $_POST["id"];
-                        }
-                        ?>
-                        <a href="modificarClientes.php"><input type="submit" class="a-ocultar" name="editar_cliente" value="modificar"></a>
+                        <input type="submit" name="editar_cliente" value="modificar">
                     </form>
                     <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <?php
-                        if ($_POST) {
-                            $_POST["id"];
-                        }
-                        ?>
-                        <input type="submit" class="a-ocultar" name="borrar" value="borrar">
-
-
+                        <input type="submit" name="borrar" value="borrar">
                     </form>
-
                 </div>
             </div>
-
     <?php
-
-        };
-
+        }
         if (isset($_POST["borrar"])) {
             borrarClientes();
         }
@@ -355,6 +341,22 @@ function verClientes()
         }
     }
 
+
+    function maximoCodigoMensualidad()
+    {
+        $conexion = conectarUsuarios();
+        //para insertar el nuevo id
+        //buscar en la BD el mayor id(max)
+        $sql = "SELECT MAX(id) FROM mensualidades";
+        $resultado = $conexion->query($sql);
+        //hay que utilizar row porque no le hemos dado nombre a la columna seleccionada
+        $fila = $resultado->fetch_row();
+        $max_id = $fila[0];
+        $nuevo_id = $max_id + 1;
+        unset($conexion);
+        return $nuevo_id;
+    }
+
     //parte de mensualidades
     function verMensualidades()
     {
@@ -379,20 +381,10 @@ function verClientes()
                     <div id="boton">
                         <form action="modificarMensualidad.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                            <?php
-                            if ($_POST) {
-                                $_POST["id"];
-                            }
-                            ?>
                             <a href="modificarClientes.php"><input type="submit" name="editar_cliente" value="modificar"></a>
                         </form>
                         <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                             <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                            <?php
-                            if ($_POST) {
-                                $_POST["id"];
-                            }
-                            ?>
                             <input type="submit" name="borrar" value="borrar">
                         </form>
                     </div>

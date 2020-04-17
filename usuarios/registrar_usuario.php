@@ -45,7 +45,7 @@ if ($_POST) {
                         </div>
                         <div>
                             <label>Repita contraseña: </label>
-                            <input type="password" name="contrasena" placeholder="repite contraseña" <?php mostrar_campo('contrasena') ?> required>
+                            <input type="password" name="contrasena-repetida" placeholder="repite contraseña" <?php mostrar_campo('contrasena') ?> required>
                         </div>
                         <div>
                             <label>Correo Electronico:</label>
@@ -54,6 +54,11 @@ if ($_POST) {
 
                         <input type="submit" name="registrar_usuario" value="Registrate">
                     </form>
+                    <?php
+                    if($_POST) {
+                        echo $errores;
+                    }
+                    ?>
                 </div>
             </section>
         </main>
