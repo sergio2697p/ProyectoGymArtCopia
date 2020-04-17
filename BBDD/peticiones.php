@@ -68,7 +68,7 @@ function registrarUsuarios()
         $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
     }
 
-    if ($nick == $contraseñaRepetida) {
+    if ($contraseña == $contraseñaRepetida) {
         // "";
     } else {
         $errores[] = "La contraseñas tienen que ser identicas";
