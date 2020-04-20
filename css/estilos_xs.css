@@ -145,6 +145,33 @@ section {
     font-size: 12px;
 }
 
+/*zona contacto*/
+.contacto {
+    text-align: center;
+    background: var(--color-oscuro);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+.contacto form div {
+    padding-right: 2%;
+    display: flex;
+    flex-flow: column;
+}
+.contacto form input {
+    background: none;
+    color:white;
+}
+.contacto .mensaje {
+    display: flex;
+}
+
+
 /*Quienes Somos*/
 
 .mapa {

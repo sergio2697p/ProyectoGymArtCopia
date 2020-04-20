@@ -52,7 +52,7 @@
     ?>
     <main>
         <section>
-            <div class="registrarte">
+            <div class="contacto">
                 <h1>Contacto</h1>
                 <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
                     <div>
@@ -60,7 +60,7 @@
                         <input type="text" name="nombre">
                     </div>
                     <div>
-                        <label>Asunto</label>
+                        <label>Asunto:</label>
                         <input type="text" name="asunto">
                     </div>
                     <div>
@@ -68,12 +68,13 @@
                         <input type="text" name="correo">
                     </div>
 
-                    <div>
+                    <div class="mensaje">
                         <label>Mensaje:</label>
                         <textarea name="mensaje" cols="30" rows="10"></textarea>
                     </div>
-                    <input type="submit" value="Enviar">
-                    <button type="reset"></button>
+                    
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Borrar</button>
                 </form>
             </div>
         </section>
