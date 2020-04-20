@@ -247,10 +247,11 @@ nav ul li [class*=none] {
     margin-right: 5%;
     padding-right: 5%;
 } */
-.contenidos .celda .correo {
+
+.contenidos .Celda .correo {
     display: block;
     padding: 0;
-    width: 50%;
+    width: 30%;
 }
 
 .Row .Celda .tresbotones {

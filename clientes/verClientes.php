@@ -36,13 +36,13 @@ session_start();
                 <div class="Tabla">
                     <h1 class="Titulo">LISTADO DE CLIENTES</h1>
                     <div class="contenidos">
-                        <div class="celda">
+                        <div class="Celda">
                             <div class="nombre">Nombre</div>
                         </div>
-                        <div class="celda">
+                        <div class="Celda">
                             <div class="apellidos">Apellidos</div>
                         </div>
-                        <div class="celda">
+                        <div class="Celda">
                             <div class="correo">Correo</div>
                         </div>
                     </div>
