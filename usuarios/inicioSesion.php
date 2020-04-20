@@ -24,7 +24,7 @@ session_start();
     <?php
     include "../header.php";
     include '../BBDD/conexionBBDD.php';
-    include '../BBDD/peticiones.php';
+    include '../BBDD/usuariosBBDD.php';
     include '../BBDD/funciones.php';
 
 
@@ -49,7 +49,9 @@ session_start();
                             <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
                         </div>
                         <input type="submit" id="enviar" value="Iniciar sesion">
+                        <a href="registrar_usuario.php"><input type="button" id="cambiar" value="Registrate"></a>
                         <a href="cambiar_contrasena.php"><input type="button" id="cambiar" value="¿Olvidaste la contrasena?"></a>
+
                     </form>
 
                 </div>

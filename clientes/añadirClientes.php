@@ -21,8 +21,8 @@
     <?php
     include '../header.php';
     include '../BBDD/conexionBBDD.php';
+    include '../BBDD/clientesBBDD.php';
 
-    include '../BBDD/peticiones.php';
     if (isset($_POST["anadir_cliente"])) {
         anadirClientes();
     }

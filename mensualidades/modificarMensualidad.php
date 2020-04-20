@@ -15,7 +15,7 @@
 <?php
 include '../header.php';
 include '../BBDD/conexionBBDD.php';
-include '../BBDD/peticiones.php';
+include '../BBDD/mensualidadesBBDD.php';
 ?>
 <main>
 <section>

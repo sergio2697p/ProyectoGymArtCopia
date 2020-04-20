@@ -32,8 +32,9 @@ if (isset($_POST['cerrar-session'])) {
         <?php
         } else {
         ?>
-            <a class="boton-iniciar" href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESIÓN</a>
-            <a class="boton-registrarse" href="/ProyectoGymArtCopia/usuarios/registrar_usuario.php">REGISTRARSE</a>
+            <a href="/ProyectoGymArtCopia/usuarios/inicioSesion.php"><img src="/ProyectoGymArtCopia/imagenes/usuario.png" alt=""></a>
+            <!-- <a class="boton-iniciar" href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESIÓN</a>
+            <a class="boton-registrarse" href="/ProyectoGymArtCopia/usuarios/registrar_usuario.php">REGISTRARSE</a> -->
         <?php
         }
         ?>
@@ -47,8 +48,6 @@ if (isset($_POST['cerrar-session'])) {
         </label>
         <nav>
             <ul>
-
-
                 <!-- Si hay $_SESSION que muestre el resto de apartados de nuestra pagina -->
                 <?php
                 if ($_SESSION) {

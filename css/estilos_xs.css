@@ -1,7 +1,7 @@
 :root {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    --color-menu: rgb(41, 42, 58);
+    --color-oscuro: #292A3A;
 }
 
 * {
@@ -26,7 +26,7 @@ html {
 
 header {
     grid-area: header;
-    background-color: #292A3A;
+    background-color: var(--color-oscuro);
     font-size: 14px;
     color: white;
     box-shadow: 0 0 20px 4px black;
@@ -45,20 +45,24 @@ header {
 
 .zona-botones {
     grid-column: 2;
+    width: 100%;
+    height: 100%;
     align-self: center;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.zona-botones img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 70%;
 }
 
 a {
     text-decoration: none;
     color: white;
-}
-
-.boton-iniciar {
-    background-color: red;
-    list-style: none;
-    text-transform: none;
 }
 
 .zona-hamburguesa {
@@ -93,8 +97,8 @@ nav {
     position: fixed;
     width: 50%;
     height: 100vh;
-    background-color: var(--color-menu);
-    top: 80px;
+    background-color: var(--color-oscuro);
+    top: 70px;
     left: -100%;
     text-align: center;
     transition: left .5s;
@@ -116,8 +120,12 @@ nav ul li {
 }
 
 main {
+    color: white;
     grid-area: main;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
+    background: url("/ProyectoGymArtCopia/imagenes/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 section {
@@ -138,17 +146,18 @@ section {
 }
 
 /*Quienes Somos*/
+
 .mapa {
     height: 50%;
     width: 100%;
 }
 
 #tagDivPanorama {
-    width: 30%; 
-    height: 20%; 
-    position: absolute; 
-    top: 100px; 
-    left: 0; 
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    top: 100px;
+    left: 0;
     border: red solid 5px;
 }
 
@@ -156,7 +165,7 @@ section {
 
 .indentificacion {
     text-align: center;
-    background: #e6e6e6;
+    background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 20px 30px;
@@ -180,20 +189,24 @@ section {
     justify-content: center;
 }
 
-.indentificacion #enviar {
-    background-color: #292A3A;
+.indentificacion>form input {
     color: white;
+    background-color: var(--color-oscuro);
+}
+
+.indentificacion #enviar {
+    background-color: white;
+    color: var(--color-oscuro);
 }
 
 .indentificacion #cambiar {
-    background-color: #292A3A;
-    color: white;
+    background-color: white;
+    color: var(--color-oscuro);
 }
 
 .indentificacion input {
     padding: 5px;
-    background: none;
-    outline: none;
+    /* outline: none; */
     border: 0;
     transition: all .3s;
     border-bottom: 2px solid #bebed2;
@@ -203,7 +216,8 @@ section {
 
 .registrarte {
     text-align: center;
-    background: #e6e6e6;
+    background: var(--color-oscuro);
+    color: white;
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 20px 30px;
@@ -229,6 +243,7 @@ section {
 
 .registrarte input {
     width: 100%;
+    color: white;
     padding: 10px;
     background: none;
     outline: none;
@@ -238,6 +253,7 @@ section {
 }
 
 /*Cuotas*/
+
 .servicios {
     width: 100%;
     height: 100%;
@@ -247,6 +263,7 @@ section {
 }
 
 /*Basica*/
+
 .basica {
     display: flex;
     flex-flow: column;
@@ -260,16 +277,16 @@ section {
 }
 
 .titulo-precioB h1 {
-    color:white;
+    color: white;
 }
 
-.titulo-precioB p{
-    color:yellow;
+.titulo-precioB p {
+    color: yellow;
 }
 
 .b-incluye {
     text-align: center;
-    color:grey;
+    color: grey;
     height: 100%;
 }
 
@@ -295,10 +312,10 @@ section {
     background-color: #ffffff;
 }
 
-
 /*Avanzada*/
+
 .avanzada {
-    padding:8% 5%;
+    padding: 8% 5%;
     display: flex;
     flex-flow: column;
     height: 50%;
@@ -310,16 +327,16 @@ section {
 }
 
 .titulo-precioA h1 {
-    color:white;
+    color: white;
 }
 
-.titulo-precioA p{
-    color:red;
+.titulo-precioA p {
+    color: red;
 }
 
 .a-incluye {
     text-align: center;
-    color:grey;
+    color: grey;
     height: 100%;
 }
 
@@ -346,14 +363,14 @@ section {
     background-color: #ffffff;
 }
 
-
 /*Ultra*/
- .ultra {
-    padding:6% 5%;
+
+.ultra {
+    padding: 6% 5%;
     display: flex;
     flex-flow: column;
     height: 50%;
-} 
+}
 
 .titulo-precioU {
     text-align: center;
@@ -370,7 +387,7 @@ section {
 
 .u-incluye {
     text-align: center;
-    color:grey;
+    color: grey;
     height: 100%;
 }
 
@@ -396,13 +413,13 @@ section {
     background-color: #ffffff;
 }
 
-  
-
 /* Estilos Menu de ociones*/
 
 .clientes {
-    display: flex;
-    flex-flow: column;
+    background: #292A3A;
+    width: 80%;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
 .descargas {
@@ -427,79 +444,73 @@ section {
 }
 
 /*Ver Clientes*/
-.contenedor {
-    float: left;
-    background: #e6e6e6;
-    border-radius: 8px;
-    box-shadow: 0 0 40px -10px #000;
-    padding: 5px 10px;
-    max-width: calc(100vw - 40px);
-    box-sizing: border-box;
 
+.Tabla {
+    display: table;
+    text-align: center;
+    width: 100%;
+}
+
+.Titulo {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .contenidos {
-    display: flex;
-    flex-flow: row;
-    padding-bottom: 5%;
+    display: table-row;
     font-weight: bold;
 }
 
-.contenidos .contenidos-nombre {
-    margin-right: 15%;
+.contenidos .celda .correo {
+    display: none;
 }
 
-
-.contenidos .contenidos-correo {
-display: none;
+.Row {
+    display: table-row;
+    /* padding-left: 5px;
+    padding-right: 5px; */
 }
 
-
-.contenidos1 {
-  display: grid;
-  grid-template-areas: 
-  "nombre   apellidos   botones";
-  grid-template-rows: 1fr 1fr auto;
+.Celda {
+    display: table-cell;
+    border-width: thin;
 }
-
-.contenidos1 .contenidos1-nombre {
-    grid-area: nombre;
-    margin-right: 40%; 
-}
-
-.contenidos1 .contenidos1-apellidos {
-    grid-area: apellidos;
-    text-align: center;
-}
-
-.contenidos1 .tresbotones {
-    grid-area: botones;
-    text-align: center;
-}
-
 
 .boton-checkbox {
     display: none;
 }
 
-.boton-checkbox ~ [class*="a-ocultar"]{
+.boton-checkbox~[class*="a-ocultar"] {
     display: none;
 }
 
-.boton-checkbox:checked ~ [class*="a-ocultar"]{
+.boton-checkbox:checked~[class*="a-ocultar"] {
     display: initial;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    width: 20%;
+    padding: 5%;
 }
 
+.Celda .contenidos1-correo form {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin-left: 20%;
+}
+
+.Celda .contenidos1-correo form input {
+    margin: 8%;
+}
 
 /*Modificar Clientes*/
 
 .Modificar {
-    background: #e6e6e6;
+    background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
@@ -507,6 +518,8 @@ display: none;
 
 .Modificar input {
     background: none;
+    color: white;
+    text-align: center;
     outline: none;
     border: 0;
     transition: all .3s;
@@ -516,14 +529,14 @@ display: none;
 .Modificar .enviar {
     grid-area: enviar;
     width: 100%;
-    background-color: #292A3A;
-    color: white;
+    background-color: white;
+    color: var(--color-oscuro);
 }
 
 /*Añadir clientes*/
 
 .anadirClientes {
-    background: #e6e6e6;
+    background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
@@ -531,6 +544,8 @@ display: none;
 
 .anadirClientes input {
     background: none;
+    color: white;
+    text-align: center;
     outline: none;
     border: 0;
     transition: all .3s;
@@ -540,14 +555,77 @@ display: none;
 .anadirClientes .enviar {
     grid-area: enviar;
     width: 100%;
-    background-color: #292A3A;
-    color: white;
+    background-color: white;
+    color: var(--color-oscuro);
+}
+
+/*Ver mensualidades*/
+
+.mensualidades {
+    background: var(--color-oscuro);
+    width: 80%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+/* .Tabla {
+    display: table;
+    text-align: center;
+    width: 100%;
+} */
+
+.contenidos {
+    display: table-row;
+    font-weight: bold;
+}
+
+.contenidos .Celda .precio {
+    display: none;
+}
+
+.Row {
+    display: table-row;
+    /* padding-left: 5px;
+    padding-right: 5px; */
+}
+
+.Celda {
+    display: table-cell;
+    border-width: thin;
+}
+
+.boton-checkbox {
+    display: none;
+}
+
+.boton-checkbox~[class*="a-ocultar"] {
+    display: none;
+}
+
+.boton-checkbox:checked~[class*="a-ocultar"] {
+    display: initial;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 5%;
+}
+
+.Celda .contenidos1-precio form {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
+.Celda .contenidos1-precio form input {
+    margin: 10%;
 }
 
 /*Gestion Mensualidades*/
 
 .ModificarMensualidades {
-    background: #e6e6e6;
+    background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
@@ -556,6 +634,8 @@ display: none;
 
 .ModificarMensualidades input {
     background: none;
+    color: white;
+    text-align: center;
     outline: none;
     border: 0;
     transition: all .3s;
@@ -563,8 +643,8 @@ display: none;
 }
 
 .ModificarMensualidades .enviar {
-    background-color: #292A3A;
-    color: white;
+    background-color: white;
+    color: var(--color-oscuro);
     width: 100%;
 }
 
@@ -572,7 +652,7 @@ display: none;
 
 .anadirMensualidad {
     text-align: center;
-    background: #e6e6e6;
+    background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 30px;
@@ -583,6 +663,8 @@ display: none;
 
 .anadirMensualidad input {
     background: none;
+    color: white;
+    text-align: center;
     outline: none;
     border: 0;
     transition: all .3s;

@@ -1,6 +1,6 @@
 header {
     display: grid;
-    grid-template-areas: "zona-logo  zona-hamburguesa    zona-botones";
+    grid-template-areas: "zona-logo  zona-hamburguesa   zona-botones";
     grid-template-rows: 1fr auto auto;
 }
 
@@ -15,9 +15,18 @@ header {
 
 .zona-botones {
     grid-area: zona-botones;
-    padding: 5%; 
+    height: 100%;
+    width: 100%;
 }
+
+.zona-botones img {
+    padding-right: 5px;
+}
+
 .zona-botones .boton-iniciar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 .zona-botones .boton-registrarse {
@@ -38,9 +47,6 @@ header {
     display: none;
 }
 
-.gestionar-submenu {
-    display: block;
-}
 
 nav {
     position: static;
@@ -65,18 +71,7 @@ nav ul li {
 nav ul li [class*=none] {
     display: none;
 }
-.gestionar-submenu {
-    display: none;
-    position: absolute;
-    width: 10%;
-    height: 20%;
-    top:5%;
-    left: 37%;
-}
 
-.gestionar-submenu>li a {
-    line-height: 30px;
-}
 
 /*texto iniciar*/
 
@@ -180,6 +175,9 @@ nav ul li [class*=none] {
 /* Estilos Menu de ociones*/
 
 .clientes {
+    width: 50%;
+    padding-bottom: 1%;
+    padding-top: 1%;
     display: grid;
     grid-template-areas: "Descargas" "VerClientes";
     grid-template-rows: auto;
@@ -236,50 +234,38 @@ nav ul li [class*=none] {
 .ListadoClientes {
     grid-area: VerClientes;
     text-align: center;
+    width: 100%;
 }
 
 .tablaClientes>div {
     margin: auto;
 }
-
-#contenedor {
-    width: auto;
-    height: auto;
-    background: #e6e6e6;
-    padding: 20px 30px;
-    align-items: center;
-    justify-content: center;
-    display: table;
-    border: 2px solid #000;
-    right: auto;
+.Tabla {
+    padding-left: 20%;
+}
+/* .contenidos {
+    margin-right: 5%;
+    padding-right: 5%;
+} */
+.contenidos .celda .correo {
+    display: block;
+    padding: 0;
+    width: 50%;
 }
 
-#contenidos {
+.Row .Celda .tresbotones {
+    display: none;
+}
+.Row .Celda .contenidos1-correo {
+    display: block;
+    width: 0%;
+    padding: 0;
     display: flex;
-    flex-flow: row;
-    font-weight: bolder;
-    width: auto;
-    text-align: center;
 }
 
-#contenidos1 {
-    display: flex;
-    flex-flow: row;
-    margin: auto;
-    text-align: center;
-}
-
-#columna1, #columna2, #columna3 {
-    display: flex;
-    flex-flow: row;
-    margin: auto;
-    padding: 2%;
-    width: 40%;
-}
-
-#boton {
-    padding: 2%;
-}
+/* .Celda .contenidos1-correo form input {
+    margin: 5%;
+} */
 
 /*Modificar Clientes*/
 
@@ -294,6 +280,7 @@ nav ul li [class*=none] {
     grid-area: DatosPersonales;
     padding: 2%;
 }
+
 
 .Modificar .DatosAdicionales div {
     grid-area: DatosAdicionales;
@@ -344,6 +331,37 @@ nav ul li [class*=none] {
 .anadirClientes .enviar:hover {
     background-color: #292A3A;
     color: white;
+}
+
+/*Ver Mensualidades*/
+.mensualidades {
+    width: 50%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+.mensualidades .Tabla {
+    padding-left: 0%;
+}
+.contenidos .Celda .precio {
+    display: block;
+}
+.boton-checkbox~[class*="a-ocultar"] {
+    display: block;
+}
+.Celda .contenidos1-precio {
+    /* float: left; */
+    width: 100%;
+}
+.Celda .contenidos1-precio form {
+    display: flex;
+    flex-flow: row;
+    width: 100%; 
+}
+
+.Celda .contenidos1-precio form input {
+    margin: 0%;
+    text-align: right;
+    
 }
 
 /*Gestion Mensualidades*/

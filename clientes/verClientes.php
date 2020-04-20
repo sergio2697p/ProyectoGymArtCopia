@@ -1,7 +1,6 @@
 <?php
 session_start();
-include '../BBDD/conexionBBDD.php';
-include '../BBDD/peticiones.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +22,8 @@ include '../BBDD/peticiones.php';
 
 <body>
     <?php
+    include '../BBDD/conexionBBDD.php';
+    include '../BBDD/ClientesBBDD.php';
     include '../header.php';
     ?>
 
@@ -31,8 +32,24 @@ include '../BBDD/peticiones.php';
             <div class="clientes">
                 <?php
                 include 'menuOpciones.php';
-                verClientes();
                 ?>
+                <div class="Tabla">
+                    <h1 class="Titulo">LISTADO DE CLIENTES</h1>
+                    <div class="contenidos">
+                        <div class="celda">
+                            <div class="nombre">Nombre</div>
+                        </div>
+                        <div class="celda">
+                            <div class="apellidos">Apellidos</div>
+                        </div>
+                        <div class="celda">
+                            <div class="correo">Correo</div>
+                        </div>
+                    </div>
+                    <?php
+                    verClientes();
+                    ?>
+                </div>
             </div>
         </section>
     </main>

@@ -1,6 +1,6 @@
 <?php
 include '../BBDD/conexionBBDD.php';
-include '../BBDD/peticiones.php';
+include '../BBDD/usuariosBBDD.php';
 include '../BBDD/funciones.php';
 if ($_POST) {
     registrarUsuarios();

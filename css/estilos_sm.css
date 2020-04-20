@@ -80,45 +80,46 @@
     margin: auto;
 }
 
-#contenedor {
-    width: auto;
-    height: auto;
-    padding: 20px 30px;
-    align-items: center;
-    justify-content: center;
-    display: table;
-    border: 2px solid #000;
-    right: auto;
+.contenidos .celda .correo {
+    display: block;
+    padding: 0;
+    width: 50%;
 }
 
-#contenidos {
+.Row .Celda .tresbotones {
+    display: none;
+}
+.Row .Celda .contenidos1-correo {
+    display: block;
+    padding: 0;
     display: flex;
-    flex-flow: row;
-    font-weight: bolder;
-    width: auto;
-    text-align: center;
 }
 
-#contenidos1 {
+.Celda .contenidos1-correo form input {
+    margin: 5%;
+}
+/*Ver Mensualidades*/
+.contenidos .Celda .precio {
+    display: block;
+}
+.boton-checkbox~[class*="a-ocultar"] {
+    display: block;
+}
+.Celda .contenidos1-precio {
+    float: left;
+    width: 25%;
+}
+.Celda .contenidos1-precio form {
     display: flex;
     flex-flow: row;
-    margin: auto;
-    text-align: center;
+    float: left;
+    /* width: 75%; */
 }
 
-#columna1, #columna2, #columna3 {
-    display: flex;
-    flex-flow: row;
-    margin: auto;
-    padding: 2%;
-    width: 40%;
+.Celda .contenidos1-precio form input {
+    margin: 0%;
 }
 
-#boton {
-    padding: 2%;
-    display: flex;
-    flex-flow: row;
-}
 
 /*Modificar Clientes*/
 

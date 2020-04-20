@@ -15,8 +15,7 @@
     <?php
     include '../header.php';
     include '../BBDD/conexionBBDD.php';
-
-    include '../BBDD/peticiones.php';
+    include '../BBDD/mensualidadesBBDD.php';
     if(isset($_POST["anadir_mensualidad"])){
         anadirMensualidad();
     }
