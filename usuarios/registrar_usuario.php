@@ -53,7 +53,7 @@ include '../BBDD/funciones.php';
                         </div>
                         <div>
                             <label>Repita contraseña: </label>
-                            <input type="password" name="contrasena-repetida" placeholder="repite contraseña" <?php mostrar_campo('contrasena') ?> required>
+                            <input type="password" name="contrasena-repetida" placeholder="repite contraseña" <?php mostrar_campo('contrasena-repetida') ?> required>
                         </div>
                         <div>
                             <label>Correo Electronico:</label>

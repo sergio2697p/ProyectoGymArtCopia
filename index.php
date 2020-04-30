@@ -15,7 +15,7 @@
 <body>
     <?php
     include 'header.php';
-    include 'TextoInicial.php';
+    include 'textoInicial.php';
     include 'footer.php';
     ?>
 </body>
