@@ -1,6 +1,6 @@
 <?php
 include '../BBDD/conexionBBDD.php';
-include '../BBDD/ClientesBBDD.php';
+include '../BBDD/monitoresBBDD.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -27,8 +27,9 @@ session_start();
     <main>
         <section>
             <?php
-            modificarClientes();
+            modificarMonitores();
             ?>
+            
         </section>
     </main>
     <?php include '../footer.php'; ?>

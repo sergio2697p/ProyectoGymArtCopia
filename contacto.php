@@ -57,20 +57,20 @@
                 <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
                     <div>
                         <label>Nombre: </label>
-                        <input type="text" name="nombre">
+                        <input type="text" name="nombre" placeholder="Nombre">
                     </div>
                     <div>
                         <label>Asunto:</label>
-                        <input type="text" name="asunto">
+                        <input type="text" name="asunto" placeholder="Escriba aqui su asunto">
                     </div>
                     <div>
                         <label>Correo Electronico:</label>
-                        <input type="text" name="correo">
+                        <input type="text" name="correo" placeholder="Escriba aquí su correo">
                     </div>
 
                     <div class="mensaje">
                         <label>Mensaje:</label>
-                        <textarea name="mensaje" cols="30" rows="10"></textarea>
+                        <textarea name="mensaje" cols="30" rows="10" placeholder="Escrina aqui su mensaje..."></textarea>
                     </div>
                     
                     <button type="submit">Enviar</button>

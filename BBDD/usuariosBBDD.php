@@ -53,40 +53,48 @@ function registrarUsuarios()
     $conexion = conectarUsuarios();
     $nick = $_POST["nick"];
     $contraseña = md5($_POST["contrasena"]);
-    $contraseñaRepetida = md5("contrasena-repetida");
+    $contraseñaRepetida = md5($_POST["contrasena-repetida"]);
     $correo = $_POST["mail"];
-
     $errores = [];
-    if (empty($_POST['nick'])) {
-        $errores[] = '<p>El nombre esta mal</p>';
-    }
 
     if (strlen($_POST['nick']) <= 3) {
-        $errores[] = '<p>Tiene que tener mas de 3 caracteres</p>';
+        $errores[] = "<script> swal({
+            title: 'Usuario',
+            text: 'El usuario tiene que tener mas de 3 caracteres',
+            type: 'error',
+          });</script>";
     }
+
     if (strlen($_POST['contrasena']) <= 2) {
-        $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
+        $errores[] = "<script> swal({
+            title: 'Contraseña',
+            text: 'La contraseña tiene que tener mas de 2 caracteres',
+            type: 'error',
+          });</script>";
     }
 
-    if ($contraseña == $contraseñaRepetida) {
-        // "";
-    } else {
-        $errores[] = "La contraseñas tienen que ser identicas";
+    if ($contraseña != $contraseñaRepetida) {
+        $errores[] = "<script> swal({
+            title: 'Contraseña',
+            text: 'La contraseña tienen que ser iguales',
+            type: 'error',
+          });</script>";
     }
+
     if (strlen($_POST['mail']) <= 2) {
-        $errores[] = '<p>El email tiene que tener como minimo 2 caracteres</p>';
+        $errores[] = "<script> swal({
+            title: 'Correo',
+            text: 'El correo tiene que tener mas de 2 caracteres',
+            type: 'error',
+          });</script>";
     }
 
-    if (validad_email($correo)) {
-        //"";
-    } else {
-        $errores[] = '<p>Correo no valido</p>';
-    }
-
-    $usuario_unico = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
-    $resultado_select = $conexion->query($usuario_unico);
-    if ($resultado_select != null) {
-        $errores[] = "No se puede crear un usuario con el mismo nombre ";
+    if (!validad_email($correo)) {
+        $errores[] = "<script> swal({
+            title: 'Correo',
+            text: 'Tiene que ser un correo valido',
+            type: 'error',
+          });</script>";
     }
 
     if ($errores) {
@@ -98,16 +106,55 @@ function registrarUsuarios()
         $resultado = $conexion->query($insert);
 
         if ($resultado != null) {
-            echo "<p>Usuario registrado correctamente<p>";
+            echo "<script> swal({
+                title: 'Usuario',
+                text: 'Se ha creado el usuario correctamente',
+                type: 'success',
+              });</script>";
         } else {
-            echo '<p>Error</p>';
+            echo "<script> swal({
+                title: '¡Error!',
+                text: 'No se ha creado el usuario, intentelo mas tarde',
+                type: 'error',
+              });</script>";
         }
     }
 }
 
 
+function olvidarContraseña()
+{
+    $conexion = conectarUsuarios();
+    $contraseña = md5($_POST["contrasena"]);
+    $contraseñaRepetida = md5($_POST["contrasena-repetida"]);
+    $nick = $_POST["nick"];
 
 
+    $errores = [];
+
+    if (strlen($_POST['contrasena']) <= 2) {
+        $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
+    }
+
+    if ($contraseña == $contraseñaRepetida) {
+        "";
+    } else {
+        $errores[] = "La contraseñas tienen que ser identicas";
+    }
 
 
-   
+    if ($errores) {
+        mostrar_errores($errores);
+        unset($errores);
+    } else {
+        $update_contrasena = "UPDATE usuarios SET Contrasena = '$contraseña' WHERE Nombre = '$nick' ";
+        // echo $update_contrasena;
+        $resultado = $conexion->query($update_contrasena);
+
+        if ($resultado != null) {
+            echo "<p>Se han actualizado los datos correctamente</p>";
+        } else {
+            echo '<p>Compruebe el correo o la contraseña</p>';
+        }
+    }
+}

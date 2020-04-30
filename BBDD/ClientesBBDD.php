@@ -30,7 +30,7 @@ function verClientes()
 ?>
 
         <div class="Row">
-            <div class="celda">
+            <div class="Celda">
                 <div class="contenidos1-nombre"><?php echo "${fila['Nombre']}"; ?></div>
             </div>
 
@@ -56,7 +56,7 @@ function verClientes()
                 </div>
             </div>
         </div>
-<?php
+    <?php
     }
     if (isset($_POST["borrar"])) {
         borrarClientes();
@@ -117,7 +117,7 @@ function visualizarDatosCliente()
     $resultado = $conexion->query($select_cliente);
 
     $fila = $resultado->fetch_array();
-?>
+    ?>
     <form class="Modificar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
         <div class="datosPersonales">

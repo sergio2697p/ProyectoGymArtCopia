@@ -29,30 +29,35 @@ session_start();
 
 
     if ($_POST) {
-        iniciarSesion();
+        olvidarContraseña();
     } else {
     ?>
         <main>
             <section>
                 <div class="indentificacion">
-                    <div class="titulo">
-                        <h1>Iniciar Sesión</h1>
+                    <div class="imagen">
+                        <h1>Olvidar contraseña</h1>
                     </div>
 
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <div>
-                            <label>Usuario:</label>
-                            <input id="usuario" type="text" name="usuario" <?php mostrar_campo('usuario') ?> required>
+                            <label>Introduce tu usuario:</label>
+                            <input id="usuario" type="text" name="nick" <?php mostrar_campo('nick') ?> required>
                         </div>
                         <div>
-                            <label>Contraseña:</label>
+                            <label> Nueva Contraseña:</label>
                             <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
                         </div>
 
-                            <button class="boton_enviar" type="submit">Iniciar sesión</button>
-                            <a href="registrar_usuario.php"><button type="button" class="boton_registrar" value="Registrate">Registrate</button></a>
-                            <a href="cambiar_contrasena.php"><button type="button" class="boton_olvidar_contrasena">¿Olvidaste la contraseña?</button></a>
+                        <div>
+                            <label> Repita Contraseña:</label>
+                            <input id="contrasena1" type="password" name="contrasena-repetida" <?php mostrar_campo('contrasena') ?> required>
+                        </div>
+                        
+                        <input type="submit" id="enviar" value="Restaurar Contraseña">
+
                     </form>
+
                 </div>
             </section>
         </main>
