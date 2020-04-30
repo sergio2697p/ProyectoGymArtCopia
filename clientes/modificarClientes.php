@@ -1,7 +1,6 @@
 <?php
 include '../BBDD/conexionBBDD.php';
-include '../BBDD/ClientesBBDD.php';
-session_start();
+include '../BBDD/clientesBBDD.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

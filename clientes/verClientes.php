@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +19,7 @@ session_start();
 <body>
     <?php
     include '../BBDD/conexionBBDD.php';
-    include '../BBDD/ClientesBBDD.php';
+    include '../BBDD/clientesBBDD.php';
     include '../header.php';
     ?>
 

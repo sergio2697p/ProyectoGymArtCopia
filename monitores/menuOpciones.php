@@ -6,6 +6,6 @@
         <abbr title="Descargar lista en word"><a href="./generarWord.php"><img src="../imagenes/descargaWord.png"></a></abbr>
     </div>
     <div id="anadir">
-        <abbr title='Añadir cliente'><a href='anadirMonitores.php'><img src='../imagenes/add.png'></a></abbr>
+        <abbr title='Añadir cliente'><a href='insertarMonitores.php'><img src='../imagenes/add.png'></a></abbr>
     </div>
 </div>
