@@ -1,3 +1,7 @@
+<?php
+ include '../BBDD/conexionBBDD.php';
+ include '../BBDD/clientesBBDD.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +24,6 @@
 <body>
     <?php
     include '../header.php';
-    include '../BBDD/conexionBBDD.php';
-    include '../BBDD/clientesBBDD.php';
-
     if (isset($_POST["anadir_cliente"])) {
         anadirClientes();
     }

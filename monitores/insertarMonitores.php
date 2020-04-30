@@ -1,3 +1,8 @@
+<?php
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/monitoresBBDD.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,6 @@
 <body>
     <?php
     include '../header.php';
-    include '../BBDD/conexionBBDD.php';
-    include '../BBDD/monitoresBBDD.php';
     if(isset($_POST["anadir_mensualidad"])){
         anadirMonitores();
     }

@@ -239,15 +239,31 @@ nav ul li [class*=none] {
 
 .tablaClientes>div {
     margin: auto;
+    
 }
-.Tabla {
-    padding-left: 20%;
-}
+
+
+/* .Tabla {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+} */
+/* .Tabla {
+    padding-left: 10%;
+} */
 /* .contenidos {
     margin-right: 5%;
     padding-right: 5%;
 } */
+/* .Celda .nombre {
+    padding-right: 50px;
+}
 
+.Celda .apellidos {
+    padding-right: 500px;
+
+} */
 .contenidos .Celda .correo {
     display: block;
     padding: 0;

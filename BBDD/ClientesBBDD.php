@@ -47,6 +47,7 @@ function verClientes()
                         <form action="modificarClientes.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
                             <input type="submit" name="editar_cliente" value="modificar">
+                            
 
                             <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                                 <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">

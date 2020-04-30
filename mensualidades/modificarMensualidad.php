@@ -1,3 +1,7 @@
+<?php
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/mensualidadesBBDD.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +18,6 @@
 
 <?php
 include '../header.php';
-include '../BBDD/conexionBBDD.php';
-include '../BBDD/mensualidadesBBDD.php';
 ?>
 <main>
 <section>

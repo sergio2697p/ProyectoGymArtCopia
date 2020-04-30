@@ -50,7 +50,7 @@ session_start();
                         </div>
 
                             <button class="boton_enviar" type="submit">Iniciar sesión</button>
-                            <a href="registrar_usuario.php"><button type="button" class="boton_registrar" value="Registrate">Registrate</button></a>
+                            <a href="registrarUsuario.php"><button type="button" class="boton_registrar" value="Registrate">Registrate</button></a>
                             <a href="cambiar_contrasena.php"><button type="button" class="boton_olvidar_contrasena">¿Olvidaste la contraseña?</button></a>
                     </form>
                 </div>

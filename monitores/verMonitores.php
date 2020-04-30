@@ -1,3 +1,7 @@
+<?php
+ include '../BBDD/conexionBBDD.php';
+ include '../BBDD/monitoresBBDD.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +22,6 @@
 
 <body>
     <?php
-    include '../BBDD/conexionBBDD.php';
-    include '../BBDD/monitoresBBDD.php';
     include '../header.php';
     ?>
 
