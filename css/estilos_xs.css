@@ -282,8 +282,8 @@ section {
     border: 0;
     border-radius: 15px;
     color: white;
-    width: 40%;
-    font-size: 1.5rem;
+    width: 45%;
+    font-size: 1rem;
     padding: 3%;
 }
 
@@ -292,8 +292,8 @@ section {
     border: 0;
     border-radius: 15px;
     color: white;
-    width: 40%;
-    font-size: 1.5rem;
+    width: 45%;
+    font-size: 1rem;
     padding: 3%;
 }
 
@@ -303,7 +303,7 @@ section {
     border-radius: 15px;
     color: white;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 3%;
 }
 
@@ -347,6 +347,11 @@ section {
     width: 40%;
     font-size: 1.5rem;
     padding: 3%;
+}
+
+.menu {
+    width: 0;
+    height: 0;
 }
 
 /*Cuotas*/

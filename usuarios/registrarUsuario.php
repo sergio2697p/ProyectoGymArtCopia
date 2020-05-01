@@ -35,11 +35,7 @@ include '../BBDD/funciones.php';
     ?>
     <main>
         <section>
-            <?php
-            if ($_POST) {
-                registrarUsuarios();
-            } else {
-            ?>
+           
                 <div class="registrarte">
                     <h1>Registrate</h1>
                     <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="post">
@@ -64,6 +60,13 @@ include '../BBDD/funciones.php';
                     </form>
                 </div>
         </section>
+        <section class="menu">
+        <?php
+            if ($_POST) {
+                registrarUsuarios();
+            }
+            ?>
+        </section>
     </main>
 
     <?php include "../footer.php"; ?>
@@ -71,6 +74,3 @@ include '../BBDD/funciones.php';
 </body>
 
 </html>
-<?php
-            }
-?>
