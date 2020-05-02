@@ -535,11 +535,15 @@ section {
 
 /* Estilos Menu de ociones*/
 
-.clientes {
+.menu {
     background: #292A3A;
-    width: 80%;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    width: 90%;
+    height: 20%;
+    display: flex;
+    flex-flow: column;
+    /* padding-bottom: 5%; */
+    /* padding-top: 5%; */
+    
 }
 
 .descargas {
@@ -563,9 +567,109 @@ section {
     height: 40px;
 }
 
-/*Ver Clientes*/
 
-.Tabla {
+.divTable {
+    display: table;
+    /* width: 50%; */
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.contenidos {
+    display: table-header-group;
+}
+
+.divTableCelda, .divTableCabeza {
+    display: table-cell;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+div.cliente {
+    border: 4px solid #555555;
+    background: #292A3A;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.divTable.cliente .divTableCelda, .divTable.cliente .divTableCabeza {
+    border: 1px solid #555555;
+    padding: 5px 2px;
+}
+
+.divTable.cliente .divTableBody .divTableCelda {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.divTable.cliente .divTableRow:nth-child(even) {
+    background: red;
+}
+
+.divTable.cliente .contenidos {
+    background: #292A3A;
+    border-bottom: 4px solid #555555;
+    /* padding: 20px; */
+
+}
+
+.divTable.cliente .contenidos .divTableCabeza {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #555555;
+    /* padding: 20px; */
+}
+
+
+.divTable.cliente .contenidos .divTableCabeza:first-child {
+    border-left: none;
+}
+
+.divTable.cliente .divTableBody .divTableRow .divTableCelda.input {
+    display: flex;
+}
+
+.boton-checkbox {
+    display: none;
+}
+
+
+.boton-checkbox~[class*="a-ocultar"] {
+    display: none;
+}
+
+.boton-checkbox:checked~[class*="a-ocultar"] {
+    display: initial;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 20%; */
+    padding: 5%;
+}
+
+.boton form button {
+    background-color: var(--color-oscuro);
+    border: 0;
+    margin-right: 9px;
+    margin-left: 9px;
+    width: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+.boton form button img {
+    width: 20px;
+}
+
+/* .Tabla {
     display: table;
     text-align: center;
     width: 100%;
@@ -591,6 +695,7 @@ section {
     display: table-row;
     /* padding-left: 5px;
     padding-right: 5px; */
+    /*
 }
 
 .Celda {
@@ -623,6 +728,7 @@ section {
     flex-flow: row;
     /* width: 100%; */
     /* margin-left: 30%; */
+    /*
 }
 
 .Celda .contenidos1-correo form input {
@@ -644,7 +750,7 @@ section {
 }
 
 /*Modificar Clientes*/
-
+/*
 .Modificar {
     background: var(--color-oscuro);
     border-radius: 8px;
@@ -679,7 +785,7 @@ section {
 }
 
 /*Añadir clientes*/
-
+/*
 .anadirClientes {
     background: var(--color-oscuro);
     border-radius: 8px;
@@ -705,7 +811,7 @@ section {
 }
 
 /*Ver mensualidades*/
-
+/*
 .mensualidades {
     background: var(--color-oscuro);
     width: 80%;
@@ -718,7 +824,7 @@ section {
     text-align: center;
     width: 100%;
 } */
-
+/*
 .contenidos {
     display: table-row;
     font-weight: bold;
@@ -727,13 +833,14 @@ section {
 .contenidos .Celda .precio {
     display: none;
 }
-
+/*
 .Row {
     display: table-row;
     /* padding-left: 5px;
     padding-right: 5px; */
+    /*
 }
-
+/*
 .Celda {
     display: table-cell;
     border-width: thin;
@@ -768,7 +875,7 @@ section {
 }
 
 /*Gestion Mensualidades*/
-
+/*
 .ModificarMensualidades {
     background: var(--color-oscuro);
     border-radius: 8px;
@@ -794,7 +901,7 @@ section {
 }
 
 /*Añadir Mensualidades*/
-
+/*
 .anadirMensualidad {
     text-align: center;
     background: var(--color-oscuro);
@@ -835,7 +942,7 @@ section {
     margin-right: 5px;
     margin-left: 30px;
     width: 0;
-}
+} */
 
 footer {
     grid-area: footer;

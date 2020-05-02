@@ -25,29 +25,27 @@ include '../BBDD/clientesBBDD.php';
     <?php
     include '../header.php';
     ?>
-
     <main>
         <section>
-            <div class="clientes">
+            <div class="menu">
                 <?php
                 include 'menuOpciones.php';
                 ?>
-                <div class="Tabla">
-                    <h1 class="Titulo">LISTADO DE CLIENTES</h1>
+
+                <div class="divTable cliente">
                     <div class="contenidos">
-                        <div class="Celda">
-                            <div class="nombre">Nombre</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="apellidos">Apellidos</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="correo">Correo</div>
+                        <div class="divTableRow">
+                            <div class="divTableCabeza">Nombre</div>
+                            <div class="divTableCabeza">Apellidos</div>
+                            <div class="divTableCabeza">Correo</div>
+                            <!-- <div class="divTableCabeza">Opciones</div> -->
                         </div>
                     </div>
-                    <?php
-                    verClientes();
-                    ?>
+                    <div class="divTableBody">
+                        <?php
+                        verClientes();
+                        ?>
+                    </div>
                 </div>
             </div>
         </section>

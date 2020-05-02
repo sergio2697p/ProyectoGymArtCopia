@@ -30,20 +30,13 @@ function verClientes()
 ?>
 
 
-        <div class="Row">
-            <div class="Celda">
-                <div class="contenidos1-nombre"><?php echo "${fila['Nombre']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-apellidos"><?php echo "${fila['Apellidos']}"; ?></div>
-            </div>
-
-            <div class="Celda">
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="contenidos1-correo a-ocultar"><?php echo "${fila['CorreoElectronico']}";
-                                                            ?>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?>
                     <div class="boton">
                         <form name="editar" action="modificarClientes.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
@@ -57,6 +50,7 @@ function verClientes()
                             <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

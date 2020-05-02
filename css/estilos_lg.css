@@ -173,8 +173,84 @@ nav ul li [class*=none] {
 
 
 /* Estilos Menu de ociones*/
+#descargaPdf img {
+    width: 50px;
+    height: 50px;
+}
 
-.clientes {
+
+#copia img {
+    width: 50px;
+    height: 50px;
+}
+
+#anadir img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.menu {
+    justify-content: center;
+}
+
+.divTable {
+    display: table;
+}
+
+.divTableCelda, .divTableCabeza {
+    display: table-cell;
+    width: 30%; 
+}
+.divTable.cliente .divTableBody .divTableCelda {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 20px; 
+}
+
+.divTable.cliente .contenidos {
+    padding: 20px; 
+
+}
+
+.divTableCelda label {
+    display: none;
+}
+
+
+.boton {
+    display: flex;
+}
+
+.divTableCelda .a-ocultar .Celda {
+    margin-left: 20px;
+}
+
+.divTableCelda .a-ocultar .boton .editar {
+    margin-right: 20px;
+}
+.boton form button {
+    background-color: var(--color-oscuro);
+    border: 0;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+.boton form button img {
+    width: 25px;
+}
+
+/*Tabla clientes*/
+.boton-checkbox~[class*="a-ocultar"] {
+    display: flex;
+    justify-content: center;
+}
+
+/* .clientes {
     width: 50%;
     padding-bottom: 1%;
     padding-top: 1%;
@@ -230,7 +306,7 @@ nav ul li [class*=none] {
 }
 
 /*Tabla clientes*/
-
+/*
 .ListadoClientes {
     grid-area: VerClientes;
     text-align: center;
@@ -240,7 +316,7 @@ nav ul li [class*=none] {
 .tablaClientes>div {
     margin: auto;
     
-}
+} */
 
 
 /* .Tabla {
@@ -264,7 +340,7 @@ nav ul li [class*=none] {
     padding-right: 500px;
 
 } */
-.contenidos .Celda .correo {
+/* .contenidos .Celda .correo {
     display: block;
     padding: 0;
     width: 30%;
@@ -278,7 +354,7 @@ nav ul li [class*=none] {
     width: 100%; 
     padding: 0;
     display: flex;
-}
+} */
 
 
 /* .Celda .contenidos1-correo form input {
@@ -287,7 +363,7 @@ width: 100%;
 
 /*Modificar Clientes*/
 
-.Modificar {
+/* .Modificar {
     width: 50%;
     padding: 10px 30px;
     display: grid;
@@ -311,11 +387,11 @@ width: 100%;
 
 .Modificar .enviar {
     grid-area: enviar;
-}
+} */
 
 /*Añadir clientes*/
 
-.anadirClientes {
+/* .anadirClientes {
     width: 50%;
     padding: 10px 30px;
     display: grid;
@@ -352,6 +428,7 @@ width: 100%;
 }
 
 /*Ver Mensualidades*/
+/*
 .mensualidades {
     width: 50%;
     padding-bottom: 1%;
@@ -378,6 +455,7 @@ width: 100%;
 .Row .Celda .contenidos1-precio {
     display: block;
     /* width: 100%; */
+    /*
     padding: 0;
     display: flex;
     justify-content: center;
@@ -394,10 +472,10 @@ width: 100%;
 
 .boton form input {
     padding-right: 5%;
-}
+} */
 
 /*Gestion Mensualidades*/
-
+/*
 .ModificarMensualidades {
     width: 50%;
     padding: 10px 30px;
@@ -419,7 +497,7 @@ width: 100%;
 }
 
 /*Añadir Mensualidades*/
-
+/*
 .anadirMensualidad {
     width: 50%;
 }
@@ -438,6 +516,7 @@ width: 100%;
 }
 
 /*Gestionar Pagos*/
+/*
 .TablaListaPagados {
     display: table;
     text-align: center;

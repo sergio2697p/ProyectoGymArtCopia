@@ -37,9 +37,21 @@
     padding-top: 20%;
     margin: auto;
 }
-
+.boton-checkbox:checked~[class*="a-ocultar"] {
+    flex-flow: row;
+    padding: 5%;
+}
 /*tabla clientes*/
+.boton form button {
+    display: flex;
+    flex-flow: row;
+}
 
+.boton form button img {
+    width: 20px;
+}
+
+/* 
 .clientes {
     display: grid;
     grid-template-areas: "Descargas" "VerClientes";
@@ -97,9 +109,9 @@
 
 .Celda .contenidos1-correo form input {
     margin: 5%;
-}
+} */
 /*Ver Mensualidades*/
-.contenidos .Celda .precio {
+/* .contenidos .Celda .precio {
     display: block;
 }
 .boton-checkbox~[class*="a-ocultar"] {
@@ -114,7 +126,8 @@
     flex-flow: row;
     float: left;
     /* width: 75%; */
-}
+    /*
+} 
 
 .Celda .contenidos1-precio form input {
     margin: 0%;

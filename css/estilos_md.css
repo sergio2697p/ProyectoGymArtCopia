@@ -145,80 +145,24 @@ nav ul li {
     width: 100%;
 }
 
-/* Estilos Menu de ociones*/
-
-.clientes {
-    display: grid;
-    grid-template-areas: "Descargas" "VerClientes";
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
-}
-
-#descargaPdf {
-    grid-area: Descargas;
-}
-
-#descargaPdf img {
-    width: 50px;
-    height: 50px;
-}
-
-#copia {
-    grid-area: Descargas;
-}
-
-#copia img {
-    width: 50px;
-    height: 50px;
-}
-
-#anadir {
-    grid-area: Descargas;
-}
-
-#anadir img {
-    width: 50px;
-    height: 50px;
-}
-
 /*Ver clientes*/
-
-.ListadoClientes {
-    grid-area: VerClientes;
-    text-align: center;
-    width: 100%;
+.boton-checkbox:checked~[class*="a-ocultar"] {
+    flex-flow: column;
+    padding: 5%;
 }
-
-.tablaClientes>div {
-    margin: auto;
-}
-
-.contenidos {
-    margin-right: 5%;
-    padding-right: 5%;
-}
-.contenidos .Celda .correo {
-    display: block;
-    padding: 0;
-    width: 30%;
-}
-
-.Row .Celda .tresbotones {
-    display: none;
-}
-.Row .Celda .contenidos1-correo {
-    display: block;
-    padding: 0;
+.boton form button {
     display: flex;
+    flex-flow: column;
 }
 
-.Celda .contenidos1-correo form input {
-    margin: 5%;
+.boton form button img {
+    width: 20px;
 }
+
 
 /*Modificar Clientes*/
 
-.Modificar {
+/* .Modificar {
     padding: 10px 30px;
     display: grid;
     grid-template-areas: "DatosPersonales DatosAdicionales" "enviar          enviar";
@@ -243,7 +187,7 @@ nav ul li {
 }
 
 /*Añadir clientes*/
-
+/*
 .anadirClientes {
     padding: 10px 30px;
     display: grid;
@@ -278,6 +222,7 @@ nav ul li {
 }
 
 /*Ver Mensualidades*/
+/*
 .contenidos .celda .correo {
     display: block;
     padding: 0;
@@ -294,6 +239,7 @@ nav ul li {
 }
 
 /*Ver Mensualidades*/
+/*
 .contenidos .Celda .precio {
     display: block;
 }
@@ -302,7 +248,7 @@ nav ul li {
 }
 .Celda .contenidos1-precio {
     /* float: left; */
-    width: 100%;
+   /* width: 100%;
 }
 .Celda .contenidos1-precio form {
     display: flex;
@@ -313,10 +259,11 @@ nav ul li {
 .Celda .contenidos1-precio form input {
     margin: 0%;
     /* width: 100%; */
+    /*
 }
 
 /*Gestion Mensualidades*/
-
+/*
 .ModificarMensualidades {
     padding: 10px 30px;
     text-align: center;
@@ -332,10 +279,10 @@ nav ul li {
 }
 
 /*Añadir Mensualidades*/
-
+/*
 .anadirMensualidad input {
     padding: 5px;
-}
+} */
 
 footer {
     font-size: 20px;
