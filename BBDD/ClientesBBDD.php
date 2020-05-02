@@ -29,6 +29,7 @@ function verClientes()
         $contador++;
 ?>
 
+
         <div class="Row">
             <div class="Celda">
                 <div class="contenidos1-nombre"><?php echo "${fila['Nombre']}"; ?></div>
@@ -44,15 +45,17 @@ function verClientes()
                 <div class="contenidos1-correo a-ocultar"><?php echo "${fila['CorreoElectronico']}";
                                                             ?>
                     <div class="boton">
-                        <form action="modificarClientes.php" method="POST">
+                        <form name="editar" action="modificarClientes.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                            <input type="submit" name="editar_cliente" value="modificar">
-                            
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
 
-                            <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                                <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                                <input type="submit" name="borrar" value="borrar">
-                            </form>
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -183,6 +186,7 @@ function borrarClientes()
     $conexion = conectarUsuarios();
 
     $borrar_cliente = "DELETE from clientes WHERE CodigoCliente=$_POST[id]";
+    echo $borrar_cliente;
     $resultado = $conexion->query($borrar_cliente);
 
     if ($resultado) {

@@ -41,11 +41,15 @@ function verMensualidades()
                     <div class="boton">
                         <form action="modificarMensualidad.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                            <input type="submit" name="modificar_mensualidades" value="modificar">
+                            <!-- <input type="submit" name="modificar_mensualidades" value="modificar"> -->
+                            <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
 
                             <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                                 <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                                <input type="submit" name="borrar" value="borrar">
+                                <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+
                             </form>
                     </div>
                 </div>

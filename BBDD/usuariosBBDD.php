@@ -99,6 +99,7 @@ function registrarUsuarios()
 
     if ($errores) {
         mostrar_errores($errores);
+        // include '../usuarios/registrarUsuario.php';
         unset($errores);
     } else {
         $codigo = maximoCodigoUsuario();

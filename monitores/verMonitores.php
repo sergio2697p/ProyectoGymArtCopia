@@ -27,7 +27,7 @@
 
     <main>
         <section>
-            <div class="clientes">
+            <div class="monitores">
                 <?php
                 include 'menuOpciones.php';
                 ?>

@@ -46,17 +46,20 @@ function verMonitores()
                     <div class="boton">
                         <form action="modificarMonitores.php" method="POST">
                             <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                            <input type="submit" name="editar_cliente" value="modificar">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="editar-monitor"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
+                        
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
 
-                            <form  action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                                <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
-                                <input type="submit" name="borrar" value="borrar">
-                            </form>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-<?php
+    <?php
     }
     if (isset($_POST["borrar"])) {
         borrarMonitores();
@@ -77,7 +80,7 @@ function modificarMonitores()
             $apellidos = $_POST["apellidos"];
             $dni = $_POST["dni"];
             $telefono = $_POST["telefono"];
-            $salario=$_POST["salario"];
+            $salario = $_POST["salario"];
 
             //Vamos a realizar una consulta UPDATE para actuliazar los datos de los clientes
             $actualizarMonitores =
@@ -110,7 +113,7 @@ function visualizarDatosMonitores()
     $resultado = $conexion->query($select_cliente);
 
     $fila = $resultado->fetch_array();
-?>
+    ?>
     <form class="Modificar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
         <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
         <div class="datosPersonales">
@@ -164,7 +167,7 @@ function anadirMonitores()
     $apellidos = $_POST["apellidos"];
     $dni = $_POST["dni"];
     $telefono = $_POST["telefono"];
-    $salario= $_POST["salario"];
+    $salario = $_POST["salario"];
 
     $anadir_monitores = "INSERT INTO monitores (id,Nombre,Apellidos,DNI,Telefono,
             Salario) 
