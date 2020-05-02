@@ -24,7 +24,35 @@ function verMensualidades()
     while ($fila = $resultado->fetch_array()) {
         $contador++;
 ?>
-        <div class="Row">
+
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['nombreMen']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['diasSemana']}"; ?></div>
+            <div class="divTableCelda">
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php echo "${fila['precio']} €";?>
+                    <div class="boton">
+                        <form name="editar" action="modificarMensualidad.php" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
+
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div class="Row">
             <div class="Celda">
                 <div class="contenidos1-nombre"><?php echo "${fila['nombreMen']}"; ?></div>
             </div>
@@ -40,21 +68,21 @@ function verMensualidades()
                                                             ?>
                     <div class="boton">
                         <form action="modificarMensualidad.php" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <input type='hidden' value="<?php //echo "${fila['id']}" ?>" name="id">
                             <!-- <input type="submit" name="modificar_mensualidades" value="modificar"> -->
-                            <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
-                        </form>
+        <!-- <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
+                        </form> -->
 
-                            <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                                <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+        <!-- <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                                <input type='hidden' value="<?php //echo "${fila['id']}" ?>" name="id">
                                 <!-- <input type="submit" name="borrar" value="borrar"> -->
-                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+        <!-- <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button> -->
 
-                            </form>
-                    </div>
+        <!-- </form> -->
+        <!-- </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 <?php
     };
     if (isset($_POST["borrar"])) {

@@ -154,7 +154,7 @@ function visualizarDatosCliente()
             <input type="number" value="<?php echo "${fila['Peso']}" ?>" id="peso" name="peso">
 
             <div>
-                <label>Altura: (* En metros)</label>
+                <label>Altura(* En metros):</label>
                 <input type="number" value="<?php echo "${fila['altura']}" ?>" id="altura" name="altura">
             </div>
             <div>

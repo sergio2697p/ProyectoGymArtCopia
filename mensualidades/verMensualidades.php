@@ -25,27 +25,27 @@ include '../BBDD/conexionBBDD.php';
     include '../header.php';
     ?>
     <main>
-        <section>
-            <div class="mensualidades">
+    <section>
+            <div class="menu">
+            <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
-                <div class="Tabla">
-                    <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
+
+                <div class="divTable cliente">
                     <div class="contenidos">
-                        <div class="Celda">
-                            <div class="clase">Clase/Equipamiento</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="dia-semana">Dia a la semana</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="precio">Precio mensual</div>
+                        <div class="divTableRow">
+                            <div class="divTableCabeza">Clase/Equipamiento</div>
+                            <div class="divTableCabeza">Dia a la semana</div>
+                            <div class="divTableCabeza">Precio mensual</div>
+                            <!-- <div class="divTableCabeza">Opciones</div> -->
                         </div>
                     </div>
-                    <?php
-                    verMensualidades();
-                    ?>
+                    <div class="divTableBody">
+                        <?php
+                        verMensualidades();
+                        ?>
+                    </div>
                 </div>
             </div>
         </section>

@@ -669,95 +669,24 @@ div.cliente {
     width: 20px;
 }
 
-/* .Tabla {
-    display: table;
-    text-align: center;
-    width: 100%;
-}
-
-.Titulo {
-    display: table-caption;
-    text-align: center;
-    font-weight: bold;
-    font-size: larger;
-}
-
-.contenidos {
-    display: table-row;
-    font-weight: bold;
-}
-
-.contenidos .celda .correo {
-    display: none;
-}
-
-.Row {
-    display: table-row;
-    /* padding-left: 5px;
-    padding-right: 5px; */
-    /*
-}
-
-.Celda {
-    display: table-cell;
-    border-width: thin;
-    border: 2px solid white;
-    padding: 3%;
-}
-
-.boton-checkbox {
-    display: none;
-}
-
-.boton-checkbox~[class*="a-ocultar"] {
-    display: none;
-}
-
-.boton-checkbox:checked~[class*="a-ocultar"] {
-    display: initial;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 5%;
-}
-
-.Celda .contenidos1-correo form {
-    display: flex;
-    flex-flow: row;
-    /* width: 100%; */
-    /* margin-left: 30%; */
-    /*
-}
-
-.Celda .contenidos1-correo form input {
-    margin: 8%;
-}
-.boton .editar {
-    margin-right: 20px;
-}
-.boton form button {
-    background-color: var(--color-oscuro);
-    border: 0;
-    margin-right: 15px;
-    margin-left: 15px;
-    width: 0;
-}
-
-.boton form button img {
-    width: 25px;
-}
-
 /*Modificar Clientes*/
-/*
+
 .Modificar {
     background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
+   
 }
+.Modificar h1 {
+    padding-bottom: 5px;
+    padding-top: 5px;
 
+    text-align: center;
+}
+.Modificar div {
+    padding: 5px;
+}
 .Modificar input {
     background: none;
     color: white;
@@ -769,28 +698,34 @@ div.cliente {
 }
 
 .Modificar .enviar {
-    grid-area: enviar;
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
+    color: white;
     width: 100%;
-    background-color: white;
-    color: var(--color-oscuro);
-}
-
-.Celda .contenidos1-correo form input {
-    margin: 8%;
-}
-
-.mensualidades .Tabla .Row .Celda .boton {
-    margin-left: 15px;
-    width: 25%;
+    font-size: 1.5rem;
+    padding: 3%;
+   margin-top: 3%;
 }
 
 /*Añadir clientes*/
-/*
+
 .anadirClientes {
     background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
+}
+
+.anadirClientes div {
+    padding: 5px;
+}
+
+.anadirClientes h1 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    text-align: center;
 }
 
 .anadirClientes input {
@@ -804,83 +739,33 @@ div.cliente {
 }
 
 .anadirClientes .enviar {
-    grid-area: enviar;
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
+    color: white;
     width: 100%;
-    background-color: white;
-    color: var(--color-oscuro);
+    font-size: 1.5rem;
+    padding: 3%;
+   margin-top: 3%;
 }
 
-/*Ver mensualidades*/
-/*
-.mensualidades {
-    background: var(--color-oscuro);
-    width: 80%;
-    padding-bottom: 5%;
-    padding-top: 5%;
-}
-
-/* .Tabla {
-    display: table;
-    text-align: center;
-    width: 100%;
-} */
-/*
-.contenidos {
-    display: table-row;
-    font-weight: bold;
-}
-
-.contenidos .Celda .precio {
-    display: none;
-}
-/*
-.Row {
-    display: table-row;
-    /* padding-left: 5px;
-    padding-right: 5px; */
-    /*
-}
-/*
-.Celda {
-    display: table-cell;
-    border-width: thin;
-}
-
-.boton-checkbox {
-    display: none;
-}
-
-.boton-checkbox~[class*="a-ocultar"] {
-    display: none;
-}
-
-.boton-checkbox:checked~[class*="a-ocultar"] {
-    display: initial;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 5%;
-}
-
-.Celda .contenidos1-precio form {
-    display: flex;
-    flex-flow: row;
-    width: 100%;
-}
-
-.Celda .contenidos1-precio form input {
-    margin: 10%;
-}
-
-/*Gestion Mensualidades*/
-/*
+/*Modificar Mensualidades*/
 .ModificarMensualidades {
     background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.ModificarMensualidades div {
+    padding: 4px;
+}
+
+.ModificarMensualidades h1 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+
     text-align: center;
 }
 
@@ -895,22 +780,33 @@ div.cliente {
 }
 
 .ModificarMensualidades .enviar {
-    background-color: white;
-    color: var(--color-oscuro);
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
+    color: white;
     width: 100%;
+    font-size: 1.5rem;
+    padding: 3%;
+   margin-top: 3%;
 }
 
 /*Añadir Mensualidades*/
-/*
 .anadirMensualidad {
-    text-align: center;
     background: var(--color-oscuro);
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
-    padding: 10px 30px;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+    padding: 10px 20px;
+}
+
+.anadirMensualidad div {
+    padding: 5px;
+}
+
+.anadirMensualidad h1 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    text-align: center;
 }
 
 .anadirMensualidad input {
@@ -924,11 +820,16 @@ div.cliente {
 }
 
 .anadirMensualidad .enviar {
-    background-color: #292A3A;
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
     color: white;
     width: 100%;
+    font-size: 1.5rem;
+    padding: 3%;
+   margin-top: 3%;
 }
-
+/*
 .monitores {
     background: #292A3A;
     width: 50%;
