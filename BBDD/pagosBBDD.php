@@ -8,25 +8,18 @@ function verPagos()
     INNER JOIN pagos INNER JOIN clientes ON mensualidades.id = pagos.idMensualidades 
     WHERE clientes.CodigoCliente=pagos.idCliente;";
     $resultado = $conexion->query($select_pagos);
+    $contador = 0;
 
     while ($fila = $resultado->fetch_array()) {
+        $contador++;
+
 ?>
-        <div class="Row">
-            <div class="Celda">
-                <div class="contenidos1-nombreCliente"><?php echo "${fila['nombreCliente']}"; ?></div>
-            </div>
 
-            <div class="Celda">
-                <div class="contenidos1-nombreMensualidad"><?php echo "${fila['nombreMensualidad']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-fecha"><?php echo "${fila['fecha']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-pagados"><?php echo "${fila['pago']}"; ?></div>
-            </div>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['nombreCliente']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['nombreMensualidad']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['fecha']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['pago']}"; ?></div>
         </div>
     <?php
     }
@@ -44,22 +37,12 @@ function listaDeudores()
     $resultado = $conexion->query($select_deudores);
     while ($fila = $resultado->fetch_array()) {
     ?>
-        <div class="Row">
-            <div class="Celda">
-                <div class="contenidos1-nombreCliente"><?php echo "${fila['nombreCliente']}"; ?></div>
-            </div>
 
-            <div class="Celda">
-                <div class="contenidos1-nombreMensualidad"><?php echo "${fila['nombreMensualidad']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-fecha"><?php echo "${fila['fecha']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-pagados"><?php echo "${fila['pago']}"; ?></div>
-            </div>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['nombreCliente']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['nombreMensualidad']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['fecha']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['pago']}"; ?></div>
         </div>
 <?php
     }

@@ -1,6 +1,6 @@
 <?php
-    include '../BBDD/conexionBBDD.php';
-    include '../BBDD/pagosBBDD.php';
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/pagosBBDD.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,52 @@
     ?>
     <main>
         <section>
+            <div class="menu">
+                <div class="gestionar_pagos">
+                    <div class="Tabla">
+                        <h1 class="Titulo">Gestionar Pagos</h1>
+                        <label>Buscar Fecha:</label>
+                        <input type="date" name="" id="">
+                        <input type="submit" value="Buscar">
+                    </div>
+                    <h1>LISTA DE PAGADORES</h1>
+                    <div class="divTable cliente">
+                        <div class="contenidos">
+                            <div class="divTableRow">
+                                <div class="divTableCabeza">Nombre del Cliente</div>
+                                <div class="divTableCabeza">Nombre de la Mensualidad</div>
+                                <div class="divTableCabeza">Fecha</div>
+                                <div class="divTableCabeza">Pagado</div>
+                            </div>
+                        </div>
+                        <div class="divTableBody">
+                            <?php
+                            verPagos();
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="divTable cliente">
+                    <div class="TablaListaDeudores">
+                        <h1 class="Titulo">Lista Deudores</h1>
+                        <div class="contenidos">
+                            <div class="divTableRow">
+                                <div class="divTableCabeza">Nombre del Cliente</div>
+                                <div class="divTableCabeza">Nombre de la Mensualidad</div>
+                                <div class="divTableCabeza">Fecha</div>
+                                <div class="divTableCabeza">Pagado</div>
+                            </div>
+                        </div>
+                        <?php
+                        listaDeudores();
+                        ?>
+
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <!-- <section>
             <div class="clientes">
                 <div class="gestionar_pagos">
                     <div class="Tabla">
@@ -84,7 +130,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
     <?php
     include '../footer.php';
