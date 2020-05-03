@@ -28,17 +28,16 @@ include '../BBDD/clientesBBDD.php';
     <main>
         <section>
             <div class="menu">
+            <h1 class="Titulo">LISTADO DE CLIENTES</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
-
                 <div class="divTable cliente">
                     <div class="contenidos">
                         <div class="divTableRow">
                             <div class="divTableCabeza">Nombre</div>
                             <div class="divTableCabeza">Apellidos</div>
                             <div class="divTableCabeza">Correo</div>
-                            <!-- <div class="divTableCabeza">Opciones</div> -->
                         </div>
                     </div>
                     <div class="divTableBody">

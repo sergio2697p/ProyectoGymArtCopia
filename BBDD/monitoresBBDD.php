@@ -28,26 +28,49 @@ function verMonitores()
     while ($fila = $resultado->fetch_array()) {
         $contador++;
 ?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda">
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php echo "${fila['DNI']}"; ?>
+                    <div class="boton">
+                        <form name="editar" action="modificarMonitores.php" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
 
-        <div class="Row">
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="Row">
             <div class="Celda">
-                <div class="contenidos1-nombre"><?php echo "${fila['Nombre']}"; ?></div>
+                <div class="contenidos1-nombre"><?php //echo "${fila['Nombre']}"; ?></div>
             </div>
 
             <div class="Celda">
-                <div class="contenidos1-apellidos"><?php echo "${fila['Apellidos']}"; ?></div>
+                <div class="contenidos1-apellidos"><?php //echo "${fila['Apellidos']}"; ?></div>
             </div>
 
             <div class="Celda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="contenidos1-correo a-ocultar"><?php echo "${fila['DNI']}";
+                <div class="contenidos1-correo a-ocultar"><?php //echo "${fila['DNI']}";
                                                             ?>
                     <div class="boton">
                         <form action="modificarMonitores.php" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['id']}" ?>" name="id">
+                            <input type='hidden' value="<?php //echo "${fila['id']}" ?>" name="id">
                             <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                            <button type="submit" name="editar-monitor"><img src="../imagenes/editar.png" alt=""></button>
+                            <!-- <button type="submit" name="editar-monitor"><img src="../imagenes/editar.png" alt=""></button>
                         </form>
                         
                         <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
@@ -56,9 +79,9 @@ function verMonitores()
 
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div> -->
+            <!-- </div>
+        </div> -->
     <?php
     }
     if (isset($_POST["borrar"])) {

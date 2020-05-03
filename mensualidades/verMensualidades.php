@@ -25,13 +25,12 @@ include '../BBDD/conexionBBDD.php';
     include '../header.php';
     ?>
     <main>
-    <section>
+        <section>
             <div class="menu">
             <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
-
                 <div class="divTable cliente">
                     <div class="contenidos">
                         <div class="divTableRow">

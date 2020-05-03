@@ -27,7 +27,28 @@
 
     <main>
         <section>
-            <div class="monitores">
+
+        <div class="menu">
+            <h1 class="Titulo">LISTADO DE MONITORES</h1>
+                <?php
+                include 'menuOpciones.php';
+                ?>
+                <div class="divTable cliente">
+                    <div class="contenidos">
+                        <div class="divTableRow">
+                            <div class="divTableCabeza">Nombre</div>
+                            <div class="divTableCabeza">Apellidos</div>
+                            <div class="divTableCabeza">DNI</div>
+                        </div>
+                    </div>
+                    <div class="divTableBody">
+                        <?php
+                        verMonitores();
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="monitores">
                 <?php
                 include 'menuOpciones.php';
                 ?>
@@ -45,10 +66,10 @@
                         </div>
                     </div>
                     <?php
-                    verMonitores();
+                    //verMonitores();
                     ?>
                 </div>
-            </div>
+            </div> -->
         </section>
     </main>
     <?php

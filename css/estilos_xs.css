@@ -533,23 +533,23 @@ section {
     background-color: #ffffff;
 }
 
-/* Estilos Menu de ociones*/
+/*Ver Clientes*/
 
 .menu {
     background: #292A3A;
     width: 90%;
-    height: 20%;
+    height: 40%;
     display: flex;
     flex-flow: column;
-    /* padding-bottom: 5%; */
-    /* padding-top: 5%; */
-    
 }
+
+/* Estilos Menu de ociones*/
 
 .descargas {
     flex-flow: row;
     justify-content: center;
     display: flex;
+    margin-bottom: 10px;
 }
 
 #descargaPdf img {
@@ -567,6 +567,10 @@ section {
     height: 40px;
 }
 
+.Titulo {
+    text-align: center;
+    margin-bottom: 10px;
+}
 
 .divTable {
     display: table;
@@ -615,7 +619,6 @@ div.cliente {
     background: #292A3A;
     border-bottom: 4px solid #555555;
     /* padding: 20px; */
-
 }
 
 .divTable.cliente .contenidos .divTableCabeza {
@@ -626,7 +629,6 @@ div.cliente {
     border-left: 2px solid #555555;
     /* padding: 20px; */
 }
-
 
 .divTable.cliente .contenidos .divTableCabeza:first-child {
     border-left: none;
@@ -640,7 +642,6 @@ div.cliente {
     display: none;
 }
 
-
 .boton-checkbox~[class*="a-ocultar"] {
     display: none;
 }
@@ -651,7 +652,6 @@ div.cliente {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    /* width: 20%; */
     padding: 5%;
 }
 
@@ -676,17 +676,18 @@ div.cliente {
     border-radius: 8px;
     box-shadow: 0 0 40px -10px #000;
     padding: 10px 20px;
-   
 }
+
 .Modificar h1 {
     padding-bottom: 5px;
     padding-top: 5px;
-
     text-align: center;
 }
+
 .Modificar div {
     padding: 5px;
 }
+
 .Modificar input {
     background: none;
     color: white;
@@ -705,7 +706,7 @@ div.cliente {
     width: 100%;
     font-size: 1.5rem;
     padding: 3%;
-   margin-top: 3%;
+    margin-top: 3%;
 }
 
 /*Añadir clientes*/
@@ -724,7 +725,6 @@ div.cliente {
 .anadirClientes h1 {
     padding-bottom: 5px;
     padding-top: 5px;
-
     text-align: center;
 }
 
@@ -746,10 +746,11 @@ div.cliente {
     width: 100%;
     font-size: 1.5rem;
     padding: 3%;
-   margin-top: 3%;
+    margin-top: 3%;
 }
 
 /*Modificar Mensualidades*/
+
 .ModificarMensualidades {
     background: var(--color-oscuro);
     border-radius: 8px;
@@ -765,7 +766,6 @@ div.cliente {
 .ModificarMensualidades h1 {
     padding-bottom: 5px;
     padding-top: 5px;
-
     text-align: center;
 }
 
@@ -787,10 +787,11 @@ div.cliente {
     width: 100%;
     font-size: 1.5rem;
     padding: 3%;
-   margin-top: 3%;
+    margin-top: 3%;
 }
 
 /*Añadir Mensualidades*/
+
 .anadirMensualidad {
     background: var(--color-oscuro);
     border-radius: 8px;
@@ -805,7 +806,6 @@ div.cliente {
 .anadirMensualidad h1 {
     padding-bottom: 5px;
     padding-top: 5px;
-
     text-align: center;
 }
 
@@ -827,8 +827,9 @@ div.cliente {
     width: 100%;
     font-size: 1.5rem;
     padding: 3%;
-   margin-top: 3%;
+    margin-top: 3%;
 }
+
 /*
 .monitores {
     background: #292A3A;
