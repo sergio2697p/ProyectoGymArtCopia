@@ -60,7 +60,7 @@ include '../BBDD/funciones.php';
                     </form>
                 </div>
         </section>
-        <section class="menu">
+        <section class="menu_registrarse">
         <?php
             if ($_POST) {
                 registrarUsuarios();
