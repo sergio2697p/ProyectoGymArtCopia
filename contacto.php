@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <label>Asunto:</label>
-                        <input type="text" name="asunto" placeholder="Escriba aqui su asunto">
+                        <input type="text" name="asunto" placeholder="Escriba aquí su asunto">
                     </div>
                     <div>
                         <label>Correo Electronico:</label>
@@ -70,7 +70,7 @@
 
                     <div class="mensaje">
                         <label>Mensaje:</label>
-                        <textarea name="mensaje" cols="30" rows="10" placeholder="Escrina aqui su mensaje..."></textarea>
+                        <textarea name="mensaje" cols="30" rows="10" placeholder="Escriba aquí su mensaje..."></textarea>
                     </div>
                     
                     <button type="submit">Enviar</button>

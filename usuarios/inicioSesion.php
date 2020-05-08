@@ -49,7 +49,7 @@ session_start();
                             <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
                         </div>
 
-                            <button class="boton_enviar" type="submit">Iniciar sesión</button>
+                            <button class="boton_enviar" type="submit">Acceder</button>
                             <a href="registrarUsuario.php"><button type="button" class="boton_registrar" value="Registrate">Registrate</button></a>
                             <a href="cambiar_contrasena.php"><button type="button" class="boton_olvidar_contrasena">¿Olvidaste la contraseña?</button></a>
                     </form>

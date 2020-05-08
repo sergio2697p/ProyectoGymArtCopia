@@ -22,9 +22,7 @@ include '../BBDD/funciones.php';
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript" src="sweetalert.min.js"></script>
-    <!-- <script type="text/javascript" src="alerta.js"></script> -->
-
+    <script type="text/javascript" src="../javascript/sweetalert.min.js"></script>
 
 </head>
 
@@ -52,10 +50,11 @@ include '../BBDD/funciones.php';
                             <input type="password" name="contrasena-repetida" placeholder="repite contraseña" <?php mostrar_campo('contrasena-repetida') ?> required>
                         </div>
                         <div>
-                            <label>Correo Electronico:</label>
+                            <label>Correo Electrónico:</label>
                             <input type="text" name="mail" placeholder="Introduzca su correo electronico" <?php mostrar_campo('mail') ?> required>
                         </div>
 
+                       <a href="inicioSesion.php"> <button>Atrás</button></a>
                         <button type="submit" name="registrar_usuario" id="Registrarse">Registrate</button>
                     </form>
                 </div>

@@ -112,6 +112,8 @@ function registrarUsuarios()
                 text: 'Se ha creado el usuario correctamente',
                 type: 'success',
               });</script>";
+            // header('Location:/ProyectoGymArtCopia/usuarios/inicioSesion.php');
+
         } else {
             echo "<script> swal({
                 title: '¡Error!',

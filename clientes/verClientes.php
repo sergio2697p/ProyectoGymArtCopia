@@ -28,21 +28,36 @@ include '../BBDD/clientesBBDD.php';
     <main>
         <section>
             <div class="menu">
-            <h1 class="Titulo">LISTADO DE CLIENTES</h1>
+
+                <h1 class="Titulo">LISTADO DE CLIENTES</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
+                <div class="buscador">
+                    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                        <div class="input">
+                            <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
+                            <button type="submit" name="buscar"><img src="../imagenes/lupa.png" alt=""></button>
+                        </div>
+                    </form>
+                </div>
                 <div class="divTable cliente">
+
                     <div class="contenidos">
                         <div class="divTableRow">
                             <div class="divTableCabeza">Nombre</div>
                             <div class="divTableCabeza">Apellidos</div>
+                            <div class="divTableCabeza">Telefono</div>
                             <div class="divTableCabeza">Correo</div>
                         </div>
                     </div>
                     <div class="divTableBody">
                         <?php
                         verClientes();
+                        // if($_POST) {
+
+                        //     buscarClientes();
+                        // }
                         ?>
                     </div>
                 </div>

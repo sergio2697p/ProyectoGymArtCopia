@@ -217,7 +217,7 @@ section {
     border-radius: 15px;
     color: white;
     width: 40%;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 2%;
 }
 
@@ -345,9 +345,10 @@ section {
     border-radius: 15px;
     color: white;
     width: 40%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 3%;
 }
+
 
 .menu_registrarse {
     width: 0%;
@@ -373,10 +374,10 @@ section {
 /*Basica*/
 
 .basica {
+    padding: 8% 5%;
     display: flex;
     flex-flow: column;
     height: 30%;
-    padding: 5%;
 }
 
 .titulo-precioB {
@@ -430,7 +431,7 @@ section {
     padding: 8% 5%;
     display: flex;
     flex-flow: column;
-    height: 50%;
+    height: 30%;
 }
 
 .titulo-precioA {
@@ -482,10 +483,10 @@ section {
 /*Ultra*/
 
 .ultra {
-    padding: 8% 5%;
+    /* padding: 8% 5%; */
     display: flex;
     flex-flow: column;
-    height: 50%;
+    height: 30%;
 }
 
 .titulo-precioU {
@@ -538,9 +539,35 @@ section {
 .menu {
     background: #292A3A;
     width: 90%;
-    height: 40%;
     display: flex;
     flex-flow: column;
+}
+
+.buscador {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+} 
+.input {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.i_buscar {
+    width: 100%;
+    text-align: center;
+    height: 30%;
+    padding: 10px;
+}
+
+.input button {
+    background: none;
+    border: none;
+    padding-left: 1%;
+}
+.input button img {
+    width: 30px;
 }
 
 /* Estilos Menu de ociones*/
@@ -569,7 +596,7 @@ section {
 
 .Titulo {
     text-align: center;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .divTable {
@@ -612,11 +639,11 @@ div.cliente {
 }
 
 .divTable.cliente .divTableRow:nth-child(even) {
-    background: red;
+    background: rgb(196, 15, 15);
 }
 
 .divTable.cliente .contenidos {
-    background: #292A3A;
+    background: rgb(45, 46, 75);
     border-bottom: 4px solid #555555;
     /* padding: 20px; */
 }
@@ -695,6 +722,7 @@ div.cliente {
     outline: none;
     border: 0;
     transition: all .3s;
+    /* width: 60%; */
     border-bottom: 2px solid #bebed2;
 }
 
@@ -719,7 +747,7 @@ div.cliente {
 }
 
 .anadirClientes div {
-    padding: 5px;
+    padding: 10px;
 }
 
 .anadirClientes h1 {
@@ -738,13 +766,20 @@ div.cliente {
     border-bottom: 2px solid #bebed2;
 }
 
+.anadirClientes select {
+    border-radius: 15px;
+    padding: 2px;
+    width: 130px;
+    font-size: 1.1rem;
+}
+
 .anadirClientes .enviar {
     background-color: #dd2c00;
     border: 0;
     border-radius: 15px;
     color: white;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 3%;
     margin-top: 3%;
 }

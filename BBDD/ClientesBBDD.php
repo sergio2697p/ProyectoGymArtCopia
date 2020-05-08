@@ -21,18 +21,17 @@ function verClientes()
     $conexion = conectarUsuarios();
     $select_cliente = "SELECT * from clientes";
 
-    //para recorrer los id para los puntos
     $resultado = $conexion->query($select_cliente);
     $contador = 0;
 
     while ($fila = $resultado->fetch_array()) {
         $contador++;
 ?>
-
-
         <div class="divTableRow">
             <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
+
             <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
@@ -60,6 +59,18 @@ function verClientes()
         borrarClientes();
     }
 }
+
+//Buscar Clientes
+// function buscarClientes() {
+//     $conexion = conectarUsuarios();
+
+//     $buscar=$_POST["informacion"];
+//     $buscador = "SELECT * FROM clientes WHERE nick LIKE $buscar ORDER BY nick ";
+//     $resultado = $conexion->query($buscador);
+//     while ($fila = $resultado->fetch_array()) {
+//         echo "${fila['Nombre']}"; 
+//     }
+// }
 
 //Para actualizar los daros de los clientes
 function modificarClientes()
@@ -137,7 +148,7 @@ function visualizarDatosCliente()
                 <input type="text" value="<?php echo "${fila['Poblacion']}" ?>" id="poblacion" name="poblacion">
             </div>
             <div>
-                <label>Correo Electronico:</label>
+                <label>Email:</label>
                 <input type="text" value="<?php echo "${fila['CorreoElectronico']}" ?>" id="mail" name="mail">
             </div>
             <div>
@@ -151,11 +162,11 @@ function visualizarDatosCliente()
         <div class="datosAdicionales">
             <h1>Información adicional</h1>
             <label>Peso:</label>
-            <input type="number" value="<?php echo "${fila['Peso']}" ?>" id="peso" name="peso">
+            <input type="number" value="<?php echo "${fila['Peso']}" ?>" id="peso" name="peso" placeholder="Kg">
 
             <div>
-                <label>Altura(* En metros):</label>
-                <input type="number" value="<?php echo "${fila['altura']}" ?>" id="altura" name="altura">
+                <label>Altura:</label>
+                <input type="number" value="<?php echo "${fila['altura']}" ?>" id="altura" name="altura" placeholder="metros">
             </div>
             <div>
                 <label>Edad:</label>

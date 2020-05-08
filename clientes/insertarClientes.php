@@ -1,6 +1,6 @@
 <?php
- include '../BBDD/conexionBBDD.php';
- include '../BBDD/clientesBBDD.php';
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/clientesBBDD.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,43 +43,67 @@
                         <label>Apellidos:</label>
                         <input type="text" name="apellidos">
                     </div>
-                    <div>
-                        <label>Domicilio:</label>
-                        <input type="text" name="domicilio">
-                    </div>
-                    <div>
-                        <label>Población:</label>
-                        <input type="text" name="poblacion">
-                    </div>
-                    <div>
-                        <label>Correo Electronico:</label>
-                        <input type="text" name="mail">
-                    </div>
-                    <div>
-                        <label>Telefono:</label>
-                        <input type="number" name="movil">
-                    </div>
-                    <label>Observaciones:</label>
-                    <input type="text" name="Observaciones">
-                </div>
 
-                <div class="datosAdicionales">
-                    <h1>Información adicional</h1>
-                    <label>Peso:</label>
-                    <input type="number" name="peso">
-
-                    <div>
-                        <label>Altura: (* En metros)</label>
-                        <input type="number" name="altura">
-                    </div>
                     <div>
                         <label>Edad:</label>
                         <input type="number" name="edad">
                     </div>
+
+                    <div>
+                        <label>Domicilio:</label>
+                        <input type="text" name="domicilio">
+                    </div>
+
+                    <div>
+                        <label>Población:</label>
+                        <input type="text" name="poblacion">
+                    </div>
+
+                    <div>
+                        <label>Email:</label>
+                        <input type="text" name="mail">
+                    </div>
+
+                    <div>
+                        <label>Telefono:</label>
+                        <input type="number" name="movil">
+                    </div>
+
+                    <div>
+                        <label>Observaciones:</label>
+                        <input type="text" name="Observaciones">
+                    </div>
+
+                </div>
+
+                <div class="datosAdicionales">
+                    <h1>Información adicional</h1>
+
+                    <div>
+                        <label>Peso:</label>
+                        <input type="number" name="peso" placeholder="Introducir en kg">
+                    </div>
+
+
+                    <div>
+                        <label>Altura:</label>
+                        <input type="number" name="altura" placeholder="Introducir en metros">
+                    </div>
+
+                    <!-- <div>
+                        <label>Masa corporal:</label>
+                        <input type="number" name="">
+                    </div> -->
+
                     <div>
                         <label>Actividad fisíca:</label>
-                        <input type="text" name="actividad">
+                        <select name="actividad" id="">
+                            <option value="Principiante">Principiante</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Extremo">Extremo</option>
+                        </select>
                     </div>
+
                     <div>
                         <label>Lesiones:</label>
                         <input type="text" name="lesiones">
