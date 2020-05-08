@@ -29,7 +29,7 @@ session_start();
     include "../header.php";
     include '../BBDD/conexionBBDD.php';
     include '../BBDD/usuariosBBDD.php';
-    include '../BBDD/funciones.php';
+    include '../funciones/funciones.php';
 
 
     
