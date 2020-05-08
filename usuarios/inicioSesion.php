@@ -8,6 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <title>Inicio de Sesion</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="../css/sweetalert.css">
+
     <link rel="stylesheet" href="../css/estilos_xs.css">
     <!--movil-->
     <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
@@ -17,6 +19,8 @@ session_start();
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../javascript/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -28,9 +32,7 @@ session_start();
     include '../BBDD/funciones.php';
 
 
-    if ($_POST) {
-        iniciarSesion();
-    } else {
+    
     ?>
         <main>
             <section>
@@ -55,9 +57,15 @@ session_start();
                     </form>
                 </div>
             </section>
+            <section class="menu_registrarse">
+            <?php
+            if ($_POST) {
+                iniciarSesion();
+            }
+            ?>
+            </section>
         </main>
     <?php
-    }
     include "../footer.php";
     ?>
 </body>

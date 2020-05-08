@@ -27,7 +27,11 @@ function iniciarSesion()
             $_SESSION['usuario'] = $usuario;
             header('Location:/ProyectoGymArtCopia/index.php');
         } else {
-            echo 'No se ha establecido conexion';
+           echo "<script> swal({
+                title: 'Error',
+                text: 'La conexion no se ha establecido con exito',
+                type: 'error',
+              });</script>";
         }
     }
 }
