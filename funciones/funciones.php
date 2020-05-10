@@ -2,11 +2,10 @@
 //Funcion para mostrar los errores, recorriendo un array
 function mostrar_errores($errores)
 {
-    echo '<ul>';
+    
     foreach ($errores as $error) {
-        echo '<li>' . $error . '</li>';
+    echo $error;
     }
-    echo '</ul>';
 }
 
 //funcion para mostrar los valores de los campos del formulario

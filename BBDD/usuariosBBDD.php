@@ -54,8 +54,6 @@ function maximoCodigoUsuario()
 
 function registrarUsuarios()
 {
-
-
     $conexion = conectarUsuarios();
     $nick = $_POST["nick"];
     $contraseña = md5($_POST["contrasena"]);
@@ -103,27 +101,11 @@ function registrarUsuarios()
           });</script>";
     }
 
-    // $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
-    // $conexionPDO = new PDO('mysql:host=localhost;dbname=art', 'root', '', $opciones);
-
-    // $sql = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
-    // $resultado = $conexionPDO->prepare($sql);
-    // $resultado->execute();
-    // echo "<div>hola1</div>";     
-    // if ($fila = $resultado->fetch()) {
-    //     // $errores[] = "<div>hola2</div>";     
-    //     $errores[] =  "<script> swal({
-    //         title: 'Usuario Repetido',
-    //         text: 'Tiene que ser un usuario nuevo',
-    //         type: 'error',
-    //       });</script>";
-        
-    // }
-
-      $usuario_unico = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
+    //comprueba que no se crea un usuario igual que el que esta registrado en la Base de Datos
+    $usuario_unico = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
     // echo $usuario_unico;
     $resultado_select = $conexion->query($usuario_unico);
-    if ($resultado_select != null) {
+    if ($resultado_select->fetch_array() != null) {
         $errores[] = "<script> swal({
                 title: 'Usuario Repetido',
                      text: 'Tiene que ser un usuario nuevo',
@@ -131,10 +113,8 @@ function registrarUsuarios()
                    });</script>";
     }
 
-
     if ($errores) {
         mostrar_errores($errores);
-        // include '../usuarios/registrarUsuario.php';
         unset($errores);
     } else {
         $codigo = maximoCodigoUsuario();
@@ -142,13 +122,40 @@ function registrarUsuarios()
         $resultado = $conexion->query($insert);
 
         if ($resultado != null) {
-            echo "<script> swal({
-                title: 'Usuario',
-                text: 'Se ha creado el usuario correctamente',
-                type: 'success',
-              });</script>";
-            // header('Location:/ProyectoGymArtCopia/usuarios/inicioSesion.php');
+            // echo "<script> swal({
+            //     title: 'Usuario',
+            //     text: 'Se ha creado el usuario correctamente',
+            //     type: 'success',
+            //   });</script>";
+        //     echo "<script>
+        //     swal({
+        //         title: 'Usuario',
+        //         text: 'Se ha creado el usuario correctamente',
+        //         type: 'success'
+        //     }), (function() {
+        //         if (redirigir) {
+        //             window.location.href = inicioSesion.php;
+        //         }
+        //     });
+        // </script>
+        //     ";
+            // header('Location:/ProyectoGymArtCopia/index.php');
 
+            // header('Location:/ProyectoGymArtCopia/usuarios/inicioSesion.php');
+?>
+            <script>
+                swal({
+                    title: 'Usuario',
+                    text: 'Se ha creado el usuario correctamente',
+                    type: 'success'
+                }),function() {
+                    if (redirigir) {
+                        window.location.href = inicioSesion.php;
+                    }
+                };
+            </script>
+
+<?php
         } else {
             echo "<script> swal({
                 title: '¡Error!',
@@ -174,12 +181,9 @@ function olvidarContraseña()
         $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
     }
 
-    if ($contraseña == $contraseñaRepetida) {
-        "";
-    } else {
+    if ($contraseña != $contraseñaRepetida) {
         $errores[] = "La contraseñas tienen que ser identicas";
     }
-
 
     if ($errores) {
         mostrar_errores($errores);
