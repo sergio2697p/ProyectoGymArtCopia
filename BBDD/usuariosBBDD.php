@@ -127,6 +127,7 @@ function registrarUsuarios()
         $insert = "INSERT INTO usuarios (CodigoUsuario,Nombre,Contrasena,Email) VALUES($codigo,'$nick','$contraseña','$correo')";
         $resultado = $conexion->query($insert);
 
+        //si se ha podido hacer una insercion que me lleve a esa pagina
         if ($resultado != null) {
             echo " <script>
                 Swal.fire({
