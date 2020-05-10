@@ -127,18 +127,32 @@ function registrarUsuarios()
             //     text: 'Se ha creado el usuario correctamente',
             //     type: 'success',
             //   });</script>";
-            echo "  <script>
+            // echo "  <script>
+            //     swal({
+            //         title: 'Usuario',
+            //         text: 'Se ha creado el usuario correctamente',
+            //         type: 'success'
+            //     }),window.onload= function(redirigir) {
+            //         if (redirigir) {
+            //             window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
+            //         }
+            //     };
+            // </script>
+            // ";
+
+            ?>
+<script>
                 swal({
                     title: 'Usuario',
                     text: 'Se ha creado el usuario correctamente',
                     type: 'success'
-                }),window.onload= function(redirigir) {
-                    if (redirigir) {
+                }).then((result) => {
+                    if (result.value) {
                         window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
                     }
-                };
+                });
             </script>
-            ";
+            <?php
         } else {
             echo "<script> swal({
                 title: '¡Error!',
