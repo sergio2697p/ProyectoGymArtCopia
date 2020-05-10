@@ -542,6 +542,20 @@ section {
     display: flex;
     flex-flow: column;
 }
+.clientesAntiguos {
+    width: 100%;
+    /* background-color: red; */
+
+}
+.clientesAntiguos button {
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
+    color: white; 
+    padding: 0.5%;
+    float: right;
+
+}
 
 .buscador {
     width: 100%;

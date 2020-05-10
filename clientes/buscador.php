@@ -10,7 +10,6 @@ include '../BBDD/clientesBBDD.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <link rel="stylesheet" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/estilos_xs.css">
     <!--movil-->
     <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
@@ -20,8 +19,6 @@ include '../BBDD/clientesBBDD.php';
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript" src="../javascript/sweetalert.min.js"></script>
-
 </head>
 
 <body>
@@ -37,7 +34,7 @@ include '../BBDD/clientesBBDD.php';
                 include 'menuOpciones.php';
                 ?>
                 <div class="clientesAntiguos">
-                    <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
+                    <button><a href="verClientes.php">TODOS LOS CLIENTES</a></button>
                 </div>
 
                 <div class="buscador">
@@ -61,12 +58,7 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                        verClientes();
-                        if(isset($_POST["buscar"])) {
                             buscarClientes();
-                        }else {
-                            
-                        }
                         ?>
                     </div>
                 </div>

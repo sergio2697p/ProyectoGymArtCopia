@@ -19,7 +19,7 @@ function maximoCodigoCliente()
 function verClientes()
 {
     $conexion = conectarUsuarios();
-    $select_cliente = "SELECT * from clientes";
+    $select_cliente = "SELECT * from clientes where Activo = 1";
 
     $resultado = $conexion->query($select_cliente);
     $contador = 0;
@@ -27,6 +27,62 @@ function verClientes()
     while ($fila = $resultado->fetch_array()) {
         $contador++;
 ?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
+
+            <div class="divTableCelda">
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?>
+                    <div class="boton">
+                <input type="checkbox" class="boton-checkbox" id="eChkVerMas<?php echo $contador ?>">
+                <label for="eChkVerMas <?php echo $contador ?>" class="verMas"><img src="../imagenes/verMas.png" alt=""></label>
+                        <!-- <form action="<?php //echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php //echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <!-- <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
+                        </form>  -->
+
+                        <form name="editar" action="modificarClientes.php" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
+
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+    if (isset($_POST["borrar"])) {
+        CambiarEstadoClientesActivos();
+    }
+
+    if (isset($_POST["verMas"])) {
+        verMas();
+    }
+}
+
+function verClientesAntiguos()
+{
+    $conexion = conectarUsuarios();
+    $select_cliente = "SELECT * from clientes where Activo = 0";
+
+    $resultado = $conexion->query($select_cliente);
+    $contador = 0;
+
+    while ($fila = $resultado->fetch_array()) {
+        $contador++;
+    ?>
         <div class="divTableRow">
             <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
@@ -56,21 +112,80 @@ function verClientes()
     <?php
     }
     if (isset($_POST["borrar"])) {
-        borrarClientes();
+        CambiarEstadoClientesInactivos();
     }
+
+    
 }
 
 //Buscar Clientes
-// function buscarClientes() {
-//     $conexion = conectarUsuarios();
+function buscarClientes()
+{
+    $conexion = conectarUsuarios();
 
-//     $buscar=$_POST["informacion"];
-//     $buscador = "SELECT * FROM clientes WHERE nick LIKE $buscar ORDER BY nick ";
-//     $resultado = $conexion->query($buscador);
-//     while ($fila = $resultado->fetch_array()) {
-//         echo "${fila['Nombre']}"; 
-//     }
-// }
+    $buscar = $_POST["informacion"];
+    $buscador = "SELECT * FROM clientes WHERE Nombre LIKE '$buscar' OR Apellidos = '$buscar' ORDER BY Nombre ";
+    //echo $buscador;
+    $resultado = $conexion->query($buscador);
+    $contador = 0;
+    while ($fila = $resultado->fetch_array()) {
+        $contador++;
+    ?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
+
+            <div class="divTableCelda">
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?>
+                    <div class="boton">
+                        <form name="editar" action="modificarClientes.php" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
+
+                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+}
+
+function verMas() {
+    // echo "<script> swal({
+    //     title: 'OTRA INFORMACION',
+    //     text: 'La conexion no se ha establecido con exito',
+    //     type: 'error',
+    //   });</script>";
+?>
+
+<?php
+    // $conexion = conectarUsuarios();
+    // $select_cliente = "SELECT * from clientes";
+
+    // $resultado = $conexion->query($select_cliente);
+    // $contador = 0;
+
+    // while ($fila = $resultado->fetch_array()) {
+    //     echo "<script> swal({
+    //         title: OTRA INFORMACION,
+    //         text: 'La conexion no se ha establecido con exito',
+    //         type: 'sucess',
+    //       });</script>";
+    // }
+
+
+}
 
 //Para actualizar los daros de los clientes
 function modificarClientes()
@@ -186,19 +301,83 @@ function visualizarDatosCliente()
 <?php
 }
 
-function borrarClientes()
+//revisar
+// function CambiarEstadoClientes()
+// {
+//     $conexion = conectarUsuarios();
+//     $select_cliente= "SELECT activo from clientes where CodigoCliente=$_POST[id] and activo = 1";
+//     //echo $select_cliente;
+//     $resultado_cliente=$conexion->query($select_cliente);
+
+//     if($resultado_cliente != null) {
+//         $cambiarEstadoCliente= "UPDATE clientes " .
+//         "SET Activo=0 " .
+//         "WHERE CodigoCliente=$_POST[id]";
+
+//         // echo $cambiarEstadoCliente;
+//         $resultado = $conexion->query($cambiarEstadoCliente);
+
+//         if ($resultado) {
+//             echo '<p>Operacion correcta</p>';
+//         } else {
+
+//             echo '<p>Tuvimos problemas con la operacion del cliente, intentalo de nuevo más tarde</p>';
+//         }
+
+//     }else {
+//         $cambiarEstadoClientes= "UPDATE clientes " .
+//         "SET Activo=1 " .
+//         "WHERE CodigoCliente=$_POST[id]";
+
+//         echo $cambiarEstadoClientes;
+//         $resultados = $conexion->query($cambiarEstadoClientes);
+
+//         if ($resultados) {
+//             echo '<p>Operacion correcta1</p>';
+//         } else {
+
+//             echo '<p>Tuvimos problemas con la operacion del cliente, intentalo de nuevo más tarde</p>';
+//         }
+//     }
+// }
+
+//cambiar a clientes que van a pasar parte de clientes inactivos
+function CambiarEstadoClientesActivos()
 {
     $conexion = conectarUsuarios();
+    $cambiarEstadoCliente = "UPDATE clientes " .
+        "SET Activo=0 " .
+        "WHERE CodigoCliente=$_POST[id]";
 
-    $borrar_cliente = "DELETE from clientes WHERE CodigoCliente=$_POST[id]";
-    echo $borrar_cliente;
-    $resultado = $conexion->query($borrar_cliente);
+    // echo $cambiarEstadoCliente;
+    $resultado = $conexion->query($cambiarEstadoCliente);
 
     if ($resultado) {
-        echo '<p>Se ha borrado un cliente' . $conexion->affected_rows . ' registro con exito</p>';
+        echo '<p></p>';
     } else {
 
-        echo '<p>Tuvimos problemas con la eliminacion del clientes, intentalo de nuevo más tarde</p>';
+        echo '<p>Tuvimos problemas con la operacion del cliente, intentalo de nuevo más tarde</p>';
+    }
+}
+
+//cambiar a clientes que van a pasar parte de clientes activos
+
+function CambiarEstadoClientesInactivos()
+{
+    $conexion = conectarUsuarios();
+    $cambiarEstadoCliente = "UPDATE clientes " .
+        "SET Activo=1 " .
+        "WHERE CodigoCliente=$_POST[id]";
+
+    // echo $cambiarEstadoCliente;
+    $resultado = $conexion->query($cambiarEstadoCliente);
+
+    if ($resultado) {
+        // echo '<p>Operacion correcta</p>';
+        // header("Location:clientesAntiguos.php");
+    } else {
+
+        echo '<p>Tuvimos problemas con la operacion del cliente, intentalo de nuevo más tarde</p>';
     }
 }
 
@@ -222,9 +401,9 @@ function anadirClientes()
     $lesiones = $_POST["lesiones"];
 
     $anadir_cliente = "INSERT INTO clientes (CodigoCliente,Nombre,Apellidos,Domicilio,Poblacion,
-            CorreoElectronico,Telefono,Observaciones,Peso,altura,edad,ActividadFisica,Lesiones) 
+            CorreoElectronico,Telefono,Observaciones,Peso,Altura,Edad,ActividadFisica,Lesiones,Activo) 
             VALUES($codigo,'$nombre','$apellidos','$domicilio','$poblacion','$correoElectronico',
-            $telefono,'$Observaciones',$peso,$altura,$edad,'$actividadFisica','$lesiones')";
+            $telefono,'$Observaciones',$peso,$altura,$edad,'$actividadFisica','$lesiones',1)";
     $resultado = $conexion->query($anadir_cliente);
 
     if ($resultado) {

@@ -27,7 +27,7 @@ function iniciarSesion()
             $_SESSION['usuario'] = $usuario;
             header('Location:/ProyectoGymArtCopia/index.php');
         } else {
-           echo "<script> swal({
+            echo "<script> swal({
                 title: 'Error',
                 text: 'La conexion no se ha establecido con exito',
                 type: 'error',
@@ -54,6 +54,8 @@ function maximoCodigoUsuario()
 
 function registrarUsuarios()
 {
+
+
     $conexion = conectarUsuarios();
     $nick = $_POST["nick"];
     $contraseña = md5($_POST["contrasena"]);
@@ -100,6 +102,35 @@ function registrarUsuarios()
             type: 'error',
           });</script>";
     }
+
+    // $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
+    // $conexionPDO = new PDO('mysql:host=localhost;dbname=art', 'root', '', $opciones);
+
+    // $sql = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
+    // $resultado = $conexionPDO->prepare($sql);
+    // $resultado->execute();
+    // echo "<div>hola1</div>";     
+    // if ($fila = $resultado->fetch()) {
+    //     // $errores[] = "<div>hola2</div>";     
+    //     $errores[] =  "<script> swal({
+    //         title: 'Usuario Repetido',
+    //         text: 'Tiene que ser un usuario nuevo',
+    //         type: 'error',
+    //       });</script>";
+        
+    // }
+
+      $usuario_unico = 'SELECT Nombre FROM usuarios where Nombre="' . $nick . '"';
+    // echo $usuario_unico;
+    $resultado_select = $conexion->query($usuario_unico);
+    if ($resultado_select != null) {
+        $errores[] = "<script> swal({
+                title: 'Usuario Repetido',
+                     text: 'Tiene que ser un usuario nuevo',
+                     type: 'error',
+                   });</script>";
+    }
+
 
     if ($errores) {
         mostrar_errores($errores);

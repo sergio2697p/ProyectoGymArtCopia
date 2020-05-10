@@ -10,7 +10,6 @@ include '../BBDD/clientesBBDD.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <link rel="stylesheet" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/estilos_xs.css">
     <!--movil-->
     <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
@@ -20,8 +19,6 @@ include '../BBDD/clientesBBDD.php';
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript" src="../javascript/sweetalert.min.js"></script>
-
 </head>
 
 <body>
@@ -32,16 +29,16 @@ include '../BBDD/clientesBBDD.php';
         <section>
             <div class="menu">
 
-                <h1 class="Titulo">LISTADO DE CLIENTES(ACTIVOS)</h1>
+                <h1 class="Titulo">LISTADO DE CLIENTES(INACTIVOS)</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
                 <div class="clientesAntiguos">
-                    <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
+                    <button><a href="verClientes.php">CLIENTES ACTIVOS</a></button>
                 </div>
 
                 <div class="buscador">
-                    <form action="buscador.php" method="POST">
+                    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
                         <div class="input">
                             <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
                             <button type="submit" name="buscar"><img src="../imagenes/lupa.png" alt=""></button>
@@ -49,8 +46,8 @@ include '../BBDD/clientesBBDD.php';
                     </form>
                 </div>
 
-
                 <div class="divTable cliente">
+
                     <div class="contenidos">
                         <div class="divTableRow">
                             <div class="divTableCabeza">Nombre</div>
@@ -61,12 +58,11 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                        verClientes();
-                        if(isset($_POST["buscar"])) {
-                            buscarClientes();
-                        }else {
-                            
-                        }
+                        verClientesAntiguos();
+                        // if($_POST) {
+
+                        //     buscarClientes();
+                        // }
                         ?>
                     </div>
                 </div>
