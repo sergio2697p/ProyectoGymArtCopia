@@ -27,7 +27,7 @@ function iniciarSesion()
             $_SESSION['usuario'] = $usuario;
             header('Location:/ProyectoGymArtCopia/index.php');
         } else {
-            echo "<script> swal({
+            echo "<script> Swal.fire({
                 title: 'Error',
                 text: 'La conexion no se ha establecido con exito',
                 type: 'error',
@@ -62,7 +62,8 @@ function registrarUsuarios()
     $errores = [];
 
     if (strlen($_POST['nick']) <= 3) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script> Swal.fire({
+            icon: 'error',
             title: 'Usuario',
             text: 'El usuario tiene que tener mas de 3 caracteres',
             type: 'error',
@@ -70,7 +71,8 @@ function registrarUsuarios()
     }
 
     if (strlen($_POST['contrasena']) <= 2) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script> Swal.fire({
+            icon: 'error',
             title: 'Contraseña',
             text: 'La contraseña tiene que tener mas de 2 caracteres',
             type: 'error',
@@ -78,7 +80,8 @@ function registrarUsuarios()
     }
 
     if ($contraseña != $contraseñaRepetida) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script> Swal.fire({
+            icon: 'error',
             title: 'Contraseña',
             text: 'La contraseña tienen que ser iguales',
             type: 'error',
@@ -86,7 +89,8 @@ function registrarUsuarios()
     }
 
     if (strlen($_POST['mail']) <= 2) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script> Swal.fire({
+            icon: 'error',
             title: 'Correo',
             text: 'El correo tiene que tener mas de 2 caracteres',
             type: 'error',
@@ -95,6 +99,7 @@ function registrarUsuarios()
 
     if (!validad_email($correo)) {
         $errores[] = "<script>  Swal.fire({
+            icon: 'error',
             title: 'Correo',
             text: 'Tiene que ser un correo valido',
             type: 'error',
@@ -107,10 +112,11 @@ function registrarUsuarios()
     $resultado_select = $conexion->query($usuario_unico);
     if ($resultado_select->fetch_array() != null) {
         $errores[] = "<script>  Swal.fire({
-                title: 'Usuario Repetido',
-                     text: 'Tiene que ser un usuario nuevo',
-                     type: 'error',
-                   });</script>";
+            icon: 'error',
+            title: 'Usuario Repetido',
+            text: 'Tiene que ser un usuario nuevo',
+            type: 'error',
+            });</script>";
     }
 
     if ($errores) {
@@ -126,19 +132,15 @@ function registrarUsuarios()
                 Swal.fire({
                     title: 'Usuario',
                     text: 'Se ha creado el usuario correctamente',
-                    type: 'success'
+                    icon: 'success',
                 }).then((result) => {
                     if (result) {
                         window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
                     }
                 });
             </script> ";
-
-            ?>
-
-            <?php
         } else {
-            echo "<script> swal({
+            echo "<script> Swal.fire({
                 title: '¡Error!',
                 text: 'No se ha creado el usuario, intentelo mas tarde',
                 type: 'error',
