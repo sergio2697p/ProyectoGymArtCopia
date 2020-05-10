@@ -94,7 +94,7 @@ function registrarUsuarios()
     }
 
     if (!validad_email($correo)) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script>  Swal.fire({
             title: 'Correo',
             text: 'Tiene que ser un correo valido',
             type: 'error',
@@ -106,7 +106,7 @@ function registrarUsuarios()
     // echo $usuario_unico;
     $resultado_select = $conexion->query($usuario_unico);
     if ($resultado_select->fetch_array() != null) {
-        $errores[] = "<script> swal({
+        $errores[] = "<script>  Swal.fire({
                 title: 'Usuario Repetido',
                      text: 'Tiene que ser un usuario nuevo',
                      type: 'error',
@@ -122,36 +122,20 @@ function registrarUsuarios()
         $resultado = $conexion->query($insert);
 
         if ($resultado != null) {
-            // echo "<script> swal({
-            //     title: 'Usuario',
-            //     text: 'Se ha creado el usuario correctamente',
-            //     type: 'success',
-            //   });</script>";
-            // echo "  <script>
-            //     swal({
-            //         title: 'Usuario',
-            //         text: 'Se ha creado el usuario correctamente',
-            //         type: 'success'
-            //     }),window.onload= function(redirigir) {
-            //         if (redirigir) {
-            //             window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
-            //         }
-            //     };
-            // </script>
-            // ";
-
-            ?>
-<script>
-                swal({
+            echo " <script>
+                Swal.fire({
                     title: 'Usuario',
                     text: 'Se ha creado el usuario correctamente',
                     type: 'success'
                 }).then((result) => {
-                    if (result.value) {
+                    if (result) {
                         window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
                     }
                 });
-            </script>
+            </script> ";
+
+            ?>
+
             <?php
         } else {
             echo "<script> swal({
