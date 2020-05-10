@@ -27,7 +27,7 @@ function iniciarSesion()
             $_SESSION['usuario'] = $usuario;
             header('Location:/ProyectoGymArtCopia/index.php');
         } else {
-            echo "<script> Swal.fire({
+            echo "<script> swal({
                 title: 'Error',
                 text: 'La conexion no se ha establecido con exito',
                 type: 'error',
