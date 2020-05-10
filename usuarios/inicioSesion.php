@@ -19,7 +19,8 @@ session_start();
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript" src="../javascript/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+    <!-- <script type="text/javascript" src="../javascript/sweetalert.min.js"></script> -->
 
 </head>
 

@@ -25,9 +25,20 @@ function iniciarSesion()
 
         if ($resultado->fetch_row()) {
             $_SESSION['usuario'] = $usuario;
-            header('Location:/ProyectoGymArtCopia/index.php');
+            echo " <script>
+            Swal.fire({
+                title: 'Usuario',
+                text: 'Se ha creado el usuario correctamente <?=$usuario ?>',
+                icon: 'success',
+            }).then((result) => {
+                if (result) {
+                    window.location.href = '/ProyectoGymArtCopia/index.php';
+                }
+            });
+        </script> ";
+            // header('Location:/ProyectoGymArtCopia/index.php');
         } else {
-            echo "<script> swal({
+            echo "<script>  Swal.fire({
                 title: 'Error',
                 text: 'La conexion no se ha establecido con exito',
                 type: 'error',
