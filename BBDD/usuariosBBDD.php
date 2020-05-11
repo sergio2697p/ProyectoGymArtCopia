@@ -28,7 +28,7 @@ function iniciarSesion()
             echo " <script>
             Swal.fire({
                 title: 'Usuario',
-                text: 'Se ha creado el usuario correctamente <?=$usuario ?>',
+                text: 'Se ha creado el usuario correctamente <?$usuario ?>',
                 icon: 'success',
             }).then((result) => {
                 if (result) {
