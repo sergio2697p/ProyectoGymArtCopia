@@ -25,18 +25,7 @@ function iniciarSesion()
 
         if ($resultado->fetch_row()) {
             $_SESSION['usuario'] = $usuario;
-            echo " <script>
-            Swal.fire({
-                title: 'Usuario',
-                text: 'Se ha creado el usuario correctamente <?$usuario ?>',
-                icon: 'success',
-            }).then((result) => {
-                if (result) {
-                    window.location.href = '/ProyectoGymArtCopia/index.php';
-                }
-            });
-        </script> ";
-            // header('Location:/ProyectoGymArtCopia/index.php');
+            header('Location:/ProyectoGymArtCopia/index.php');
         } else {
             echo "<script>  Swal.fire({
                 title: 'Error',
