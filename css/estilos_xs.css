@@ -558,11 +558,14 @@ section {
     /* width: 90%; */
     display: flex;
     flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 .clientesAntiguos {
     width: 100%;
-    /* background-color: red; */
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .clientesAntiguos button {
     background-color: #dd2c00;
@@ -577,7 +580,7 @@ section {
 .buscador {
     width: 100%;
     text-align: center;
-    padding: 15px;
+    padding: 3%;
 } 
 .input {
     display: flex;
@@ -720,7 +723,7 @@ div.cliente {
     margin-left: 9px;
     width: 0;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
 }
 
 .boton form button img {

@@ -35,13 +35,6 @@ include '../BBDD/clientesBBDD.php';
             <div class="menu">
 
                 <h1 class="Titulo">LISTADO DE CLIENTES(ACTIVOS)</h1>
-                <?php
-                include 'menuOpciones.php';
-                ?>
-                <div class="clientesAntiguos">
-                    <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
-                </div>
-
                 <div class="buscador">
                     <form action="buscador.php" method="POST">
                         <div class="input">
@@ -50,7 +43,14 @@ include '../BBDD/clientesBBDD.php';
                         </div>
                     </form>
                 </div>
+                <?php
+                include 'menuOpciones.php';
+                ?>
+                <div class="clientesAntiguos">
+                    <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
+                </div>
 
+               
 
                 <div class="divTable cliente">
                     <div class="contenidos">
