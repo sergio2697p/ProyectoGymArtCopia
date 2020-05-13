@@ -33,8 +33,6 @@ if (isset($_POST['cerrar-session'])) {
         } else {
         ?>
             <a href="/ProyectoGymArtCopia/usuarios/inicioSesion.php"><img src="/ProyectoGymArtCopia/imagenes/usuario.png" alt=""></a>
-            <!-- <a class="boton-iniciar" href="/ProyectoGymArtCopia/usuarios/inicioSesion.php">INICIAR SESIÓN</a>
-            <a class="boton-registrarse" href="/ProyectoGymArtCopia/usuarios/registrar_usuario.php">REGISTRARSE</a> -->
         <?php
         }
         ?>
@@ -53,9 +51,9 @@ if (isset($_POST['cerrar-session'])) {
                 if ($_SESSION) {
                 ?>
                     <li><a href="/ProyectoGymArtCopia/clientes/verClientes.php">Clientes</a></li>
+                    <li><a href="/ProyectoGymArtCopia/monitores/verMonitores.php"> Monitores</a></li>
                     <li><a href="/ProyectoGymArtCopia/mensualidades/verMensualidades.php">Mensualidades</a></li>
                     <li><a href="/ProyectoGymArtCopia/pagos/gestionarPagos.php"> Pagos</a></li>
-                    <li><a href="/ProyectoGymArtCopia/monitores/verMonitores.php"> Monitores</a></li>
 
                 <?php
                 } else {
