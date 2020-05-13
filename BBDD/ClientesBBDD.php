@@ -22,7 +22,7 @@ function buscarClientes()
     $conexion = conectarUsuarios();
 
     $buscar = $_POST["informacion"];
-    $buscador = "SELECT * FROM clientes WHERE Nombre LIKE '$buscar' OR Apellidos = '$buscar' ORDER BY Nombre ";
+    $buscador = "SELECT * FROM clientes WHERE Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%' ";
     //echo $buscador;
     $resultado = $conexion->query($buscador);
     $contador = 0;
