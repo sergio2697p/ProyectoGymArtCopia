@@ -162,11 +162,21 @@ function olvidarContraseña()
     $errores = [];
 
     if (strlen($_POST['contrasena']) <= 2) {
-        $errores[] = '<p>La contraseña tiene que tener como minimo 2 caracteres</p>';
+        $errores[] = "<script>  Swal.fire({
+            icon: 'error',
+            title: 'Contraseña',
+            text: 'La contraseña tiene que tener un minimo de 2 caracteres',
+            type: 'error',
+            });</script>";
     }
 
     if ($contraseña != $contraseñaRepetida) {
-        $errores[] = "La contraseñas tienen que ser identicas";
+        $errores[] = "<script>  Swal.fire({
+            icon: 'error',
+            title: 'Contraseña',
+            text: 'La contraseña tienen que ser identicas',
+            type: 'error',
+            });</script>";
     }
 
     if ($errores) {
@@ -178,7 +188,17 @@ function olvidarContraseña()
         $resultado = $conexion->query($update_contrasena);
 
         if ($resultado != null) {
-            echo "<p>Se han actualizado los datos correctamente</p>";
+            echo " <script>
+            Swal.fire({
+                title: 'Contraseña',
+                text: 'Se ha cambiado la contraseña perfectamente',
+                icon: 'success',
+            }).then((result) => {
+                if (result) {
+                    window.location.href = '/ProyectoGymArtCopia/usuarios/inicioSesion.php';
+                }
+            });
+        </script> ";
         } else {
             echo '<p>Compruebe el correo o la contraseña</p>';
         }

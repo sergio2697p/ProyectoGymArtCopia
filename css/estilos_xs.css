@@ -339,6 +339,13 @@ section {
     border-bottom: 2px solid #bebed2;
 }
 
+.registrarte .boton-registrarte {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: center;
+}
+
 .registrarte button {
     background-color: #dd2c00;
     border: 0;
@@ -347,6 +354,16 @@ section {
     width: 40%;
     font-size: 1.3rem;
     padding: 3%;
+}
+
+.registrarte a {
+    background-color: #dd2c00;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    width: 40%;
+    font-size: 1.3rem;
+    padding: 2.5%;
 }
 
 

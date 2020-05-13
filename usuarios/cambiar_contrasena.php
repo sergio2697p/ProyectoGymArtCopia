@@ -17,6 +17,8 @@ session_start();
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 </head>
 
 <body>
@@ -25,44 +27,44 @@ session_start();
     include "../header.php";
     include '../BBDD/conexionBBDD.php';
     include '../BBDD/usuariosBBDD.php';
-    include '../BBDD/funciones.php';
-
-
-    if ($_POST) {
-        olvidarContraseña();
-    } else {
+    include '../funciones/funciones.php';
     ?>
-        <main>
-            <section>
-                <div class="indentificacion">
-                    <div class="imagen">
-                        <h1>Olvidar contraseña</h1>
+    <main>
+        <section>
+            <div class="indentificacion">
+                <div class="imagen">
+                    <h1>Olvidar contraseña</h1>
+                </div>
+
+                <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                    <div>
+                        <label>Introduce tu usuario:</label>
+                        <input id="usuario" type="text" name="nick" <?php mostrar_campo('nick') ?> required>
+                    </div>
+                    <div>
+                        <label> Nueva Contraseña:</label>
+                        <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
                     </div>
 
-                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <div>
-                            <label>Introduce tu usuario:</label>
-                            <input id="usuario" type="text" name="nick" <?php mostrar_campo('nick') ?> required>
-                        </div>
-                        <div>
-                            <label> Nueva Contraseña:</label>
-                            <input id="contrasena1" type="password" name="contrasena" <?php mostrar_campo('contrasena') ?> required>
-                        </div>
+                    <div>
+                        <label> Repita Contraseña:</label>
+                        <input id="contrasena1" type="password" name="contrasena-repetida" <?php mostrar_campo('contrasena') ?> required>
+                    </div>
 
-                        <div>
-                            <label> Repita Contraseña:</label>
-                            <input id="contrasena1" type="password" name="contrasena-repetida" <?php mostrar_campo('contrasena') ?> required>
-                        </div>
-                        
-                        <input type="submit" id="enviar" value="Restaurar Contraseña">
+                    <input type="submit" id="enviar" value="Restaurar Contraseña">
 
-                    </form>
-
-                </div>
-            </section>
-        </main>
+                </form>
+            </div>
+        </section>
+        <section class="menu_registrarse">
+            <?php
+            if ($_POST) {
+                olvidarContraseña();
+            }
+            ?>
+        </section>
+    </main>
     <?php
-    }
     include "../footer.php";
     ?>
 </body>
