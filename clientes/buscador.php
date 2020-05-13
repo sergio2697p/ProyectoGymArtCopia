@@ -54,6 +54,8 @@ include '../BBDD/clientesBBDD.php';
                             <div class="divTableCabeza">Apellidos</div>
                             <div class="divTableCabeza">Telefono</div>
                             <div class="divTableCabeza">Correo</div>
+                            <div class="divTableCabeza">Accion</div>
+
                         </div>
                     </div>
                     <div class="divTableBody">

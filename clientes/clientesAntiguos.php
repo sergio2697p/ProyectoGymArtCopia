@@ -19,6 +19,8 @@ include '../BBDD/clientesBBDD.php';
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+
 </head>
 
 <body>
@@ -54,6 +56,8 @@ include '../BBDD/clientesBBDD.php';
                             <div class="divTableCabeza">Apellidos</div>
                             <div class="divTableCabeza">Telefono</div>
                             <div class="divTableCabeza">Correo</div>
+                            <div class="divTableCabeza">Accion</div>
+
                         </div>
                     </div>
                     <div class="divTableBody">

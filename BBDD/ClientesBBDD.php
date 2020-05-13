@@ -33,25 +33,32 @@ function buscarClientes()
             <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
-
             <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?>
-                    <div class="boton">
-                        <form name="editar" action="modificarClientes.php" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
-                        </form>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+            </div>
 
-                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                            <!-- <input type="submit" name="borrar" value="borrar"> -->
-                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
-                        </form>
-                    </div>
+            <div class="divTableCelda">
+                <div class="boton">
+                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
+                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
+                    </form>
 
+                    <form class="a-ocultar" name="editar" action="modificarClientes.php" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                    </form>
+
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="borrar" value="borrar"> -->
+                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,9 +90,9 @@ function verClientes()
             </div>
             <div class="divTableCelda">
                 <div class="boton">
-                <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
-                <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
-                    <form  class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
+                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
                         <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
                         <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
                     </form>
@@ -126,11 +133,17 @@ function verMas()
     while ($fila = $resultado->fetch_array()) {
         $telefono = $fila['Telefono'];
         $poblacion = $fila['Poblacion'];
+        $edad = $fila['Edad'];
+        $altura = $fila['Altura'];
+        $peso = $fila['Peso'];
+        $actividadFisica = $fila['ActividadFisica'];
         $lesiones = $fila['Lesiones'];
+        $domicilio = $fila['Domicilio'];
+
 
         echo "<script> Swal.fire({
             title: 'OTRA INFORMACION',
-            html: 'Telefono $telefono </br> poblacion: $poblacion <br> Lesiones: $lesiones <br>',
+            html: '<b>Telefono:</b> $telefono </br> <b>poblacion:</b> $poblacion <br> <b>Domicilio:</b> $domicilio <br> <b>Edad:</b> $edad años <br> <b>Altura:</b> $altura metros <br> <b>Peso:</b> $peso kg <br> <b>Lesiones:</b> $lesiones <br><b>Actividad Fisica:</b> $actividadFisica',
             type: 'error',
           });</script>";
     }
@@ -156,21 +169,28 @@ function verClientesAntiguos()
             <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?>
-                    <div class="boton">
-                        <form name="editar" action="modificarClientes.php" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                            <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
-                        </form>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+            </div>
+            <div class="divTableCelda">
+                <div class="boton">
+                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
+                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
+                    </form>
 
-                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                            <!-- <input type="submit" name="borrar" value="borrar"> -->
-                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
-                        </form>
-                    </div>
+                    <form class="a-ocultar" name="editar" action="modificarClientes.php" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                    </form>
 
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="borrar" value="borrar"> -->
+                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -178,6 +198,10 @@ function verClientesAntiguos()
     }
     if (isset($_POST["borrar"])) {
         CambiarEstadoClientes();
+    }
+
+    if (isset($_POST["verMas"])) {
+        verMas();
     }
 }
 
