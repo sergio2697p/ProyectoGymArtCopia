@@ -172,6 +172,9 @@ nav ul li [class*=none] {
     width: 90%;
 }
 
+.menu {
+    width: 90%;
+}
 
 /* Estilos Menu de ociones*/
 #descargaPdf img {
@@ -234,19 +237,19 @@ nav ul li [class*=none] {
     display: flex;
 }
 
-.divTableCelda .a-ocultar .Celda {
+/* .divTableCelda .a-ocultar .Celda {
     margin-left: 20px;
-}
+} */
 
-.divTableCelda .a-ocultar .boton .editar {
+/* .divTableCelda .a-ocultar .boton .editar {
     margin-right: 20px;
-}
+} */
 .boton form button {
     background-color: var(--color-oscuro);
     border: 0;
     margin-right: 15px;
     margin-left: 15px;
-    width: 0;
+    width: 0%;
     display: flex;
     flex-flow: column;
 }
@@ -259,287 +262,4 @@ nav ul li [class*=none] {
 .boton-checkbox~[class*="a-ocultar"] {
     display: flex;
     justify-content: center;
-}
-
-/* .clientes {
-    width: 50%;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    display: grid;
-    grid-template-areas: "Descargas" "VerClientes";
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
-}
-
-.descargas {
-    flex-flow: row;
-    justify-content: center;
-    display: flex;
-}
-
-#descargaPdf {
-    grid-area: Descargas;
-}
-
-#descargaPdf img {
-    width: 50px;
-    height: 50px;
-}
-
-#descargaPdf:hover {
-    border-style: outset;
-}
-
-#copia {
-    grid-area: Descargas;
-}
-
-#copia img {
-    width: 50px;
-    height: 50px;
-}
-
-#copia:hover {
-    border-style: outset;
-}
-
-#anadir {
-    grid-area: Descargas;
-}
-
-#anadir img {
-    width: 50px;
-    height: 50px;
-}
-
-#anadir:hover {
-    border-style: outset;
-}
-
-/*Tabla clientes*/
-/*
-.ListadoClientes {
-    grid-area: VerClientes;
-    text-align: center;
-    width: 100%;
-}
-
-.tablaClientes>div {
-    margin: auto;
-    
-} */
-
-
-/* .Tabla {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-} */
-/* .Tabla {
-    padding-left: 10%;
-} */
-/* .contenidos {
-    margin-right: 5%;
-    padding-right: 5%;
-} */
-/* .Celda .nombre {
-    padding-right: 50px;
-}
-
-.Celda .apellidos {
-    padding-right: 500px;
-
-} */
-/* .contenidos .Celda .correo {
-    display: block;
-    padding: 0;
-    width: 30%;
-}
-
-.Row .Celda .tresbotones {
-    display: none;
-}
-.Row .Celda .contenidos1-correo {
-    display: block;
-    width: 100%; 
-    padding: 0;
-    display: flex;
-} */
-
-
-/* .Celda .contenidos1-correo form input {
-width: 100%;
-}  */
-
-/*Modificar Clientes*/
-
-/* .Modificar {
-    width: 50%;
-    padding: 10px 30px;
-    display: grid;
-    grid-template-areas: "DatosPersonales DatosAdicionales" "enviar          enviar";
-}
-
-.Modificar .DatosPersonales div {
-    grid-area: DatosPersonales;
-    padding: 2%;
-}
-
-
-.Modificar .DatosAdicionales div {
-    grid-area: DatosAdicionales;
-    padding: 2%;
-}
-
-.Modificar input {
-    padding: 5px;
-}
-
-.Modificar .enviar {
-    grid-area: enviar;
-} */
-
-/*Añadir clientes*/
-
-/* .anadirClientes {
-    width: 50%;
-    padding: 10px 30px;
-    display: grid;
-    grid-template-areas: "TituloAnadirCliente    TituloAnadirCliente" "DatosPersonales        DatosAdicionales" "enviar                 enviar";
-}
-
-.anadirClientes .TituloAnadirCliente {
-    grid-area: TituloAnadirCliente;
-    text-align: center;
-}
-
-.anadirClientes .DatosPersonales div {
-    grid-area: DatosPersonales;
-    padding: 2%;
-}
-
-.anadirClientes .DatosAdicionales div {
-    grid-area: DatosAdicionales;
-    padding: 2%;
-}
-
-.anadirClientes input {
-    padding: 5px;
-}
-
-.anadirClientes .enviar {
-    grid-area: enviar;
-    width: 100%;
-}
-
-.anadirClientes .enviar:hover {
-    background-color: #292A3A;
-    color: white;
-}
-
-/*Ver Mensualidades*/
-/*
-.mensualidades {
-    width: 50%;
-    padding-bottom: 1%;
-    padding-top: 1%;
-}
-.mensualidades .Tabla {
-    padding-left: 0%;
-}
-.contenidos .Celda .precio {
-    display: block;
-}
-.boton-checkbox~[class*="a-ocultar"] {
-    display: block;
-}
-.contenidos .Celda .precio {
-    display: block;
-    padding: 0;
-    width: 70%;
-}
-
-.Row .Celda .tresbotones {
-    display: none;
-}
-.Row .Celda .contenidos1-precio {
-    display: block;
-    /* width: 100%; */
-    /*
-    padding: 0;
-    display: flex;
-    justify-content: center;
-
-}
-
-.boton {
-    width: 0;
-    margin-left: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.boton form input {
-    padding-right: 5%;
-} */
-
-/*Gestion Mensualidades*/
-/*
-.ModificarMensualidades {
-    width: 50%;
-    padding: 10px 30px;
-    text-align: center;
-}
-
-.ModificarMensualidades input {
-    padding: 5px;
-}
-
-.ModificarMensualidades .enviar {
-    grid-area: enviar;
-    width: 100%;
-}
-
-.ModificarMensualidades .enviar:hover {
-    background-color: #292A3A;
-    color: white;
-}
-
-/*Añadir Mensualidades*/
-/*
-.anadirMensualidad {
-    width: 50%;
-}
-
-.anadirMensualidad input {
-    padding: 5px;
-}
-
-.anadirMensualidad .enviar {
-    width: 100%;
-}
-
-.anadirMensualidad .enviar:hover {
-    background-color: #292A3A;
-    color: white;
-}
-
-/*Gestionar Pagos*/
-/*
-.TablaListaPagados {
-    display: table;
-    text-align: center;
-    width: 100%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
-.TablaListaDeudores {
-    display: table;
-    text-align: center;
-    width: 100%;
-    padding-top: 2%;
-    padding-bottom: 2%;
 }

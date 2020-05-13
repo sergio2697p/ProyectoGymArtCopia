@@ -51,88 +51,9 @@
     width: 20px;
 }
 
-/* 
-.clientes {
-    display: grid;
-    grid-template-areas: "Descargas" "VerClientes";
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
+.menu {
+    width: 90%;
 }
-
-#descargaPdf {
-    grid-area: Descargas;
-}
-
-#descargaPdf img {
-    width: 50px;
-    height: 50px;
-}
-
-#copia {
-    grid-area: Descargas;
-}
-
-#copia img {
-    width: 50px;
-    height: 50px;
-}
-
-#anadir img {
-    width: 50px;
-    height: 50px;
-}
-
-.ListadoClientes {
-    grid-area: VerClientes;
-    text-align: center;
-    width: 100%;
-}
-
-.tablaClientes>div {
-    margin: auto;
-}
-
-.contenidos .Celda .correo {
-    display: block;
-    padding: 0;
-    width: 50%;
-}
-
-.Row .Celda .tresbotones {
-    display: none;
-}
-.Row .Celda .contenidos1-correo {
-    display: block;
-    padding: 0;
-    display: flex;
-}
-
-.Celda .contenidos1-correo form input {
-    margin: 5%;
-} */
-/*Ver Mensualidades*/
-/* .contenidos .Celda .precio {
-    display: block;
-}
-.boton-checkbox~[class*="a-ocultar"] {
-    display: block;
-}
-.Celda .contenidos1-precio {
-    float: left;
-    width: 25%;
-}
-.Celda .contenidos1-precio form {
-    display: flex;
-    flex-flow: row;
-    float: left;
-    /* width: 75%; */
-    /*
-} 
-
-.Celda .contenidos1-precio form input {
-    margin: 0%;
-}
-
 
 /*Modificar Clientes*/
 

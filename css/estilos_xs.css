@@ -555,7 +555,7 @@ section {
 
 .menu {
     background: #292A3A;
-    width: 90%;
+    /* width: 90%; */
     display: flex;
     flex-flow: column;
 }
