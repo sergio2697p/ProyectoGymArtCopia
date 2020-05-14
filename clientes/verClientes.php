@@ -33,7 +33,6 @@ include '../BBDD/clientesBBDD.php';
     <main>
         <section>
             <div class="menu">
-
                 <h1 class="Titulo">LISTADO DE CLIENTES(ACTIVOS)</h1>
                 <div class="buscador">
                     <form action="buscador.php" method="POST">

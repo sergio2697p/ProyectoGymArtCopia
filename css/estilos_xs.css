@@ -621,11 +621,15 @@ section {
 #copia img {
     width: 40px;
     height: 40px;
+    margin-left: 10px;
+
 }
 
 #anadir img {
     width: 40px;
     height: 40px;
+    margin-left: 10px;
+
 }
 
 .Titulo {

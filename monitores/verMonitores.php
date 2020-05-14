@@ -38,7 +38,8 @@
                         <div class="divTableRow">
                             <div class="divTableCabeza">Nombre</div>
                             <div class="divTableCabeza">Apellidos</div>
-                            <div class="divTableCabeza">DNI</div>
+                            <div class="divTableCabeza">Telefono</div>
+                            <div class="divTableCabeza">Accion</div>
                         </div>
                     </div>
                     <div class="divTableBody">
