@@ -60,7 +60,8 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                            buscarClientes();
+                        
+                            buscarClientesActivos();
                         ?>
                     </div>
                 </div>

@@ -16,13 +16,13 @@ function maximoCodigoCliente()
     return $nuevo_id;
 }
 
-//Buscar Clientes
-function buscarClientes()
+//------------------------------------------------BUSCAR CLIENTES ACTIVOS---------------------------------------------------------------------------------------//
+function buscarClientesActivos()
 {
     $conexion = conectarUsuarios();
 
     $buscar = $_POST["informacion"];
-    $buscador = "SELECT * FROM clientes WHERE Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%' ";
+    $buscador = "SELECT * FROM clientes WHERE Activo = 1 AND (Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%')";
     //echo $buscador;
     $resultado = $conexion->query($buscador);
     $contador = 0;
@@ -66,8 +66,59 @@ function buscarClientes()
     }
 }
 
-//ver clientes que estan activos
-function verClientes()
+//------------------------------------------------BUSCAR CLIENTES INACTIVOS---------------------------------------------------------------------------------------//
+function buscarClientesInactivos()
+{
+    $conexion = conectarUsuarios();
+
+    $buscar = $_POST["informacion"];
+    $buscador = "SELECT * FROM clientes WHERE Activo = 0 AND (Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%')";
+    //echo $buscador;
+    $resultado = $conexion->query($buscador);
+    $contador = 0;
+    while ($fila = $resultado->fetch_array()) {
+        $contador++;
+?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
+            <div class="divTableCelda">
+                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
+                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
+            </div>
+
+            <div class="divTableCelda">
+                <div class="boton">
+                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
+                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
+                    </form>
+
+                    <form class="a-ocultar" name="editar" action="modificarClientes.php" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                    </form>
+
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
+                        <!-- <input type="submit" name="borrar" value="borrar"> -->
+                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+}
+
+
+//------------------------------------------------VER CLIENTES ACTIVOS---------------------------------------------------------------------------------------//
+function verClientesActivos()
 {
     $conexion = conectarUsuarios();
     $select_cliente = "SELECT * from clientes where Activo = 1";
@@ -122,35 +173,8 @@ function verClientes()
     }
 }
 
-//para ver mas informacion sobreun usuario
-function verMas()
-{
-    $conexion = conectarUsuarios();
-    $select_cliente = "SELECT * from clientes where CodigoCliente = $_POST[id] ";
-
-    $resultado = $conexion->query($select_cliente);
-
-    while ($fila = $resultado->fetch_array()) {
-        $telefono = $fila['Telefono'];
-        $poblacion = $fila['Poblacion'];
-        $edad = $fila['Edad'];
-        $altura = $fila['Altura'];
-        $peso = $fila['Peso'];
-        $actividadFisica = $fila['ActividadFisica'];
-        $lesiones = $fila['Lesiones'];
-        $domicilio = $fila['Domicilio'];
-
-
-        echo "<script> Swal.fire({
-            title: 'OTRA INFORMACION',
-            html: '<b>Telefono:</b> $telefono </br> <b>poblacion:</b> $poblacion <br> <b>Domicilio:</b> $domicilio <br> <b>Edad:</b> $edad años <br> <b>Altura:</b> $altura metros <br> <b>Peso:</b> $peso kg <br> <b>Lesiones:</b> $lesiones <br><b>Actividad Fisica:</b> $actividadFisica',
-            type: 'error',
-          });</script>";
-    }
-}
-
-//ver los clientes antiguos que ya no estan en my gym
-function verClientesAntiguos()
+//------------------------------------------------VER CLIENTES INACTIVOS---------------------------------------------------------------------------------------//
+function verClientesInactivos()
 {
     $conexion = conectarUsuarios();
     $select_cliente = "SELECT * from clientes where Activo = 0";
@@ -205,7 +229,38 @@ function verClientesAntiguos()
     }
 }
 
-//para cambiar entre si estan activos o inactivos
+//------------------------------------------------VER MAS INFORMACION---------------------------------------------------------------------------------------//
+
+function verMas()
+{
+    $conexion = conectarUsuarios();
+    $select_cliente = "SELECT * from clientes where CodigoCliente = $_POST[id] ";
+
+    $resultado = $conexion->query($select_cliente);
+
+    while ($fila = $resultado->fetch_array()) {
+        $telefono = $fila['Telefono'];
+        $poblacion = $fila['Poblacion'];
+        $edad = $fila['Edad'];
+        $altura = $fila['Altura'];
+        $peso = $fila['Peso'];
+        $actividadFisica = $fila['ActividadFisica'];
+        $lesiones = $fila['Lesiones'];
+        $domicilio = $fila['Domicilio'];
+
+
+        echo "<script> Swal.fire({
+            title: 'OTRA INFORMACION',
+            html: '<b>Telefono:</b> $telefono </br> <b>poblacion:</b> $poblacion <br> <b>Domicilio:</b> $domicilio <br> <b>Edad:</b> $edad años <br> <b>Altura:</b> $altura metros <br> <b>Peso:</b> $peso kg <br> <b>Lesiones:</b> $lesiones <br><b>Actividad Fisica:</b> $actividadFisica',
+            type: 'error',
+          });</script>";
+    }
+}
+
+
+
+//------------------------------------------------CAMBIAR DE ESTADO ACTIVO A INACTIVO---------------------------------------------------------------------------------------//
+
 function CambiarEstadoClientes()
 {
     $conexion = conectarUsuarios();
@@ -245,7 +300,8 @@ function CambiarEstadoClientes()
 }
 
 
-//Para actualizar los daros de los clientes
+//------------------------------------------------MODIFICAR CLIENTES---------------------------------------------------------------------------------------//
+
 function modificarClientes()
 {
     $conexion = conectarUsuarios();
@@ -290,6 +346,8 @@ function modificarClientes()
 
     visualizarDatosCliente();
 }
+
+//------------------------------------------------VISUALIZAR DATOS DE CLIENTES---------------------------------------------------------------------------------------//
 
 function visualizarDatosCliente()
 {
@@ -359,6 +417,7 @@ function visualizarDatosCliente()
 <?php
 }
 
+//------------------------------------------------AÑADIR CLIENTES---------------------------------------------------------------------------------------//
 
 function anadirClientes()
 {
@@ -392,3 +451,4 @@ function anadirClientes()
         echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
     }
 }
+    

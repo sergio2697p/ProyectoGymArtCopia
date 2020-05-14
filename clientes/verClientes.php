@@ -38,7 +38,7 @@ include '../BBDD/clientesBBDD.php';
                     <form action="buscador.php" method="POST">
                         <div class="input">
                             <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
-                            <button type="submit" name="buscar"><img src="../imagenes/lupa.png" alt=""></button>
+                            <button type="submit" name="buscarActivo"><img src="../imagenes/lupa.png" alt=""></button>
                         </div>
                     </form>
                 </div>
@@ -63,11 +63,9 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                        verClientes();
-                        if(isset($_POST["buscar"])) {
-                            buscarClientes();
-                        }else {
-                            
+                        verClientesActivos();
+                        if(isset($_POST["buscarActivo"])) {
+                            buscarClientesActivos();
                         }
                         ?>
                     </div>
