@@ -19,6 +19,8 @@ include '../BBDD/clientesBBDD.php';
     <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+
 </head>
 
 <body>
@@ -29,25 +31,25 @@ include '../BBDD/clientesBBDD.php';
         <section>
             <div class="menu">
 
-                <h1 class="Titulo">LISTADO DE CLIENTES(ACTIVOS)</h1>
+                <h1 class="Titulo">LISTADO DE CLIENTES(INACTIVOS)</h1>
                 <?php
                 include 'menuOpciones.php';
                 ?>
                 <div class="clientesAntiguos">
-                    <button><a href="verClientes.php">TODOS LOS CLIENTES</a></button>
+                    <button><a href="verClientes.php">CLIENTES ACTIVOS</a></button>
                 </div>
 
                 <div class="buscador">
                     <form action="buscador.php" method="POST">
                         <div class="input">
                             <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
-                            <button type="submit" name="buscar"><img src="../imagenes/lupa.png" alt=""></button>
+                            <button type="submit" name="buscarInactivo"><img src="../imagenes/lupa.png" alt=""></button>
                         </div>
                     </form>
                 </div>
 
-
                 <div class="divTable cliente">
+
                     <div class="contenidos">
                         <div class="divTableRow">
                             <div class="divTableCabeza">Nombre</div>
@@ -60,11 +62,8 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-
-                        if (isset($_POST["buscarActivo"])) {
-                            buscarClientesActivos();
-                        }
-                        if (isset($_POST["buscarInactivo"])) {
+                        verClientesInactivos();
+                        if(isset($_POST["buscarInactivo"])) {
                             buscarClientesInactivos();
                         }
                         ?>
