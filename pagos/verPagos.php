@@ -1,5 +1,5 @@
 <?php
-include '../BBDD/conexionBBDD.php';
+//  include '../BBDD/conexionBBDD.php';
 include '../BBDD/pagosBBDD.php';
 ?>
 
@@ -52,39 +52,34 @@ include '../BBDD/pagosBBDD.php';
                     </form>
                 </div>
 
-                <?php
-                $select = isset($_POST["tiposDePagos"]);
-                ?>
-                <div class="divTableBody">
-                    <?php
-                    if (isset($select) == "listaPagos") {
-                    ?>
+                <div class="divTable cliente">
+                    <div class="contenidos">
+                        <div class="divTableRow">
+                            <div class="divTableCabeza">Nombre</div>
+                            <div class="divTableCabeza">Mensualidad</div>
+                            <div class="divTableCabeza">Mes</div>
+                            <div class="divTableCabeza">Año</div>
+                            <div class="divTableCabeza">Pagado</div>
+                        </div>
+                    </div>
+
+                    <div class="divTableBody" id="divTableBody">
                         <script>
                             function enviar() {
                                 $.ajax({
-                                    url: 'pagosBBDD.php',
+                                    url: '../BBDD/pagosBBDD.php',
                                     type: 'post',
                                     data: {
-                                        type: `<?php verPagos(); ?>`,
+                                        type: 'mostrarpagos',
                                     },
                                     dataType: "html",
                                     success: function(resultado) {
-                                      
-                                //se me muestra en otra pantalla
-                                document.write(`<?php verPagos(); ?>`);
-                                
-                            }
+                                        $('#divTableBody').html(resultado);
+                                    }
                                 })
                             }
                         </script>
-                    <?php
-                    }
-                    ?>
-
-
-                    <?php
-                    // verPagos();
-                    ?>
+                    </div>
                 </div>
             </div>
             </div>
