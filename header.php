@@ -53,7 +53,7 @@ if (isset($_POST['cerrar-session'])) {
                     <li><a href="/ProyectoGymArtCopia/clientes/verClientes.php">Clientes</a></li>
                     <li><a href="/ProyectoGymArtCopia/monitores/verMonitores.php"> Monitores</a></li>
                     <li><a href="/ProyectoGymArtCopia/mensualidades/verMensualidades.php">Mensualidades</a></li>
-                    <li><a href="/ProyectoGymArtCopia/pagos/gestionarPagos.php"> Pagos</a></li>
+                    <li><a href="/ProyectoGymArtCopia/pagos/verPagos.php"> Pagos</a></li>
 
                 <?php
                 } else {

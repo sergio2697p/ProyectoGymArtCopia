@@ -1,6 +1,6 @@
 <?php
- include '../BBDD/conexionBBDD.php';
- include '../BBDD/monitoresBBDD.php';
+include '../BBDD/conexionBBDD.php';
+include '../BBDD/monitoresBBDD.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +27,22 @@
 
     <main>
         <section>
-
-        <div class="menu">
-            <h1 class="Titulo">LISTADO DE MONITORES</h1>
+            <div class="menu">
+                <h1 class="Titulo">LISTADO DE MONITORES(ACTIVOS)</h1>
+                <div class="buscador">
+                    <form action="buscador.php" method="POST">
+                        <div class="input">
+                            <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
+                            <button type="submit" name="buscarActivo"><img src="../imagenes/lupa.png" alt=""></button>
+                        </div>
+                    </form>
+                </div>
                 <?php
                 include 'menuOpciones.php';
                 ?>
+                <div class="clientesAntiguos">
+                    <button><a href="monitoresAntiguos.php">MONITORES INACTIVOS</a></button>
+                </div>
                 <div class="divTable cliente">
                     <div class="contenidos">
                         <div class="divTableRow">
@@ -49,28 +59,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="monitores">
-                <?php
-                include 'menuOpciones.php';
-                ?>
-                <div class="Tabla">
-                    <h1 class="Titulo">LISTADO DE MONITORES</h1>
-                    <div class="contenidos">
-                        <div class="Celda">
-                            <div class="nombre">Nombre</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="apellidos">Apellidos</div>
-                        </div>
-                        <div class="Celda">
-                            <div class="correo">DNI</div>
-                        </div>
-                    </div>
-                    <?php
-                    //verMonitores();
-                    ?>
-                </div>
-            </div> -->
         </section>
     </main>
     <?php

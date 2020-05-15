@@ -28,6 +28,7 @@ include '../BBDD/conexionBBDD.php';
         <section>
             <div class="menu">
             <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
+            
                 <?php
                 include 'menuOpciones.php';
                 ?>
