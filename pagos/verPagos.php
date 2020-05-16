@@ -65,21 +65,34 @@ include '../BBDD/pagosBBDD.php';
 
                     <div class="divTableBody" id="divTableBody">
                         <script>
-                            var select = document.getElementById("pagos");
-                            console.log(select.value)
-
+                                var select = document.getElementById("pagos");
                             function enviar() {
-                                $.ajax({
-                                    url: '../BBDD/pagosBBDD.php',
-                                    type: 'post',
-                                    data: {
-                                        type: 'mostrarpagos',
-                                    },
-                                    dataType: "html",
-                                    success: function(resultado) {
-                                        $('#divTableBody').html(resultado);
-                                    }
-                                })
+                                // console.log(select.value)
+                                if (select.value == "listaPagos") {
+                                    $.ajax({
+                                        url: '../BBDD/pagosBBDD.php',
+                                        type: 'post',
+                                        data: {
+                                            typePagos: 'mostrarpagos',
+                                        },
+                                        dataType: "html",
+                                        success: function(resultado) {
+                                            $('#divTableBody').html(resultado);
+                                        }
+                                    })
+                                }else {
+                                    $.ajax({
+                                        url: '../BBDD/pagosBBDD.php',
+                                        type: 'post',
+                                        data: {
+                                            Deudas: 'mostrarDeudas',
+                                        },
+                                        dataType: "html",
+                                        success: function(resultado) {
+                                            $('#divTableBody').html(resultado);
+                                        }
+                                    })
+                                }
                             }
 
                             // $.ajax({

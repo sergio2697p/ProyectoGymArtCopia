@@ -1,15 +1,15 @@
 <?php
 include 'conexionBBDD.php';
 
-if (isset($_REQUEST['type']) == 'mostrarpagos') {
+if (isset($_REQUEST['typePagos']) == 'mostrarpagos') {
     $variable2 = verPagos();
     return $variable2;
 }
 
-// if (isset($_REQUEST['type']) == 'mostrarDeudas') {
-//     $variable3 = listaDeudores();
-//     return $variable3;
-// }
+if (isset($_REQUEST['Deudas']) == 'mostrarDeudas') {
+    $variable2 = listaDeudores();
+    return $variable2;
+}
 
 
 function verPagos()
