@@ -6,10 +6,10 @@ if (isset($_REQUEST['type']) == 'mostrarpagos') {
     return $variable2;
 }
 
-if (isset($_REQUEST['type']) == 'mostrarDeudas') {
-    $variable3 = listaDeudores();
-    return $variable3;
-}
+// if (isset($_REQUEST['type']) == 'mostrarDeudas') {
+//     $variable3 = listaDeudores();
+//     return $variable3;
+// }
 
 
 function verPagos()
