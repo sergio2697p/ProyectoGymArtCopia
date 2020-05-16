@@ -65,6 +65,9 @@ include '../BBDD/pagosBBDD.php';
 
                     <div class="divTableBody" id="divTableBody">
                         <script>
+                            var select = document.getElementById("pagos");
+                            console.log(select.value)
+
                             function enviar() {
                                 $.ajax({
                                     url: '../BBDD/pagosBBDD.php',
@@ -78,6 +81,24 @@ include '../BBDD/pagosBBDD.php';
                                     }
                                 })
                             }
+
+                            // $.ajax({
+                            //     url: '../BBDD/pagosBBDD.php',
+                            //     type: 'post',
+                            //     data: {
+                            //         type: 'mostrarDeudas',
+                            //     },
+                            //     dataType: "html",
+                            //     success: function(resultado1) {
+                            //         $('#divTableBody').html(resultado1);
+                            //     }
+                            // })
+
+
+
+                            // function deudas() {
+                            //     
+                            // }
                         </script>
                     </div>
                 </div>
