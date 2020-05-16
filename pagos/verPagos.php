@@ -32,7 +32,7 @@ include '../BBDD/pagosBBDD.php';
                 <div class="buscador">
                     <form action="buscador.php" method="POST">
                         <div class="input">
-                            <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
+                            <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por mes o año">
                             <button type="submit" name="buscarActivo"><img src="../imagenes/lupa.png" alt=""></button>
                         </div>
                     </form>
@@ -59,6 +59,7 @@ include '../BBDD/pagosBBDD.php';
                             <div class="divTableCabeza">Mensualidad</div>
                             <div class="divTableCabeza">Mes</div>
                             <div class="divTableCabeza">Año</div>
+                            <div class="divTableCabeza">Importe</div>
                             <div class="divTableCabeza">Pagado</div>
                         </div>
                     </div>
@@ -85,7 +86,7 @@ include '../BBDD/pagosBBDD.php';
                                         url: '../BBDD/pagosBBDD.php',
                                         type: 'post',
                                         data: {
-                                            Deudas: 'mostrarDeudas',
+                                            typeDeudas: 'mostrarDeudas',
                                         },
                                         dataType: "html",
                                         success: function(resultado) {
@@ -94,24 +95,6 @@ include '../BBDD/pagosBBDD.php';
                                     })
                                 }
                             }
-
-                            // $.ajax({
-                            //     url: '../BBDD/pagosBBDD.php',
-                            //     type: 'post',
-                            //     data: {
-                            //         type: 'mostrarDeudas',
-                            //     },
-                            //     dataType: "html",
-                            //     success: function(resultado1) {
-                            //         $('#divTableBody').html(resultado1);
-                            //     }
-                            // })
-
-
-
-                            // function deudas() {
-                            //     
-                            // }
                         </script>
                     </div>
                 </div>
