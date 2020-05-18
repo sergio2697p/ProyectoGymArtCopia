@@ -10,7 +10,76 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
     $variable2 = listaDeudores();
     return $variable2;
 }
+//-----------------------------------------Generar Graficos Anual---------------------------------//
+function graficosAnual() {
+    $conexion = conectarUsuarios();
+    $buscadorMes = " SELECT clientes.Nombre as nombreCliente, mensualidades.Nombre as nombreMensualidad, pagos.Mes as mes,pagos.Anio as anio,pagos.Pagado as pagado, pagos.Importe as importe
+    FROM mensualidades INNER JOIN pagos INNER JOIN clientes ON mensualidades.CodigoMensualidad = pagos.CodigoMensualidad
+   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND pagos.Anio=2020";
+}
 
+//-----------------------------------------Buscar Por mes---------------------------------//
+function buscarPorMes()
+{
+    $informacion = $_POST["informacionPorMes"];
+    $conexion = conectarUsuarios();
+    $buscadorMes = " SELECT clientes.Nombre as nombreCliente, mensualidades.Nombre as nombreMensualidad, pagos.Mes as mes,pagos.Anio as anio,pagos.Pagado as pagado, pagos.Importe as importe
+    FROM mensualidades INNER JOIN pagos INNER JOIN clientes ON mensualidades.CodigoMensualidad = pagos.CodigoMensualidad
+   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND mes = '$informacion'";
+//    echo $buscadorMes;
+
+    $resultado = $conexion->query($buscadorMes);
+    $contador = 0;
+    while ($fila = $resultado->fetch_array()) {
+        $contador++;
+?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['nombreCliente']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['nombreMensualidad']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['mes']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['anio']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['importe']} €"; ?></div>
+            <div class="divTableCelda">
+                <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                    <input type="checkbox" name="pagado">
+                </form>
+            </div>
+        </div>
+    <?php
+    }
+}
+
+//-----------------------------------------Buscar Por Anio---------------------------------//
+
+function buscarPorAnio()
+{
+    $conexion = conectarUsuarios();
+    $buscadorAnio = " SELECT clientes.Nombre as nombreCliente, mensualidades.Nombre as nombreMensualidad, pagos.Mes as mes,pagos.Anio as anio,pagos.Pagado as pagado, pagos.Importe as importe
+    FROM mensualidades INNER JOIN pagos INNER JOIN clientes ON mensualidades.CodigoMensualidad = pagos.CodigoMensualidad
+   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND pagos.Anio = $_POST[informacionPorAnio]";
+//    echo $buscadorAnio;
+    $resultado = $conexion->query($buscadorAnio);
+    $contador = 0;
+    while ($fila = $resultado->fetch_array()) {
+        $contador++;
+?>
+        <div class="divTableRow">
+            <div class="divTableCelda"><?php echo "${fila['nombreCliente']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['nombreMensualidad']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['mes']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['anio']}"; ?></div>
+            <div class="divTableCelda"><?php echo "${fila['importe']} €"; ?></div>
+            <div class="divTableCelda">
+                <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                    <input type="checkbox" name="pagado">
+                </form>
+            </div>
+        </div>
+    <?php
+    }
+}
+
+//-----------------------------------------Ver Pagos de clientes activos---------------------------------//
 
 function verPagos()
 {
@@ -24,7 +93,7 @@ function verPagos()
     while ($fila = $resultado->fetch_array()) {
         $contador++;
 
-?>
+    ?>
         <div class="divTableRow">
             <div class="divTableCelda"><?php echo "${fila['nombreCliente']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['nombreMensualidad']}"; ?></div>
@@ -44,6 +113,7 @@ function verPagos()
     }
 }
 
+//-----------------------------------------Ver Pagos de Deudores---------------------------------//
 
 function listaDeudores()
 {

@@ -31,16 +31,14 @@ include '../BBDD/pagosBBDD.php';
                 <h1 class="Titulo">LISTADO DE PAGOS</h1>
                 <div class="buscador">
                     <form action="buscador.php" method="POST">
-                        <div class="buscador">
-                            <form action="buscador.php" method="POST">
-                                <div class="input">
-                                    <input type="search" name="informacionPorMes" id="" class="i_buscar" placeholder="Buscar por mes">
-                                    <button type="submit" name="buscarMes"><img src="../imagenes/lupa.png" alt=""></button>
-                                    <input type="search" name="informacionPorAnio" id="" class="i_buscar" placeholder="Buscar por año">
-                                    <button type="submit" name="buscarAnio"><img src="../imagenes/lupa.png" alt=""></button>
-                                </div>
-                            </form>
+                        <div class="input">
+                            <input type="search" name="informacionPorMes" id="" class="i_buscar" placeholder="Buscar por mes">
+                            <button type="submit" name="buscarMes"><img src="../imagenes/lupa.png" alt=""></button>
+                            <input type="search" name="informacionPorAnio" id="" class="i_buscar" placeholder="Buscar por año">
+                            <button type="submit" name="buscarAnio"><img src="../imagenes/lupa.png" alt=""></button>
+
                         </div>
+                    </form>
                 </div>
 
                 <?php
@@ -68,55 +66,14 @@ include '../BBDD/pagosBBDD.php';
                             <div class="divTableCabeza">Pagado</div>
                         </div>
                     </div>
-
-                    <div class="divTableBody" id="divTableBody">
-
-                        <?php
-                        if (isset($_POST["buscarMes"])) {
+                    <?php
                             buscarPorMes();
-                            echo "hola";
-                        } else if (isset($_POST["buscarAnio"])) {
-                            echo "hola";
                             buscarPorAnio();
-                            
-                        }
+                        
                         ?>
-                    </div>
-
-
-                    <script>
-                        var select = document.getElementById("pagos");
-
-                        function enviar() {
-                            // console.log(select.value)
-                            if (select.value == "listaPagos") {
-                                $.ajax({
-                                    url: '../BBDD/pagosBBDD.php',
-                                    type: 'post',
-                                    data: {
-                                        typePagos: 'mostrarpagos',
-                                    },
-                                    dataType: "html",
-                                    success: function(resultado) {
-                                        $('#divTableBody').html(resultado);
-                                    }
-                                })
-                            } else {
-                                $.ajax({
-                                    url: '../BBDD/pagosBBDD.php',
-                                    type: 'post',
-                                    data: {
-                                        typeDeudas: 'mostrarDeudas',
-                                    },
-                                    dataType: "html",
-                                    success: function(resultado) {
-                                        $('#divTableBody').html(resultado);
-                                    }
-                                })
-                            }
-                        }
-                    </script>
+                   
                 </div>
+            </div>
             </div>
         </section>
     </main>

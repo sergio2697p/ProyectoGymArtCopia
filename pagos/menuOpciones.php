@@ -8,4 +8,7 @@
     <div id="anadir">
         <abbr title='Añadir cliente'><a href='insertarClientes.php'><img src='../imagenes/add.png'></a></abbr>
     </div>
+    <div id="anadir">
+        <abbr title='Graficos'><a href='generarGraficos.php'><img src='../imagenes/graficos.png'></a></abbr>
+    </div>
 </div>
