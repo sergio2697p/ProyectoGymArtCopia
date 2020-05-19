@@ -10,13 +10,6 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
     $variable2 = listaDeudores();
     return $variable2;
 }
-//-----------------------------------------Generar Graficos Anual---------------------------------//
-function graficosAnual() {
-    $conexion = conectarUsuarios();
-    $buscadorMes = " SELECT clientes.Nombre as nombreCliente, mensualidades.Nombre as nombreMensualidad, pagos.Mes as mes,pagos.Anio as anio,pagos.Pagado as pagado, pagos.Importe as importe
-    FROM mensualidades INNER JOIN pagos INNER JOIN clientes ON mensualidades.CodigoMensualidad = pagos.CodigoMensualidad
-   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND pagos.Anio=2020";
-}
 
 //-----------------------------------------Buscar Por mes---------------------------------//
 function buscarPorMes()
