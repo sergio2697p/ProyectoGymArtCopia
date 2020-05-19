@@ -16,7 +16,7 @@
 
   //consulta a base de datos de la suma de todos los importes por Año
   $conexion = conectarUsuarios();
-  $graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio";
+  $graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio ";
   $resultado = $conexion->query($graficaAnio);
   ?>
 
@@ -32,7 +32,7 @@
       //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
       var datosFinales = google.visualization.arrayToDataTable([
         ['Año', 'Ingresos'],
-        
+
         <?php
         //recorremos nuestro array del Año y la suma de esos importes
         while ($fila = $resultado->fetch_array()) {
