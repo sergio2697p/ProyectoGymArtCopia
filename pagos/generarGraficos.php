@@ -32,6 +32,7 @@
       //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
       var datosFinales = google.visualization.arrayToDataTable([
         ['Año', 'Ingresos'],
+        
         <?php
         //recorremos nuestro array del Año y la suma de esos importes
         while ($fila = $resultado->fetch_array()) {
