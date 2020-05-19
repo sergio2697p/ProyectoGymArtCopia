@@ -9,40 +9,51 @@
 </head>
 
 <body>
-<div id="miCuartoGrafico" style="width: 900px; height: 300px;"></div>
+  <div id="miCuartoGrafico" style="width: 900px; height: 300px;"></div>
+
+  <?php
+  include '../BBDD/conexionBBDD.php';
+
+  //consulta a base de datos de la suma de todos los importes por Año
+  $conexion = conectarUsuarios();
+  $graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio";
+  $resultado = $conexion->query($graficaAnio);
+  ?>
+
   <script type="text/javascript">
-
     // Load Charts and the corechart package.
-    google.charts.load('current', { 'packages': ['corechart'] });
-
-
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
 
     google.setOnLoadCallback(miCuartoGrafico);
 
     function miCuartoGrafico() {
       //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
-      // var cargaDatos = <?php //echo json_encode($datos); ?>;
       var datosFinales = google.visualization.arrayToDataTable([
-        ['Año', 'Ventas', 'Gastos', 'Beneficio'],
-        ['2014', 1000, 400, 200],
-        ['2015', 1170, 460, 250],
-        ['2016', 660, 1120, 300],
-        ['2017', 1030, 540, 350]
+        ['Año', 'Ingresos'],
+        <?php
+        //recorremos nuestro array del Año y la suma de esos importes
+        while ($fila = $resultado->fetch_array()) {
+          echo "['" . $fila["Anio"] . "'," . $fila["Importe"] . "],";
+        }
+        ?>
       ]);
       var options = {
         title: 'Ganancias por Años',
-        hAxis: { title: 'Engorde' },
-        vAxis: { title: 'Peso Medio', minValue: 0 },
+        hAxis: {
+          title: 'Años'
+        },
+        vAxis: {
+          title: 'Euros',
+          minValue: 0
+        },
         legend: 'none',
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('miCuartoGrafico'));
       chart.draw(datosFinales, options);
     }
   </script>
-  <!-- <div id="miPrimerGrafico" style="width: 900px; height: 300px;"></div>
-    <div id="miSegundoGrafico" style="width: 900px; height: 300px;"></div>  
-    <div id="miTercerGrafico" style="width: 900px; height: 300px;"></div> -->
-  
 </body>
 
 </html>
