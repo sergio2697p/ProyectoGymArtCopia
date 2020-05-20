@@ -1,60 +1,44 @@
+<?php
+include '../BBDD/pagosBBDD.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Graficas</title>
+  <link rel="stylesheet" href="../css/estilos_xs.css">
+  <!--movil-->
+  <link rel="stylesheet" media=" all and (min-device-width : 768px) and (max-device-width : 991px)" href="../css/estilos_sm.css">
+  <!--IPAD vertical-->
+  <link rel="stylesheet" media=" all and (min-device-width : 992px) and (max-device-width : 1199px) " href="../css/estilos_md.css">
+  <!--IPAD horizontal-->
+  <link rel="stylesheet" media=" all and (min-device-width : 1200px)" href="../css/estilos_lg.css">
+  <!--monitor paronamico-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
-  <div id="miCuartoGrafico" style="width: 900px; height: 300px;"></div>
-
   <?php
-  include '../BBDD/conexionBBDD.php';
+  include '../header.php';
 
-  //consulta a base de datos de la suma de todos los importes por Año
-  $conexion = conectarUsuarios();
-  $graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio ";
-  $resultado = $conexion->query($graficaAnio);
   ?>
+  <main>
+    <section>
+      <div id="graficoAnio" style="width: 900px; height: 300px;"></div>
+      <div id="graficoMes" style="width: 900px; height: 300px;"></div>
 
-  <script type="text/javascript">
-    // Load Charts and the corechart package.
-    google.charts.load('current', {
-      'packages': ['corechart']
-    });
 
-    google.setOnLoadCallback(miCuartoGrafico);
-
-    function miCuartoGrafico() {
-      //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
-      var datosFinales = google.visualization.arrayToDataTable([
-        ['Año', 'Ingresos'],
-
-        <?php
-        //recorremos nuestro array del Año y la suma de esos importes
-        while ($fila = $resultado->fetch_array()) {
-          echo "['" . $fila["Anio"] . "'," . $fila["Importe"] . "],";
-        }
-        ?>
-      ]);
-      var options = {
-        title: 'Ganancias por Años',
-        hAxis: {
-          title: 'Años'
-        },
-        vAxis: {
-          title: 'Euros',
-          minValue: 0
-        },
-        legend: 'none',
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById('miCuartoGrafico'));
-      chart.draw(datosFinales, options);
-    }
-  </script>
+      <?php
+      graficoAnio();
+      graficosMes();
+      ?>
+    </section>
+  </main>
+  <?php
+  include '../footer.php';
+  ?>
 </body>
 
 </html>

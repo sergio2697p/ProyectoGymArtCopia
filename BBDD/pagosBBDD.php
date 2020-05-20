@@ -11,6 +11,97 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
     return $variable2;
 }
 
+//-----------------------------------------Graficos por Anio---------------------------------//
+function graficoAnio() {
+//consulta a base de datos de la suma de todos los importes por Año
+$conexion = conectarUsuarios();
+$graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio ";
+$resultado = $conexion->query($graficaAnio);
+?>
+
+<script type="text/javascript">
+  // Load Charts and the corechart package.
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+
+  google.setOnLoadCallback(miCuartoGrafico);
+
+  function miCuartoGrafico() {
+    //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
+    var datosFinales = google.visualization.arrayToDataTable([
+      ['Año', 'Ingresos'],
+
+      <?php
+      //recorremos nuestro array del Año y la suma de esos importes
+      while ($fila = $resultado->fetch_array()) {
+        echo "['" . $fila["Anio"] . "'," . $fila["Importe"] . "],";
+      }
+      ?>
+    ]);
+    var options = {
+      title: 'Ganancias por Años',
+      hAxis: {
+        title: 'Años'
+      },
+      vAxis: {
+        title: 'Euros',
+        minValue: 0
+      },
+      legend: 'none',
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById('graficoAnio'));
+    chart.draw(datosFinales, options);
+  }
+</script>
+<?php
+}
+
+function graficosMes() {
+    //consulta a base de datos de la suma de todos los importes por Año
+$conexion = conectarUsuarios();
+$graficaAnio = "SELECT SUM(Importe) as Importe,Mes FROM pagos WHERE Anio=2020 GROUP BY Mes ";
+$resultado = $conexion->query($graficaAnio);
+?>
+
+<script type="text/javascript">
+  // Load Charts and the corechart package.
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+
+  google.setOnLoadCallback(miCuartoGrafico);
+
+  function miCuartoGrafico() {
+    //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
+    var datosFinales = google.visualization.arrayToDataTable([
+      ['Año', 'Ingresos'],
+
+      <?php
+      //recorremos nuestro array del Año y la suma de esos importes
+      while ($fila = $resultado->fetch_array()) {
+        echo "['" . $fila["Mes"] . "'," . $fila["Importe"] . "],";
+      }
+      ?>
+    ]);
+    var options = {
+      title: 'Ganancias por meses del año 2020',
+      hAxis: {
+        title: 'Meses'
+      },
+      vAxis: {
+        title: 'Euros',
+        minValue: 0
+      },
+      legend: 'none',
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById('graficoMes'));
+    chart.draw(datosFinales, options);
+  }
+</script>
+<?php
+}
+
 //-----------------------------------------Buscar Por mes---------------------------------//
 function buscarPorMes()
 {
