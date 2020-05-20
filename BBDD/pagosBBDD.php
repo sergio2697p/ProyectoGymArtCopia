@@ -15,7 +15,7 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
 function graficoAnio() {
 //consulta a base de datos de la suma de todos los importes por Año
 $conexion = conectarUsuarios();
-$graficaAnio = "SELECT SUM(Importe) as Importe,Anio FROM pagos GROUP BY Anio ";
+$graficaAnio = "SELECT SUM(Importe) as Importe,Sum(Deuda) as Deuda,Importe - Deuda as Beneficio, Anio FROM pagos GROUP BY Anio ";
 $resultado = $conexion->query($graficaAnio);
 ?>
 
@@ -30,12 +30,12 @@ $resultado = $conexion->query($graficaAnio);
   function miCuartoGrafico() {
     //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
     var datosFinales = google.visualization.arrayToDataTable([
-      ['Año', 'Ingresos'],
+      ['Año', 'Ingresos','Deuda','Beneficio'],
 
       <?php
       //recorremos nuestro array del Año y la suma de esos importes
       while ($fila = $resultado->fetch_array()) {
-        echo "['" . $fila["Anio"] . "'," . $fila["Importe"] . "],";
+        echo "['" . $fila["Anio"] . "'," . $fila["Importe"] . "," . $fila["Deuda"] . "," . $fila["Beneficio"] . "],";
       }
       ?>
     ]);
@@ -60,7 +60,7 @@ $resultado = $conexion->query($graficaAnio);
 function graficosMes() {
     //consulta a base de datos de la suma de todos los importes por Año
 $conexion = conectarUsuarios();
-$graficaAnio = "SELECT SUM(Importe) as Importe,Mes FROM pagos WHERE Anio=2020 GROUP BY Mes ";
+$graficaAnio = "SELECT SUM(Importe) as Importe,Sum(Deuda) as Deuda,Importe - Deuda as Beneficio,Mes FROM pagos WHERE Anio=2020 GROUP BY Mes ";
 $resultado = $conexion->query($graficaAnio);
 ?>
 
@@ -75,12 +75,12 @@ $resultado = $conexion->query($graficaAnio);
   function miCuartoGrafico() {
     //cargamos nuestro array $datos creado en PHP para que se puede utilizar en JavaScript
     var datosFinales = google.visualization.arrayToDataTable([
-      ['Año', 'Ingresos'],
+      ['Año', 'Ingresos','Deuda','Beneficio'],
 
       <?php
       //recorremos nuestro array del Año y la suma de esos importes
       while ($fila = $resultado->fetch_array()) {
-        echo "['" . $fila["Mes"] . "'," . $fila["Importe"] . "],";
+        echo "['" . $fila["Mes"] . "'," . $fila["Importe"] . "," . $fila["Deuda"] . "," . $fila["Beneficio"] . "],";
       }
       ?>
     ]);
