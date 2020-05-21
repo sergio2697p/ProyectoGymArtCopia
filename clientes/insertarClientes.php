@@ -24,6 +24,9 @@ include '../BBDD/clientesBBDD.php';
 <body>
     <?php
     include '../header.php';
+    // if (isset($_POST["peso"], $_POST["altura"])) {
+    //     echo calcularMasaCorporal();
+    // }
     if (isset($_POST["anadir_cliente"])) {
         anadirClientes();
     }
@@ -90,10 +93,16 @@ include '../BBDD/clientesBBDD.php';
                         <input type="number" name="altura" placeholder="Introducir en metros">
                     </div>
 
-                    <!-- <div>
-                        <label>Masa corporal:</label>
-                        <input type="number" name="">
-                    </div> -->
+                    <button name="Calcular">Calcular</button>
+
+                    <div>
+                        <label>Masa Corporal:</label>
+                        <input type="number" name="masaMuscular" value="<?php
+                                                                        if (isset($_POST["Calcular"])) {
+                                                                            echo calcularMasaCorporal();
+                                                                        }
+                                                                        ?>">
+                    </div>
 
                     <div>
                         <label>Actividad fisíca:</label>

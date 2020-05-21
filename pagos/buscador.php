@@ -66,12 +66,16 @@ include '../BBDD/pagosBBDD.php';
                             <div class="divTableCabeza">Pagado</div>
                         </div>
                     </div>
+                    
                     <?php
-                            buscarPorMes();
-                            buscarPorAnio();
-                        
-                        ?>
-                   
+                    if (isset($_POST["buscarMes"])) {
+                        buscarPorMes();
+                    } else {
+                        buscarPorAnio();
+                    }
+
+                    ?>
+
                 </div>
             </div>
             </div>

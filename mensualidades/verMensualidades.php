@@ -27,18 +27,28 @@ include '../BBDD/conexionBBDD.php';
     <main>
         <section>
             <div class="menu">
-            <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
-            
+                <h1 class="Titulo">LISTADO DE MENSUALIDADES</h1>
+                <div class="buscador">
+                    <form action="buscador.php" method="POST">
+                        <div class="input">
+                            <input type="search" name="informacion" id="" class="i_buscar" placeholder="Buscar por apellido o nombre">
+                            <button type="submit" name="buscarActivo"><img src="../imagenes/lupa.png" alt=""></button>
+                        </div>
+                    </form>
+                </div>
                 <?php
                 include 'menuOpciones.php';
                 ?>
+                <div class="clientesAntiguos">
+                    <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
+                </div>
                 <div class="divTable cliente">
                     <div class="contenidos">
                         <div class="divTableRow">
                             <div class="divTableCabeza">Clase/Equipamiento</div>
                             <div class="divTableCabeza">Dia a la semana</div>
                             <div class="divTableCabeza">Precio mensual</div>
-                            <!-- <div class="divTableCabeza">Opciones</div> -->
+                            <div class="divTableCabeza">Accion</div>
                         </div>
                     </div>
                     <div class="divTableBody">

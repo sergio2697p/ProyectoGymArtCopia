@@ -25,64 +25,61 @@ function verMensualidades()
         $contador++;
 ?>
 
-        <div class="divTableRow">
+<div class="divTableRow">
             <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
             <div class="divTableCelda"><?php echo "${fila['DiasSemanas']}"; ?></div>
+
             <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
                 <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="a-ocultar"><?php echo "${fila['Precio']} €";?>
-                    <div class="boton">
-                        <form name="editar" action="modificarMensualidad.php" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoMensualidad']}" ?>" name="id">
-                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                            <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
-                        </form>
+                <div class="a-ocultar"><?php echo "${fila['Precio']}"; ?></div>
+            </div>
+            <div class="divTableCelda">
+                <div class="boton">
 
-                        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                            <input type='hidden' value="<?php echo "${fila['CodigoMensualidad']}" ?>" name="id">
-                            <!-- <input type="submit" name="borrar" value="borrar"> -->
-                            <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
-                        </form>
-                    </div>
+                    <form class="a-ocultar" name="editar" action="modificarMensualidad.php" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoMensualidad']}" ?>" name="id">
+                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
+                    </form>
+
+                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
+                        <input type='hidden' value="<?php echo "${fila['CodigoMensualidad']}" ?>" name="id">
+                        <!-- <input type="submit" name="borrar" value="borrar"> -->
+                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
+                    </form>
                 </div>
             </div>
         </div>
 
+        <!-- <div class="divTableRow">
+            <div class="divTableCelda"><?php //echo "${fila['Nombre']}"; ?></div>
+            <div class="divTableCelda"><?php //echo "${fila['DiasSemanas']}"; ?></div>
 
-
-
-        <!-- <div class="Row">
-            <div class="Celda">
-                <div class="contenidos1-nombre"><?php echo "${fila['nombreMen']}"; ?></div>
-            </div>
-
-            <div class="Celda">
-                <div class="contenidos1-dia-semana"><?php echo "${fila['diasSemana']}"; ?></div>
-            </div>
-
-            <div class="Celda">
+            <div class="divTableCelda">
                 <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
-                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="contenidos1-precio a-ocultar"><?php echo "${fila['precio']} €";
-                                                            ?>
+                <label for="eChkUsuario<?php //echo $contador ?>" class="tresbotones">...</label>
+                <div class="a-ocultar"><?php //echo "${fila['Precio']} €"; ?>
+            </div>
+            
+                <div class="divTableCelda">
                     <div class="boton">
-                        <form action="modificarMensualidad.php" method="POST">
-                            <input type='hidden' value="<?php //echo "${fila['id']}" ?>" name="id">
-                            <!-- <input type="submit" name="modificar_mensualidades" value="modificar"> -->
-        <!-- <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
-                        </form> -->
+                        <form name="editar" action="modificarMensualidad.php" method="POST">
+                            <input type='hidden' value="<?php //echo "${fila['CodigoMensualidad']}" ?>" name="id">
+                            <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
+                            <!-- <button type="submit" name="modificar_mensualidades"><img src="../imagenes/editar.png" alt=""></button>
+                        </form>
 
-        <!-- <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                                <input type='hidden' value="<?php //echo "${fila['id']}" ?>" name="id">
-                                <!-- <input type="submit" name="borrar" value="borrar"> -->
-        <!-- <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button> -->
-
-        <!-- </form> -->
-        <!-- </div>
+                        <form action="<?php //echo $_SERVER["PHP_SELF"]  ?>" method="POST"> -->
+                            <!-- <input type='hidden' value="<?php //echo "${fila['CodigoMensualidad']}" ?>" name="id"> -->
+                            <!-- <input type="submit" name="borrar" value="borrar"> -->
+                            <!-- <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button> -->
+                        <!-- </form> -->
+                    <!-- </div>
                 </div>
-            </div> -->
-        <!-- </div> -->
+
+            </div>
+        </div> --> 
 <?php
     };
     if (isset($_POST["borrar"])) {

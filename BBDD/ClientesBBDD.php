@@ -417,6 +417,16 @@ function visualizarDatosCliente()
 <?php
 }
 
+function calcularMasaCorporal() {
+    $conexion = conectarUsuarios();
+    $peso = $_POST["peso"];
+    $altura = $_POST["altura"];
+    $calcular=$peso / pow($altura,2);
+
+    return $calcular;
+
+}
+
 //------------------------------------------------AÑADIR CLIENTES---------------------------------------------------------------------------------------//
 
 function anadirClientes()
@@ -434,14 +444,16 @@ function anadirClientes()
     $Observaciones = $_POST["Observaciones"];
     $peso = $_POST["peso"];
     $altura = $_POST["altura"];
+    $masaMuscular=$_POST["masaMuscular"];
     $edad = $_POST["edad"];
     $actividadFisica = $_POST["actividad"];
     $lesiones = $_POST["lesiones"];
 
     $anadir_cliente = "INSERT INTO clientes (CodigoCliente,Nombre,Apellidos,Domicilio,Poblacion,
-            CorreoElectronico,Telefono,Observaciones,Peso,Altura,Edad,ActividadFisica,Lesiones,Activo) 
+            CorreoElectronico,Telefono,Observaciones,Peso,Altura,MasaMuscular,Edad,ActividadFisica,Lesiones,Activo) 
             VALUES($codigo,'$nombre','$apellidos','$domicilio','$poblacion','$correoElectronico',
-            $telefono,'$Observaciones',$peso,$altura,$edad,'$actividadFisica','$lesiones',1)";
+            $telefono,'$Observaciones',$peso,$altura,$edad,$masaMuscular,'$actividadFisica','$lesiones',1)";
+            echo "<p>$anadir_cliente </p>";
     $resultado = $conexion->query($anadir_cliente);
 
     if ($resultado) {
@@ -451,4 +463,6 @@ function anadirClientes()
         echo "Tuvimos problemas en la insercion, intentelo de nuevo mas tarde";
     }
 }
+
+
     

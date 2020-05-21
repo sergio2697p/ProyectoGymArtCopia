@@ -1,4 +1,5 @@
 <?php
+include '../BBDD/conexionBBDD.php';
 
 if (isset($_REQUEST['typePagos']) == 'mostrarpagos') {
   $variable2 = verPagos();
@@ -141,7 +142,7 @@ function buscarPorAnio()
   $conexion = conectarUsuarios();
   $buscadorAnio = " SELECT clientes.Nombre as nombreCliente, mensualidades.Nombre as nombreMensualidad, pagos.Mes as mes,pagos.Anio as anio,pagos.Pagado as pagado, pagos.Importe as importe
     FROM mensualidades INNER JOIN pagos INNER JOIN clientes ON mensualidades.CodigoMensualidad = pagos.CodigoMensualidad
-   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND pagos.Anio = $_POST[informacionPorAnio]";
+   WHERE clientes.CodigoCliente=pagos.CodigoCliente AND pagos.Anio = $_POST[informacionPorAnio] GROUP BY nombreCliente";
   //    echo $buscadorAnio;
   $resultado = $conexion->query($buscadorAnio);
   $contador = 0;
@@ -239,7 +240,7 @@ function selectNombreCliente()
 {
   echo "hola";
   $conexion = conectarUsuarios();
-  $sql = "SELECT pagos.CodigoCliente as codigoCliente,clientes.nombre as nombreCliente,clientes.Apellidos as apellidos FROM pagos INNER JOIN clientes on pagos.CodigoCliente = clientes.CodigoCliente";
+  $sql = "SELECT pagos.CodigoCliente as codigoCliente,clientes.nombre as nombreCliente,clientes.Apellidos as apellidos FROM pagos INNER JOIN clientes on pagos.CodigoCliente = clientes.CodigoCliente GROUP BY nombreCliente";
   $resultado = $conexion->query($sql);
   while ($fila = $resultado->fetch_array()) {
   ?>
@@ -253,7 +254,7 @@ function selectNombreCliente()
 function selectMensualidad()
 {
   $conexion = conectarUsuarios();
-  $sql = "SELECT pagos.CodigoMensualidad as codigoMensualidad,mensualidades.Nombre as nombre FROM pagos INNER JOIN mensualidades on pagos.CodigoMensualidad = mensualidades.CodigoMensualidad";
+  $sql = "SELECT pagos.CodigoMensualidad as codigoMensualidad,mensualidades.Nombre as nombre FROM pagos INNER JOIN mensualidades on pagos.CodigoMensualidad = mensualidades.CodigoMensualidad GROUP BY nombre";
   $resultado = $conexion->query($sql);
   while ($fila = $resultado->fetch_array()) {
   ?>
