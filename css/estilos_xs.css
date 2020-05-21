@@ -919,6 +919,17 @@ div.cliente {
     width: 0;
 } */
 
+.graficas {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.graficas >form {
+    padding: 3%;
+}
+
 footer {
     grid-area: footer;
     background-color: #292A3A;

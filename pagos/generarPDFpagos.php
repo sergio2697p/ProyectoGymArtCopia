@@ -16,12 +16,16 @@ $pdf = new FPDF();
 //creamos una pagina
 $pdf->AddPage();
 
+//definimos el logo de nuestro documento pdf
+$pdf->Image('../imagenes/logo1.png' , 80 ,0, 0 , 38);
+
 //definimos el estilo del titulo
 $pdf->SetFont("Arial", "B", 16);
 
-$titulo="Lista de Clientes";
+$titulo="Lista de Pagos";
+
 //definimos los bordes y el titulo
-$pdf->Cell(60,20,$titulo,1,1,"C");
+$pdf->Cell(60,40,$titulo,1,1,"C");
 $pdf->Ln(10);
 
 //definimos el estilo
@@ -45,5 +49,5 @@ while ($fila = $resultado->fetch_array()) {
 //$pdf->Output('archivo.pdf', 'I');
 
 //creamos el fichero de salida(descarga)
-$pdf->Output('archivo.pdf', 'D');
+$pdf->Output('archivo.pdf', 'I');
 ?>
