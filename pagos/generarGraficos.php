@@ -1,4 +1,5 @@
 <?php
+include '../BBDD/conexionBBDD.php';
 include '../BBDD/pagosBBDD.php';
 ?>
 <!DOCTYPE html>

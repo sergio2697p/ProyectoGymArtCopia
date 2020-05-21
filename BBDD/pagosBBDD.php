@@ -1,5 +1,4 @@
 <?php
-include 'conexionBBDD.php';
 
 if (isset($_REQUEST['typePagos']) == 'mostrarpagos') {
   $variable2 = verPagos();
