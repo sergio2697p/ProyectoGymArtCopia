@@ -1,5 +1,5 @@
 <?php
-include '../BBDD/pagosBBDD.php';
+// include '../BBDD/pagosBBDD.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,10 +48,10 @@ include '../BBDD/pagosBBDD.php';
                 <div class="selectPagos">
                     <form action="" method="post">
                         <label>Selecciona que tipo de pago quieres visualizar:</label>
-                        <select onchange="enviar()" name="tiposDePagos" id="pagos">
+                        <select onchange="enviar()" name="tiposDePagos" id="eSelPagos">
                             <option value="" selected>-----------</option>
                             <option value="listaPagos">Lista de Pagos</option>
-                            <option value="ListaDeDeudores">Lista de Deudores</option>
+                            <option value="listaDeudores">Lista de Deudores</option>
                         </select>
                     </form>
                 </div>
@@ -77,44 +77,9 @@ include '../BBDD/pagosBBDD.php';
                         } else if (isset($_POST["buscarAnio"])) {
                             echo "hola";
                             buscarPorAnio();
-                            
                         }
                         ?>
                     </div>
-
-
-                    <script>
-                        var select = document.getElementById("pagos");
-
-                        function enviar() {
-                            // console.log(select.value)
-                            if (select.value == "listaPagos") {
-                                $.ajax({
-                                    url: '../BBDD/pagosBBDD.php',
-                                    type: 'post',
-                                    data: {
-                                        typePagos: 'mostrarpagos',
-                                    },
-                                    dataType: "html",
-                                    success: function(resultado) {
-                                        $('#divTableBody').html(resultado);
-                                    }
-                                })
-                            } else {
-                                $.ajax({
-                                    url: '../BBDD/pagosBBDD.php',
-                                    type: 'post',
-                                    data: {
-                                        typeDeudas: 'mostrarDeudas',
-                                    },
-                                    dataType: "html",
-                                    success: function(resultado) {
-                                        $('#divTableBody').html(resultado);
-                                    }
-                                })
-                            }
-                        }
-                    </script>
                 </div>
             </div>
         </section>
@@ -122,6 +87,38 @@ include '../BBDD/pagosBBDD.php';
     <?php
     include '../footer.php';
     ?>
+    <script>
+              var select = document.getElementById("eSelPagos");
+
+function enviar() {
+    // console.log(select.value)
+    if (select.value == "listaPagos") {
+        $.ajax({
+            url: '../BBDD/pagosBBDD.php',
+            type: 'post',
+            data: {
+                typePagos: 'mostrarpagos',
+            },
+            dataType: "html",
+            success: function(resultado) {
+                $('#divTableBody').html(resultado);
+            }
+        })
+    } else {
+        $.ajax({
+            url: '../BBDD/pagosBBDD.php',
+            type: 'post',
+            data: {
+                typeDeudas: 'mostrarDeudas',
+            },
+            dataType: "html",
+            success: function(resultado) {
+                $('#divTableBody').html(resultado);
+            }
+        })
+    }
+}
+</script>
 </body>
 
 </html>

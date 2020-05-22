@@ -10,7 +10,6 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
   $variable2 = listaDeudores();
   return $variable2;
 }
-
 //-----------------------------------------Graficos por Anio---------------------------------//
 function graficoAnio()
 {

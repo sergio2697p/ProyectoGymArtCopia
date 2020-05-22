@@ -84,24 +84,20 @@ include '../BBDD/clientesBBDD.php';
 
                     <div>
                         <label>Peso:</label>
-                        <input type="number" name="peso" placeholder="Introducir en kg">
+                        <input type="number" id="eNumPeso" name="peso" placeholder="Introducir en kg">
                     </div>
 
 
                     <div>
                         <label>Altura:</label>
-                        <input type="number" name="altura" placeholder="Introducir en metros">
+                        <input type="number" id="eNumAltura" name="altura" placeholder="Introducir en metros">
                     </div>
 
-                    <button name="Calcular">Calcular</button>
+                    <input type="button" name="Calcular" onclick="calcularMasaCorporal()" value="Calcular">
 
                     <div>
                         <label>Masa Corporal:</label>
-                        <input type="number" name="masaMuscular" value="<?php
-                                                                        if (isset($_POST["Calcular"])) {
-                                                                            echo calcularMasaCorporal();
-                                                                        }
-                                                                        ?>">
+                        <input type="number" name="masaMuscular" id="eNumMasa">
                     </div>
 
                     <div>
@@ -125,6 +121,19 @@ include '../BBDD/clientesBBDD.php';
     <?php
     include '../footer.php';
     ?>
+    <script>
+        function calcularMasaCorporal() {
+            var peso = parseInt(document.getElementById("eNumPeso").value);
+            var altura = parseInt(document.getElementById("eNumAltura").value);
+
+            altura=altura/100;
+           var masa=peso/(altura * altura);
+
+            // document.getElementById("eNumMasa").value = masa.toFixed(2);
+             document.getElementById("eNumMasa").value = Math.trunc(masa);
+
+        }
+    </script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2020 a las 18:50:45
+-- Tiempo de generación: 21-05-2020 a las 18:39:33
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -39,6 +39,7 @@ CREATE TABLE `clientes` (
   `Observaciones` text NOT NULL,
   `Peso` decimal(10,2) DEFAULT NULL,
   `Altura` decimal(10,2) NOT NULL,
+  `MasaCorporal` int(11) NOT NULL,
   `Edad` int(3) NOT NULL,
   `ActividadFisica` varchar(30) NOT NULL,
   `Lesiones` text NOT NULL,
@@ -49,13 +50,15 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`CodigoCliente`, `Nombre`, `Apellidos`, `Domicilio`, `Poblacion`, `CorreoElectronico`, `Telefono`, `Observaciones`, `Peso`, `Altura`, `Edad`, `ActividadFisica`, `Lesiones`, `Activo`) VALUES
-(6, 'Oscar', 'Ruiz', 'C/Franco', 'lorca', 'oscar@oscar.com', 987654321, 'NO', '23.00', '198.00', 32, 'Principiante', 'NO', 0),
-(7, 'Ignatius', 'J. Reilly', 'Farras Street N_43', 'New Orleans', 'diosaFortuna@gmail.com', 634412066, 'Demasiadas', '96.22', '1.92', 32, '', '', 1),
-(8, 'Zeus', 'Jupiter Aguilar', 'Calle Olimpo', 'Murcia', 'animalZeus@gmail.com', 634412066, 'No', '72.12', '2.02', 54, 'Si', 'No', 1),
-(10, 'Miller', 'Kazuhira Hasagaska', 'House of the rising sun Nº51', 'Outher Heaven', 'keepyouwaiting@hum.com', 623456788, 'Necesito ganar agilidad y destreza', '67.32', '1.67', 33, 'CQC(judo)', 'Actualmente no', 1),
-(11, 'gdfg', 'fgdf', 'fdgd', 'fgd', 'fdgd', 4234234, 'fd', '43.00', '12.00', 23, 'Intermedio', '2342', 0),
-(12, 'Maria', 'Martinez', 'lsfalkfl', 'Lorca', 'maria@maria.com', 654321234, 'ninguna', '56.00', '197.00', 22, 'Principiante', 'no', 1);
+INSERT INTO `clientes` (`CodigoCliente`, `Nombre`, `Apellidos`, `Domicilio`, `Poblacion`, `CorreoElectronico`, `Telefono`, `Observaciones`, `Peso`, `Altura`, `MasaCorporal`, `Edad`, `ActividadFisica`, `Lesiones`, `Activo`) VALUES
+(0, '', '', NULL, '', '', 0, '', NULL, '0.00', 0, 0, '', '', 0),
+(6, 'Oscar', 'Ruiz', 'C/Franco', 'lorca', 'oscar@oscar.com', 987654321, 'NO', '23.00', '198.00', 0, 32, 'Principiante', 'NO', 0),
+(7, 'Ignatius', 'J. Reilly', 'Farras Street N_43', 'New Orleans', 'diosaFortuna@gmail.com', 634412066, 'Demasiadas', '96.22', '1.92', 0, 32, '', '', 1),
+(8, 'Zeus', 'Jupiter Aguilar', 'Calle Olimpo', 'Murcia', 'animalZeus@gmail.com', 634412066, 'No', '72.12', '2.02', 0, 54, 'Si', 'No', 1),
+(10, 'Miller', 'Kazuhira Hasagaska', 'House of the rising sun Nº51', 'Outher Heaven', 'keepyouwaiting@hum.com', 623456788, 'Necesito ganar agilidad y destreza', '67.32', '1.67', 0, 33, 'CQC(judo)', 'Actualmente no', 1),
+(11, 'gdfg', 'fgdf', 'fdgd', 'fgd', 'fdgd', 4234234, 'fd', '43.00', '12.00', 0, 23, 'Intermedio', '2342', 0),
+(12, 'Maria', 'Martinez', 'lsfalkfl', 'Lorca', 'maria@maria.com', 654321234, 'ninguna', '56.00', '197.00', 0, 22, 'Principiante', 'no', 1),
+(13, 'hola', 'adios', 'lkfnsalkn', 'lorca', 'sergio2m@gmail.com', 654321234, 'nada', '54.00', '156.00', 0, 24, 'Intermedio', 'No', 1);
 
 -- --------------------------------------------------------
 
@@ -117,6 +120,7 @@ CREATE TABLE `pagos` (
   `Mes` varchar(10) NOT NULL,
   `Anio` int(4) NOT NULL,
   `Importe` int(4) NOT NULL,
+  `Deuda` int(4) NOT NULL,
   `Pagado` char(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -124,12 +128,16 @@ CREATE TABLE `pagos` (
 -- Volcado de datos para la tabla `pagos`
 --
 
-INSERT INTO `pagos` (`CodigoPago`, `CodigoCliente`, `CodigoMensualidad`, `Mes`, `Anio`, `Importe`, `Pagado`) VALUES
-(1, 8, 1, 'Junio', 2020, 35, 'Si'),
-(2, 10, 3, 'Mayo', 2019, 40, 'No'),
-(3, 11, 2, 'Febrero', 2020, 36, 'Si'),
-(4, 12, 1, 'Mayo', 2020, 21, 'No'),
-(5, 10, 1, 'Enero', 2020, 45, 'No');
+INSERT INTO `pagos` (`CodigoPago`, `CodigoCliente`, `CodigoMensualidad`, `Mes`, `Anio`, `Importe`, `Deuda`, `Pagado`) VALUES
+(1, 8, 1, 'Junio', 2020, 35, 0, 'Si'),
+(2, 10, 3, 'Mayo', 2019, 40, 40, 'No'),
+(3, 11, 2, 'Febrero', 2020, 36, 0, 'Si'),
+(4, 12, 1, 'Mayo', 2020, 21, 21, 'No'),
+(5, 10, 1, 'Enero', 2020, 45, 45, 'No'),
+(7, 12, 1, 'Febrero', 2019, 23, 23, 'No'),
+(8, 10, 1, 'Junio', 2020, 25, 25, 'Si'),
+(9, 10, 1, 'Junio', 2020, 25, 25, 'Si'),
+(10, 10, 1, 'Enero', 2019, 24, 24, 'Si');
 
 -- --------------------------------------------------------
 
@@ -204,7 +212,7 @@ ALTER TABLE `monitores`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `CodigoPago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `CodigoPago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
