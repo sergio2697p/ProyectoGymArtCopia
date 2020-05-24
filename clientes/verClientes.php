@@ -21,7 +21,7 @@ include '../BBDD/clientesBBDD.php';
     <!--monitor paronamico-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- <script type="text/javascript" src="../javascript/sweetalert.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
 </head>
@@ -49,7 +49,7 @@ include '../BBDD/clientesBBDD.php';
                     <button><a href="clientesAntiguos.php">CLIENTES INACTIVOS</a></button>
                 </div>
 
-               
+
 
                 <div class="divTable cliente">
                     <div class="contenidos">
@@ -64,11 +64,12 @@ include '../BBDD/clientesBBDD.php';
                     <div class="divTableBody">
                         <?php
                         verClientesActivos();
-                        if(isset($_POST["buscarActivo"])) {
+                        if (isset($_POST["buscarActivo"])) {
                             buscarClientesActivos();
                         }
                         ?>
                     </div>
+                    
                 </div>
             </div>
         </section>

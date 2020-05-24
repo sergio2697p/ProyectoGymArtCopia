@@ -28,13 +28,9 @@ include '../BBDD/pagosBBDD.php';
     <section>
       <div class="graficas">
         <div id="graficoAnio" style="width: 800px; height: 250px;"></div>
-        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-          <input type="submit" value="Descargar Grafica Año">
-        </form>
+       
         <div id="graficoMes" style="width: 800px; height: 250px;"></div>
-        <form action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-          <input type="submit" value="Descargar Grafica Meses">
-        </form>
+       
       </div>
       <?php
       graficoAnio();

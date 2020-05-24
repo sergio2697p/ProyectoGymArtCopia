@@ -121,9 +121,24 @@ function buscarClientesInactivos()
 function verClientesActivos()
 {
     $conexion = conectarUsuarios();
-    $select_cliente = "SELECT * from clientes where Activo = 1";
 
+    $CantidadMostrar = 5;
+
+    // Validado de la variable GET
+    $compag = (int) (!isset($_GET['pag'])) ? 1 : $_GET['pag'];
+    $TotalReg = $conexion->query("SELECT * FROM clientes");
+
+    //Se divide la cantidad de registro de la BD con la cantidad a mostrar 
+    $TotalRegistro  = ceil($TotalReg->num_rows / $CantidadMostrar);
+
+
+    //consulta query para empezar desde 0 hasta todos la cantidad que hay que mostrar en los registros
+    $select_cliente = "SELECT * from clientes where Activo = 1 LIMIT " . (($compag - 1) * $CantidadMostrar) . ",$CantidadMostrar ";
+
+    // $select_cliente = "SELECT * from clientes where Activo = 1 ";
     $resultado = $conexion->query($select_cliente);
+
+
     $contador = 0;
 
     while ($fila = $resultado->fetch_array()) {
@@ -164,6 +179,41 @@ function verClientesActivos()
         </div>
     <?php
     }
+    ?>
+    <div class="paginas">
+        <div class="botonesPaginas">
+            <div class="links">
+
+            <?php
+            /*Sector de Paginacion */
+
+            //Se resta y suma con el numero de pag actual con el cantidad de 
+            //números  a mostrar
+            $Desde = $compag - (ceil($CantidadMostrar / 2) - 1);
+            $Hasta = $compag + (ceil($CantidadMostrar / 2) - 1);
+
+            //Se valida
+            $Desde = ($Desde < 1) ? 1 : $Desde;
+            $Hasta = ($Hasta < $CantidadMostrar) ? $CantidadMostrar : $Hasta;
+            //Se muestra los números de paginas
+            for ($i = $Desde; $i <= $Hasta; $i++) {
+                //Se valida la paginacion total
+                //de registros
+                if ($i <= $TotalRegistro) {
+                    //Validamos la pag activo
+                    if ($i == $compag) {
+                        echo "<a href=\"?pag=" . $i . "\">" . $i . "</a>";
+                    } else {
+                        echo "<a href=\"?pag=" . $i . "\">" . $i . "</a>";
+                    }
+                }
+            }
+            ?>
+            </div>
+        </div>
+    </div>
+    <?php
+    // echo "<b>La cantidad de registro se dividió a: </b>".$TotalRegistro." para mostrar 5 en 5<br>";
     if (isset($_POST["borrar"])) {
         CambiarEstadoClientes();
     }
