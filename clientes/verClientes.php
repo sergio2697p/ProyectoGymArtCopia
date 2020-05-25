@@ -63,9 +63,10 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                        verClientesActivos();
+                        verClientes(1);
                         if (isset($_POST["buscarActivo"])) {
-                            buscarClientesActivos();
+                            buscarClientes(1);
+
                         }
                         ?>
                     </div>

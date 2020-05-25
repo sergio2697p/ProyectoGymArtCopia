@@ -1,28 +1,12 @@
 <?php
-
-/*Funciones Requeridas para los clientes*/
-function maximoCodigoCliente()
-{
-    $conexion = conectarUsuarios();
-    //para insertar el nuevo id
-    //buscar en la BD el mayor id(max)
-    $sql = "SELECT MAX(CodigoCliente) FROM clientes";
-    $resultado = $conexion->query($sql);
-    //hay que utilizar row porque no le hemos dado nombre a la columna seleccionada
-    $fila = $resultado->fetch_row();
-    $max_id = $fila[0];
-    $nuevo_id = $max_id + 1;
-    unset($conexion);
-    return $nuevo_id;
-}
-
+include '../funciones/funciones.php';
 //------------------------------------------------BUSCAR CLIENTES ACTIVOS---------------------------------------------------------------------------------------//
-function buscarClientesActivos()
+function buscarClientes($estado)
 {
     $conexion = conectarUsuarios();
 
     $buscar = $_POST["informacion"];
-    $buscador = "SELECT * FROM clientes WHERE Activo = 1 AND (Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%')";
+    $buscador = "SELECT * FROM clientes WHERE Activo = $estado AND (Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%')";
     //echo $buscador;
     $resultado = $conexion->query($buscador);
     $contador = 0;
@@ -66,59 +50,8 @@ function buscarClientesActivos()
     }
 }
 
-//------------------------------------------------BUSCAR CLIENTES INACTIVOS---------------------------------------------------------------------------------------//
-function buscarClientesInactivos()
-{
-    $conexion = conectarUsuarios();
-
-    $buscar = $_POST["informacion"];
-    $buscador = "SELECT * FROM clientes WHERE Activo = 0 AND (Nombre LIKE '%$buscar%' OR Apellidos LIKE '%$buscar%')";
-    //echo $buscador;
-    $resultado = $conexion->query($buscador);
-    $contador = 0;
-    while ($fila = $resultado->fetch_array()) {
-        $contador++;
-?>
-        <div class="divTableRow">
-            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
-            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
-            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
-            <div class="divTableCelda">
-                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
-                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
-            </div>
-
-            <div class="divTableCelda">
-                <div class="boton">
-                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
-                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
-                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
-                    </form>
-
-                    <form class="a-ocultar" name="editar" action="modificarClientes.php" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
-                    </form>
-
-                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <!-- <input type="submit" name="borrar" value="borrar"> -->
-                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    <?php
-    }
-}
-
-
-//------------------------------------------------VER CLIENTES ACTIVOS---------------------------------------------------------------------------------------//
-function verClientesActivos()
+//------------------------------------------------ VER CLIENTES ---------------------------------------------------------------------------------------//
+function verClientes($estado)
 {
     $conexion = conectarUsuarios();
 
@@ -133,7 +66,7 @@ function verClientesActivos()
 
 
     //consulta query para empezar desde 0 hasta todos la cantidad que hay que mostrar en los registros
-    $select_cliente = "SELECT * from clientes where Activo = 1 LIMIT " . (($compag - 1) * $CantidadMostrar) . ",$CantidadMostrar ";
+    $select_cliente = "SELECT * from clientes where Activo = $estado LIMIT " . (($compag - 1) * $CantidadMostrar) . ",$CantidadMostrar ";
 
     // $select_cliente = "SELECT * from clientes where Activo = 1 ";
     $resultado = $conexion->query($select_cliente);
@@ -214,62 +147,6 @@ function verClientesActivos()
     </div>
     <?php
     // echo "<b>La cantidad de registro se dividió a: </b>".$TotalRegistro." para mostrar 5 en 5<br>";
-    if (isset($_POST["borrar"])) {
-        CambiarEstadoClientes();
-    }
-
-    if (isset($_POST["verMas"])) {
-        verMas();
-    }
-}
-
-//------------------------------------------------VER CLIENTES INACTIVOS---------------------------------------------------------------------------------------//
-function verClientesInactivos()
-{
-    $conexion = conectarUsuarios();
-    $select_cliente = "SELECT * from clientes where Activo = 0";
-
-    $resultado = $conexion->query($select_cliente);
-    $contador = 0;
-
-    while ($fila = $resultado->fetch_array()) {
-        $contador++;
-    ?>
-        <div class="divTableRow">
-            <div class="divTableCelda"><?php echo "${fila['Nombre']}"; ?></div>
-            <div class="divTableCelda"><?php echo "${fila['Apellidos']}"; ?></div>
-            <div class="divTableCelda"><?php echo "${fila['Telefono']}"; ?></div>
-
-            <div class="divTableCelda">
-                <input type="checkbox" class="boton-checkbox" id="eChkUsuario<?php echo $contador ?>">
-                <label for="eChkUsuario<?php echo $contador ?>" class="tresbotones">...</label>
-                <div class="a-ocultar"><?php echo "${fila['CorreoElectronico']}"; ?></div>
-            </div>
-            <div class="divTableCelda">
-                <div class="boton">
-                    <input type="checkbox" class="boton-checkbox" id="eChkBotones<?php echo $contador ?>">
-                    <label for="eChkBotones<?php echo $contador ?>" class="tresbotones">...</label>
-                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <button type="submit" name="verMas"><img src="../imagenes/verMas.png" alt=""></button>
-                    </form>
-
-                    <form class="a-ocultar" name="editar" action="modificarClientes.php" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <!-- <input type="submit" name="editar_cliente" value="modificar"> -->
-                        <button type="submit" name="ediar_cliente"><img src="../imagenes/editar.png" alt=""></button>
-                    </form>
-
-                    <form class="a-ocultar" action="<?php echo $_SERVER["PHP_SELF"]  ?>" method="POST">
-                        <input type='hidden' value="<?php echo "${fila['CodigoCliente']}" ?>" name="id">
-                        <!-- <input type="submit" name="borrar" value="borrar"> -->
-                        <button type="submit" name="borrar"><img src="../imagenes/delete.png" alt=""></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    <?php
-    }
     if (isset($_POST["borrar"])) {
         CambiarEstadoClientes();
     }
@@ -476,7 +353,7 @@ function anadirClientes()
     $conexion = conectarUsuarios();
 
     //Guardo los parametros en variables
-    $codigo = maximoCodigoCliente();
+    $codigo = maximoCodigoCliente("clientes","CodigoCliente");
     $nombre = $_POST["nombre"];
     $apellidos = $_POST["apellidos"];
     $domicilio = $_POST["domicilio"];
@@ -494,7 +371,7 @@ function anadirClientes()
     $anadir_cliente = "INSERT INTO clientes (CodigoCliente,Nombre,Apellidos,Domicilio,Poblacion,
             CorreoElectronico,Telefono,Observaciones,Peso,Altura,MasaCorporal,Edad,ActividadFisica,Lesiones,Activo) 
             VALUES($codigo,'$nombre','$apellidos','$domicilio','$poblacion','$correoElectronico',
-            $telefono,'$Observaciones',$peso,$altura,$edad,$masaMuscular,'$actividadFisica','$lesiones',1)";
+            $telefono,'$Observaciones',$peso,$altura,$masaMuscular,$edad,'$actividadFisica','$lesiones',1)";
             echo "<p>$anadir_cliente </p>";
     $resultado = $conexion->query($anadir_cliente);
 
