@@ -60,12 +60,11 @@ include '../BBDD/clientesBBDD.php';
                     </div>
                     <div class="divTableBody">
                         <?php
-                             if (isset($_POST["buscarActivo"])) {
-                                buscarClientes(1);
-    
-                            }else {
-                                buscarClientes(0);
-                            }
+                        if (isset($_POST["buscarActivo"])) {
+                            buscarClientes(1);
+                        } else {
+                            buscarClientes(0);
+                        }
                         ?>
                     </div>
                 </div>
