@@ -353,7 +353,7 @@ function anadirClientes()
     $conexion = conectarUsuarios();
 
     //Guardo los parametros en variables
-    $codigo = maximoCodigoCliente("clientes","CodigoCliente");
+    $codigo = maximoCodigoTabla("clientes","CodigoCliente");
     $nombre = $_POST["nombre"];
     $apellidos = $_POST["apellidos"];
     $domicilio = $_POST["domicilio"];

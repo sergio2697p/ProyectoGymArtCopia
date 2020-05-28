@@ -23,7 +23,7 @@ function validad_email($str)
 
 
 // *Funciones Requeridas para los clientes*/
-function maximoCodigoCliente($tabla,$codigo)
+function maximoCodigoTabla($tabla,$codigo)
 {
     $conexion = conectarUsuarios();
     //para insertar el nuevo id

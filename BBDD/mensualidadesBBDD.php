@@ -1,18 +1,5 @@
 <?php
-function maximoCodigoMensualidad()
-{
-    $conexion = conectarUsuarios();
-    //para insertar el nuevo id
-    //buscar en la BD el mayor id(max)
-    $sql = "SELECT MAX(id) FROM mensualidades";
-    $resultado = $conexion->query($sql);
-    //hay que utilizar row porque no le hemos dado nombre a la columna seleccionada
-    $fila = $resultado->fetch_row();
-    $max_id = $fila[0];
-    $nuevo_id = $max_id + 1;
-    unset($conexion);
-    return $nuevo_id;
-}
+include '../funciones/funciones.php';
 
 //parte de mensualidades
 function verMensualidades()
@@ -172,7 +159,7 @@ function anadirMensualidad()
     $conexion = conectarUsuarios();
 
     //Guardo los parametros en variables
-    $id = maximoCodigoMensualidad();
+    $id = maximoCodigoTabla("mensualidades","CodigoMensualidad");
     $nombre = $_POST["nombreMen"];
     $diasSemana = $_POST["diasSemana"];
     $precio = $_POST["precio"];
