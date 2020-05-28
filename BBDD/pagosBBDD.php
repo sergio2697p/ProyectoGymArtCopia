@@ -74,7 +74,7 @@ function graficoAnio()
     }
   </script>
 
-  <div id="graficoAnio" style="width: 800px; height: 250px;"></div>
+  <div id="graficoAnio" class="graficoAnio"></div>
 
 <?php
 
@@ -124,7 +124,7 @@ function graficosMes()
       chart.draw(datosFinales, options);
     }
   </script>
-  <div id="graficoMes" style="width: 800px; height: 250px;"></div>
+  <div id="graficoMes" class="graficoMes"></div>
 
 <?php
 }

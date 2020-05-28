@@ -138,6 +138,13 @@
     width: 100%;
 }
 
+.graficoAnio {
+    width: 700px; 
+}
+.graficoMes {
+    width: 700px; 
+}
+
 footer {
     font-size: 20px;
 }

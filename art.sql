@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2020 a las 18:39:33
+-- Tiempo de generación: 28-05-2020 a las 17:26:41
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -51,14 +51,15 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`CodigoCliente`, `Nombre`, `Apellidos`, `Domicilio`, `Poblacion`, `CorreoElectronico`, `Telefono`, `Observaciones`, `Peso`, `Altura`, `MasaCorporal`, `Edad`, `ActividadFisica`, `Lesiones`, `Activo`) VALUES
-(0, '', '', NULL, '', '', 0, '', NULL, '0.00', 0, 0, '', '', 0),
 (6, 'Oscar', 'Ruiz', 'C/Franco', 'lorca', 'oscar@oscar.com', 987654321, 'NO', '23.00', '198.00', 0, 32, 'Principiante', 'NO', 0),
 (7, 'Ignatius', 'J. Reilly', 'Farras Street N_43', 'New Orleans', 'diosaFortuna@gmail.com', 634412066, 'Demasiadas', '96.22', '1.92', 0, 32, '', '', 1),
 (8, 'Zeus', 'Jupiter Aguilar', 'Calle Olimpo', 'Murcia', 'animalZeus@gmail.com', 634412066, 'No', '72.12', '2.02', 0, 54, 'Si', 'No', 1),
 (10, 'Miller', 'Kazuhira Hasagaska', 'House of the rising sun Nº51', 'Outher Heaven', 'keepyouwaiting@hum.com', 623456788, 'Necesito ganar agilidad y destreza', '67.32', '1.67', 0, 33, 'CQC(judo)', 'Actualmente no', 1),
 (11, 'gdfg', 'fgdf', 'fdgd', 'fgd', 'fdgd', 4234234, 'fd', '43.00', '12.00', 0, 23, 'Intermedio', '2342', 0),
 (12, 'Maria', 'Martinez', 'lsfalkfl', 'Lorca', 'maria@maria.com', 654321234, 'ninguna', '56.00', '197.00', 0, 22, 'Principiante', 'no', 1),
-(13, 'hola', 'adios', 'lkfnsalkn', 'lorca', 'sergio2m@gmail.com', 654321234, 'nada', '54.00', '156.00', 0, 24, 'Intermedio', 'No', 1);
+(13, 'hola', 'adios', 'lkfnsalkn', 'lorca', 'sergio2m@gmail.com', 654321234, 'nada', '54.00', '156.00', 0, 24, 'Intermedio', 'No', 1),
+(14, 'Hola', 'adios', 'Calle', 'kwlsjl', 'ser@ser.com', 654321234, 'Si', '43.00', '21.00', 21, 975, 'Intermedio', 'No', 1),
+(15, 'gsjlkj', 'gksdjlkdshjk', 'kfjslkfjalj', 'dkjlksjglksjl', 'sergio2m@gmail.com', 654321234, 'No', '45.00', '176.00', 32, 14, 'Intermedio', 'No', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `mensualidades` (
   `CodigoMensualidad` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `DiasSemanas` int(11) NOT NULL,
-  `Precio` int(11) NOT NULL,
+  `Precio` float NOT NULL,
   `Anio` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -79,9 +80,9 @@ CREATE TABLE `mensualidades` (
 --
 
 INSERT INTO `mensualidades` (`CodigoMensualidad`, `Nombre`, `DiasSemanas`, `Precio`, `Anio`) VALUES
-(1, 'Sesiones de yoga', 2, 22, 2019),
-(2, 'Halterofilia', 3, 30, 2018),
-(3, 'Body Art', 2, 25, 2017);
+(1, 'Basica', 7, 29.9, 2019),
+(2, 'Avanzada', 7, 36.5, 2018),
+(3, 'Ultra', 7, 50, 2017);
 
 -- --------------------------------------------------------
 

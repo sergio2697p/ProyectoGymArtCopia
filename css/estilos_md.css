@@ -160,6 +160,13 @@ nav ul li {
     width: 20px;
 }
 
+.graficoAnio {
+    width: 800px; 
+}
+.graficoMes {
+    width: 800px; 
+}
+
 footer {
     font-size: 20px;
 }

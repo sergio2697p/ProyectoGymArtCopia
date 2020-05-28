@@ -293,3 +293,11 @@ nav ul li [class*=none] {
     display: flex;
     justify-content: center;
 }
+
+.graficoAnio {
+    width: 900px; 
+}
+.graficoMes {
+    margin-top: 10px;
+    width: 900px; 
+}

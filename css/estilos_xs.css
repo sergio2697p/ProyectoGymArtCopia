@@ -928,6 +928,15 @@ div.cliente {
     text-align: center;
 }
 
+.graficoAnio {
+    width: 400px; 
+    height: 250px;
+}
+.graficoMes {
+    margin-top: 5px;
+    width: 400px; 
+    height: 250px;
+}
 footer {
     grid-area: footer;
     background-color: #292A3A;
