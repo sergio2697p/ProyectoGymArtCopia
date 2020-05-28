@@ -924,33 +924,8 @@ div.cliente {
     margin-top: 3%;
 }
 
-/*
-.monitores {
-    background: #292A3A;
-    width: 50%;
-    padding-bottom: 2%;
-    padding-top: 2%;
-}
-
-.monitores .Row .Celda .boton form button {
-    background-color: var(--color-oscuro);
-    border: 0;
-    margin-right: 5px;
-    margin-left: 30px;
-    width: 0;
-} */
-
-.graficas {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.graficas>div {
-    padding: 3%;
-
+.sectionGraficos {
+    text-align: center;
 }
 
 footer {

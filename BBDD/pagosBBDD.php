@@ -10,7 +10,26 @@ if (isset($_REQUEST['typeDeudas']) == 'mostrarDeudas') {
   $variable2 = listaDeudores();
   return $variable2;
 }
-//-----------------------------------------Graficos por Anio---------------------------------//
+
+
+if (isset($_REQUEST['typeBarras']) == 'mostrarBarras') {
+  $variable2 = verGraficosBarra();
+  return $variable2;
+}
+
+if (isset($_REQUEST['typeCirculo']) == 'mostrarCirculo') {
+  $variable2 = graficaCirculoAnio();
+  return $variable2;
+}
+
+//-----------------------------------------Graficos Barra---------------------------------//
+function verGraficosBarra()
+{
+  graficoAnio();
+  graficosMes();
+}
+
+//-----------------------------------------Graficos Barra Anio---------------------------------//
 function graficoAnio()
 {
   //consulta a base de datos de la suma de todos los importes por Año
@@ -54,9 +73,14 @@ function graficoAnio()
       chart.draw(datosFinales, options);
     }
   </script>
+
+  <div id="graficoAnio" style="width: 800px; height: 250px;"></div>
+
 <?php
+
 }
 
+//-----------------------------------------Graficos Barra Mes---------------------------------//
 function graficosMes()
 {
   //consulta a base de datos de la suma de todos los importes por Año
@@ -100,6 +124,61 @@ function graficosMes()
       chart.draw(datosFinales, options);
     }
   </script>
+  <div id="graficoMes" style="width: 800px; height: 250px;"></div>
+
+<?php
+}
+
+//-----------------------------------------Graficos Circulo Anio---------------------------------//
+function graficaCirculoAnio()
+{
+  //consulta a base de datos de la suma de todos los importes por Año
+  $conexion = conectarUsuarios();
+  $graficaAnio = "SELECT SUM(Importe) as Importe,Sum(Deuda) as Deuda,Importe - Deuda as Beneficio FROM pagos WHERE Anio =2020 ";
+  $resultado = $conexion->query($graficaAnio);
+?>
+  <script>
+    // Load Charts and the corechart package.
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+    google.charts.setOnLoadCallback(miSegundoGrafico);
+
+    function miSegundoGrafico() {
+
+      // Create the data table for Anthony's pizza.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+
+      data.addRows([
+        <?php
+        //recorremos nuestro array del Año y la suma de esos importes
+        while ($fila = $resultado->fetch_array()) {
+          echo "['Ingresos', $fila[Importe]],
+                ['Beneficio', $fila[Beneficio]],
+                ['Deuda', $fila[Deuda]],";
+        }
+        ?>
+      ])
+
+
+      // Set options for Anthony's pie chart.
+      var options = {
+        title: 'Ganancias de este año 2020',
+        width: 400,
+        height: 300
+      };
+
+      // Instantiate and draw the chart for Anthony's pizza.
+      var chart = new google.visualization.PieChart(document.getElementById('graficos'));
+      chart.draw(data, options);
+    }
+  </script>
+  <div id="miSegundoGrafico" style="width: 900px; height: 300px;"></div>
+
+
   <?php
 }
 
